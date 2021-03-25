@@ -32,8 +32,15 @@ node-snippets extension
 # Install dependencies
 npm install
 
+# set environment
+create .env then set 
+NODE_ENV='development'
+DATABASE_URL='your mongodb'
+
+npm i --save-dev dotenv
+
 # Run the client & server with concurrently
-npm run dev
+npm run start
 
 # Server runs on http://localhost:5000 and client on http://localhost:3000
 ```
@@ -42,35 +49,31 @@ npm run dev
 ```
 INFSCI 2560 -- Final Project
 │   README.md    
+│ 
+└───controllers
+│   │   author.js
+│   │   post.js
+│   │ 
 │
-└───client
-│   └───src
-│       └───component
-│       │   App.js
-│       │   index.js (Entry)
-│       │   ...
-│   
+└───models
+│   │   authorInfo.js
+│   │   postInfo.js
+│   │ 
+│
+└───routers
+│   │   authors.js
+│   │   posts.js
+│   │
+│
 └───server
-│   │   └───controller
-│   │   │   author.js
-│   │   │   post.js
-│   │   │ 
-│   │
-│   └───models
-│   │   │   authorInfo.js
-│   │   │   postInfo.js
-│   │   │ 
-│   │
-│   └───routers
-│   │   │   authors.js
-│   │   │   posts.js
-│   │   │ 
-│   │
 │   └───server.js
-│   │   │   post.js
-│   │   │ 
 │
-
+└───src
+│   └───components
+│   │   App.js
+│   │   index.js (Entry)
+│   │   ...
+│  
 ```
 
 
