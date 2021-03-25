@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Authors from "./components/Author/authors"
+import Authors from "./components/Author/authors";
+import {Container, AppBar, Typography, Grow, Grid} from '@material-ui/core';
 
 function App() {
   return (

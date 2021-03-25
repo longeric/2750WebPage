@@ -1,7 +1,7 @@
 const AuthorInfo = require('../models/authorsInfo.js');
 
 exports.getAuthors = async (req, res) => {
-     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+     // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
      try {
           const sort = { _id: -1 };
           const developer = await AuthorInfo.find().sort(sort);

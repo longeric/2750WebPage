@@ -3,11 +3,12 @@ import './authors.css';
 
 class Authors extends Component {
       constructor(){
-        let state = {authors: []}
+        super();
+        this.state = {authors: []};
       }
   
      componentDidMount(){
-          fetch('http://localhost:5000/api/author')
+          fetch('/api/author')
           .then(res => res.json())
           .then(authors => this.setState({authors}, () => console.log('Fetch data ... ', authors)))
      }
