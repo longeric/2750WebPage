@@ -1,12 +1,12 @@
 const express = require("express");
-const mongoose = require('mongoose');
-const authorsRouter = require('../routes/authors.js');
+const mongoose = require("mongoose");
+const authorsRouter = require("../routes/authors.js");
 const path = require("path");
 
 const app = express();
 
 const mongoDB = process.env.DATABASE_URL;
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // PWAs want HTTPS!
 function checkHttps(request, response, next) {
@@ -26,8 +26,7 @@ app.get("/api/ping", (request, response) => {
   response.send("pong!");
 });
 
-app.use('/api/author', authorsRouter);
-
+app.use("/api/author", authorsRouter);
 
 // Express port-switching logic
 let port;
