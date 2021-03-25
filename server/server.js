@@ -1,7 +1,11 @@
 const express = require("express");
+const mongoose = require('mongoose');
 const path = require("path");
 
 const app = express();
+
+const mongoDB = process.env.DATABASE_URL;
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // PWAs want HTTPS!
 function checkHttps(request, response, next) {
