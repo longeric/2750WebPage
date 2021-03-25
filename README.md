@@ -1,34 +1,96 @@
-# Starter create-react-app and Express
+# Create MERN application 
 
-Glitch only serves content on one port. This is typically not an issue, unless you're trying to run both a webpack development server for front-end work and a back-end server in the same project, at the same time — you get one port for serving resources, but both the front-end and back-end servers each want their own port! This is a common scenario when you're building your front end with [create-react-app], and your back end with [Express].
+## Environment set up
+``` bash
+# install express
+npm i express concurrently
 
-This starter app will get you on your way with this scenario!
+# install monitor for development
+npm i nodemon cors --save-dev
 
-## Forwarding requests via a proxy
+# set environment
+npm i --save-dev dotenv
 
-In **package.json**...
+# install mongodb tool
+npm i mongoose
 
-1. if you set your `start` script to `"npm run production"`, it will build the React app and Express will serve the static bundle over port 3000.
+# install react (client)
+npm i -g create-react-app
 
-2. if you set your `start` script to `"npm run development"`, it will concurrently start the webpack dev server/watcher and the Express server. The latter will be listening on port 3001, but you don't need to change anything in your code because: proxies!
+# create react app (client)
+create-react-app <app-name>
 
-As it stands, the server listens for requests to `/api`; to get this working in `development` mode, we're using [`http-proxy-middleware`] in **src/setupProxy.js** to forward any incoming request to `/api/whatever/endpoint/you/have` over to the `target`, i.e., the Express server.
+# react style (client)
+npm install @material-ui/core
 
-## Live-reloading and watch.json
+# (optional) 
+node-snippets extension
+```
 
-There's a **watch.json** file that specifies a couple of conditions to keep Webpack and Glitch from interfering with each others' file watchers:
+## Quick start
+```bash
+# Install dependencies
+npm install
 
-1. We only want to run `install` scripts when changes are made to the **package.json** and **.env** files. Installation can take a while, so we don't want to trigger it with any other changes.
-2. We only want to `restart` the project when changes are made in the **/server** folder, or to the **watch.json** file. We're including **watch.json** in case we need to kick off a restart — a change to the `throttle` value will trigger this. We're also explicitly ignoring any files in the **/public** and **/src** directories from kicking off a restart — we only want the Webpack watcher to handle these files.
-3. We're setting a `throttle` of 100, which means that the Glitch watcher will wait 100 milliseconds before restarting anything. If that seems too quick, you can increase it.
+# Run the client & server with concurrently
+npm run dev
 
-## Made with Glitch
+# Server runs on http://localhost:5000 and client on http://localhost:3000
+```
 
-Glitch is a collaborative programming environment that lives in your browser and deploys code as you type.
+## Project structure
+```
+INFSCI 2560 -- Final Project
+│   README.md    
+│
+└───client
+│   └───src
+│       └───component
+│       │   App.js
+│       │   index.js (Entry)
+│       │   ...
+│   
+└───server
+│   │   └───controller
+│   │   │   author.js
+│   │   │   post.js
+│   │   │ 
+│   │
+│   └───models
+│   │   │   authorInfo.js
+│   │   │   postInfo.js
+│   │   │ 
+│   │
+│   └───routers
+│   │   │   authors.js
+│   │   │   posts.js
+│   │   │ 
+│   │
+│   └───server.js
+│   │   │   post.js
+│   │   │ 
+│
 
-Use Glitch to build anything from a good ol’ static webpage to full-stack Node apps.
+```
 
 
+## App Info
+
+### Author
+
+Yi Tao
+
+### Version
+
+1.0.0
+
+### License
+
+MIT License
+
+### reference
+
+[Remix from]: https://glitch.com/~starter-cra-and-express
 [create-react-app]: https://create-react-app.dev
 [Express]: https://expressjs.com/
 [`http-proxy-middleware`]: https://github.com/chimurai/http-proxy-middleware
