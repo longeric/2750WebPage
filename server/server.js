@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require('mongoose');
+const authorsRouter = require('./routes/authors.js');
 const path = require("path");
 
 const app = express();
@@ -24,6 +25,9 @@ app.get("/api/ping", (request, response) => {
   console.log("❇️ Received GET request to /api/ping");
   response.send("pong!");
 });
+
+app.use('/api/author', authorsRouter);
+
 
 // Express port-switching logic
 let port;
