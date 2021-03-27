@@ -10,7 +10,8 @@
     "concurrently": "^5.0.2",
     "http-proxy-middleware": "^1.0.0",
     "mongoose": "^5.12.2",
-    "@material-ui/core": "^4.11.3"
+    "@material-ui/core": "^4.11.3",
+    "axios": "^0.21.1"
   },
   "scripts": {
     "start": "npm run development",

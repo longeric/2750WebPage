@@ -1,5 +1,6 @@
 dependencies:
   '@material-ui/core': 4.11.3
+  axios: 0.21.1
   concurrently: 5.1.0
   express: 4.17.1
   http-proxy-middleware: 1.0.0
@@ -2229,6 +2230,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
+  /axios/0.21.1:
+    dependencies:
+      follow-redirects: 1.13.3
+    dev: false
+    resolution:
+      integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /axobject-query/2.1.2:
     dev: false
     resolution:
@@ -4754,6 +4761,12 @@ packages:
       node: '>=4.0'
     resolution:
       integrity: sha512-4eyLK6s6lH32nOvLLwlIOnr9zrL8Sm+OvW4pVTJNoXeGzYIkHVf+pADQi+OJ0E67hiuSLezPVPyBcIZO50TmmQ==
+  /follow-redirects/1.13.3:
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
   /for-in/0.1.8:
     dev: false
     engines:
@@ -11510,6 +11523,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@material-ui/core': ^4.11.3
+  axios: ^0.21.1
   concurrently: ^5.0.2
   express: ^4.17.1
   http-proxy-middleware: ^1.0.0
