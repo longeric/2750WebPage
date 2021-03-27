@@ -21,11 +21,6 @@ function checkHttps(request, response, next) {
 
 app.all("*", checkHttps);
 
-// A test route to make sure the server is up.
-app.get("/api/ping", (request, response) => {
-  console.log("❇️ Received GET request to /api/ping");
-  response.send("pong!");
-});
 
 app.use("/api/author", authorsRouter);
 app.use("/api/food", foodRouter);
