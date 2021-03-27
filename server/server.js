@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const authorsRouter = require("../routes/authors.js");
+const foodRouter = require("../routes/food.js");
 const path = require("path");
 
 const app = express();
@@ -27,6 +28,7 @@ app.get("/api/ping", (request, response) => {
 });
 
 app.use("/api/author", authorsRouter);
+app.use("/api/food", foodRouter);
 
 // Express port-switching logic
 let port;
