@@ -11,7 +11,14 @@
     "http-proxy-middleware": "^1.0.0",
     "mongoose": "^5.12.2",
     "@material-ui/core": "^4.11.3",
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "bcrypt-nodejs": "0.0.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "express-session": "^1.15.6",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "connect-mongo": "^2.0.3"
   },
   "scripts": {
     "start": "npm run development",
