@@ -22,6 +22,20 @@ app.use(cookieParser());
 const mongoDB = process.env.DATABASE_URL;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
+// Using connect-mongo for session storage
+// https://www.npmjs.com/package/connect-mongo
+app.use(session({
+  secret: process.env.SECRET,
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection, autoRemove: 'native' })
+}));
+
+// Set up Passport middleware
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
 // PWAs want HTTPS!
 function checkHttps(request, response, next) {
   // Check the protocol — if http, redirect to https.
