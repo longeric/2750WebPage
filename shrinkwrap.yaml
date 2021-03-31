@@ -2,6 +2,7 @@ dependencies:
   '@material-ui/core': 4.11.3
   axios: 0.21.1
   bcrypt-nodejs: 0.0.3
+  body-parser: 1.19.0
   concurrently: 5.1.0
   connect-flash: 0.1.1
   connect-mongo: 2.0.3
@@ -11674,6 +11675,7 @@ specifiers:
   '@material-ui/core': ^4.11.3
   axios: ^0.21.1
   bcrypt-nodejs: 0.0.3
+  body-parser: ^1.18.3
   concurrently: ^5.0.2
   connect-flash: ^0.1.1
   connect-mongo: ^2.0.3

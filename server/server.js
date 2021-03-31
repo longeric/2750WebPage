@@ -16,6 +16,7 @@ const app = express();
 
 // Set up necessary middleware for sessions
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 
 const mongoDB = process.env.DATABASE_URL;
