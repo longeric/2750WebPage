@@ -1,10 +1,22 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const authorsRouter = require("../routes/authors.js");
-const foodRouter = require("../routes/food.js");
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const flash = require('connect-flash');
+const passport = require('passport');
+const MongoStore = require('connect-mongo')(session);
 const path = require("path");
 
+
+const authorsRouter = require("../routes/authors.js");
+const foodRouter = require("../routes/food.js");
+
 const app = express();
+
+// Set up necessary middleware for sessions
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 const mongoDB = process.env.DATABASE_URL;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
