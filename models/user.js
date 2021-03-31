@@ -12,14 +12,14 @@ const userSchema = new Schema(
     password: {type: String, required: true},
     createdAt: { type: Date, default: Date.now },
     admin: {type: Boolean, required: true},
-    nickname: {type: String, required: true},
+    nickname: {type: String},
     bio: String
   }
 );
 
 // Helper function for displaying username
 userSchema.methods.name = function() {
-  return this.displayName || this.username;
+  return this.nickname || this.username;
 };
 
 
