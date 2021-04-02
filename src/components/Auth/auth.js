@@ -33,7 +33,7 @@ const Auth = ({ setToken }) => {
     setShowPassword(false);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (isSignup) {
     } else {
@@ -42,16 +42,11 @@ const Auth = ({ setToken }) => {
         password: e.target.password.value
       });
 
-      const token = axios.post("/api/auth/user", user).then(res => res.json, {
-        headers: {
-          // Overwrite Axios's automatically set Content-Type
-          "Content-Type": "application/json"
-        }
-      });
+      var token = await axios.post("/api/auth/user", user).then(res => res.data.token)
       console.log(token);
       // console.log(await axios.post("/api/auth/user", user))
     }
-    setToken("token");
+    setToken(token);
   };
 
   //   const googleSuccess = async (res) => {
