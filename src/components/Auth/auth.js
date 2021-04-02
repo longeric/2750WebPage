@@ -1,11 +1,12 @@
 import React from "react";
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import useStyles from "./style";
 import Input from './input.js';
 
-const Auth = () => {
+const Auth = ({ setToken }) => {
   const classes = useStyles();
 
   const isSignup = false;
@@ -24,7 +25,7 @@ const Auth = () => {
     // await axios.post("/api/login", user)
     
     const token = await axios.post("/api/auth/users", user).then(data => data.json());
-    // setToken(token);
+    setToken(token);
     
     // if (isSignup) {
     //   dispatch(signup(form, history));
@@ -102,5 +103,9 @@ const Auth = () => {
     </Container>
   );
 };
+
+Auth.propTypes = {
+  setToken: PropTypes.func.isRequired
+}
 
 export default Auth;

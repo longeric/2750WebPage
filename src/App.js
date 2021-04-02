@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import logo from "./logo.svg";
@@ -7,9 +7,10 @@ import Home from "./components/Home/home.js";
 import Auth from './components/Auth/auth.js';
 
 const App = () => {
+  const [token, setToken] = useState();
   
   if(!token){
-    return (<>)
+    return (<Auth setToken={setToken}/>)
   }
   
   return(
@@ -17,7 +18,7 @@ const App = () => {
     <Container maxWidth="lg">
       <Switch>
         <Route path="/home" exact component={Home} />
-        <Route path="/" exact component={Auth} />
+        
       </Switch>
     </Container>
   </BrowserRouter>);
@@ -26,3 +27,4 @@ const App = () => {
 export default App;
 
 
+// <Route path="/" exact component={Auth} />
