@@ -1,4 +1,4 @@
-import React from "react";
+import React,  { useState } from "react";
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
@@ -10,11 +10,13 @@ const Auth = ({ setToken }) => {
   const classes = useStyles();
 
   const isSignup = false;
-
+  const [showPassword, setShowPassword] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
+  
   const switchMode = () => {
     // setForm(initialState);
-    // setIsSignup((prevIsSignup) => !prevIsSignup);
-    // setShowPassword(false);
+    setIsSignup((prevIsSignup) => !prevIsSignup);
+    setShowPassword(false);
   };
 
   const handleSubmit = e => {
@@ -28,11 +30,6 @@ const Auth = ({ setToken }) => {
     // console.log(await axios.post("/api/auth/user", user))
     setToken("token");
     
-    // if (isSignup) {
-    //   dispatch(signup(form, history));
-    // } else {
-    //   dispatch(signin(form, history));
-    // }
   };
 
   //   const googleSuccess = async (res) => {
@@ -85,17 +82,17 @@ const Auth = ({ setToken }) => {
             <Input
               name="password"
               label="Password"
-              handleChange={handleChange}
+              handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword= {() => setShowPassword(!showPassword)}
             />
             { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password" /> }
           </Grid>
           <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
-            { isSignup ? 'Sign Up' : 'Sign In' }
+            { isSignup ? 'Sign Up' : 'Log In' }
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
-                { isSignup ? 'Already have an account? Sign in' : "Don't have an account? Sign Up" }
+                { isSignup ? 'Already have an account? Log in' : "Don't have an account? Sign Up" }
               </Button>
             </Grid>
           </Grid>
