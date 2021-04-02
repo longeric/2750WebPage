@@ -11,9 +11,9 @@ const router = express.Router();
 //   next();
 // });
 
-router.post("/", passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/signup',
-                                   failureFlash: true);
+// router.post("/", passport.authenticate('local', { successRedirect: '/',
+//                                    failureRedirect: '/signup',
+//                                    failureFlash: true);
 // router.post("/", AuthController.signup);
 router.get("/users", (req, res) => res.send("asdc"));
 
