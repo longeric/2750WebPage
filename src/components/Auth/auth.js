@@ -36,15 +36,19 @@ const Auth = ({ setToken }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (isSignup) {
-      
     } else {
       let user = JSON.stringify({
         email: e.target.email.value,
         password: e.target.password.value
       });
 
-      var token;
-      axios.post("/api/auth/user", user).then(data => token = data);
+      const token = axios.post("/api/auth/user", user).then(res => res.json, {
+        headers: {
+          // Overwrite Axios's automatically set Content-Type
+          "Content-Type": "application/json"
+        }
+      });
+      console.log(token);
       // console.log(await axios.post("/api/auth/user", user))
     }
     setToken("token");
@@ -103,7 +107,6 @@ const Auth = ({ setToken }) => {
               handleChange={handleChange}
               type={showPassword ? "text" : "password"}
               handleShowPassword={() => setShowPassword(!showPassword)}
-              autocomplete="on"
             />
             {isSignup && (
               <Input
@@ -111,8 +114,6 @@ const Auth = ({ setToken }) => {
                 label="Repeat Password"
                 handleChange={handleChange}
                 type="password"
-                handleShowPassword={() => setShowPassword(!showPassword)}
-                autocomplete="on"
               />
             )}
           </Grid>
