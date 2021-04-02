@@ -1,35 +1,53 @@
-import React,  { useState } from "react";
-import axios from 'axios';
-import PropTypes from 'prop-types';
-import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
+import React, { useState } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
+import {
+  Avatar,
+  Button,
+  Paper,
+  Grid,
+  Typography,
+  Container
+} from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import useStyles from "./style";
-import Input from './input.js';
+import Input from "./input.js";
+
+const initialState = {
+  nickName: "",
+  email: "",
+  password: "",
+  confirmPassword: ""
+};
 
 const Auth = ({ setToken }) => {
   const classes = useStyles();
 
-  const isSignup = false;
+  const [form, setForm] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
-  
+
   const switchMode = () => {
-    // setForm(initialState);
-    setIsSignup((prevIsSignup) => !prevIsSignup);
+    setForm(initialState);
+    setIsSignup(prevIsSignup => !prevIsSignup);
     setShowPassword(false);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (isSignup) {
+      
+    } else {
+      let user = JSON.stringify({
+        email: e.target.email.value,
+        password: e.target.password.value
+      });
 
-    var user = JSON.stringify({email: e.target.email.value, password: e.target.password.value})
-    console.log(e.target.email.value)
-    // await axios.post("/api/login", user)
-    
-    axios.post("/api/auth/user", user).then(data => console.log(data));
-    // console.log(await axios.post("/api/auth/user", user))
+      var token;
+      axios.post("/api/auth/user", user).then(data => token = data);
+      // console.log(await axios.post("/api/auth/user", user))
+    }
     setToken("token");
-    
   };
 
   //   const googleSuccess = async (res) => {
@@ -49,7 +67,7 @@ const Auth = ({ setToken }) => {
   //   alert("Google Sign In was unsuccessful. Try again later");
 
   const handleChange = e => {
-    // setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   return (
@@ -82,17 +100,37 @@ const Auth = ({ setToken }) => {
             <Input
               name="password"
               label="Password"
-              handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword= {() => setShowPassword(!showPassword)}
+              handleChange={handleChange}
+              type={showPassword ? "text" : "password"}
+              handleShowPassword={() => setShowPassword(!showPassword)}
+              autocomplete="on"
             />
-            { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password" /> }
+            {isSignup && (
+              <Input
+                name="confirmPassword"
+                label="Repeat Password"
+                handleChange={handleChange}
+                type="password"
+                handleShowPassword={() => setShowPassword(!showPassword)}
+                autocomplete="on"
+              />
+            )}
           </Grid>
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
-            { isSignup ? 'Sign Up' : 'Log In' }
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            {isSignup ? "Sign Up" : "Log In"}
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
-                { isSignup ? 'Already have an account? Log in' : "Don't have an account? Sign Up" }
+                {isSignup
+                  ? "Already have an account? Log in"
+                  : "Don't have an account? Sign Up"}
               </Button>
             </Grid>
           </Grid>
@@ -104,6 +142,6 @@ const Auth = ({ setToken }) => {
 
 Auth.propTypes = {
   setToken: PropTypes.func.isRequired
-}
+};
 
 export default Auth;
