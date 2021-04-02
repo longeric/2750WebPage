@@ -21,7 +21,7 @@ const Auth = () => {
 
     var user = JSON.stringify({email: e.target.email.value, password: e.target.email.password})
     console.log(e.target.email.value)
-    axios.post("/login", user).then(res => console.log(res))
+    axios.post("/login/", user).then(res => console.log(res))
     // axios.post("/login/", user);
     // if (isSignup) {
     //   dispatch(signup(form, history));
