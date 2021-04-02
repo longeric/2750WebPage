@@ -25,5 +25,35 @@ exports.login = async (req, res) => {
 };
 
 exports.signup = (req, res) =>{
+
+    var nickname = req.body.nickname;
+    var password = req.body.password;
+
+    User.findOne({ username: username }, function(err, user) {
+      if (err) {
+        return next(err);
+      }
+      if (user) {
+        req.flash("error", "User already exists");
+        return res.redirect("/signup");
+      }
+      var newUser = new User({
+        nickname: nickname,
+        password: password,
+        token: ""
+      });
+      console.log(username);
+      newUser.save(next);
+    });
   
+    res.send({ token: "test123" });
+  
+}
+
+exports.auth = () = {
+  passport.authenticate("login", {
+    successRedirect: "/home",
+    failureRedirect: "/",
+    failureFlash: true
+  })
 }
