@@ -6,6 +6,7 @@ exports.login = async (req, res) => {
   // console.log(req.body);
   
   res.send({ token: "test123" });
+  res.redirect("/home")
 
 //   try {
 //     const oldUser = await User.findOne({ email });

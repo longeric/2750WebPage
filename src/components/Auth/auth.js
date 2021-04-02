@@ -35,14 +35,23 @@ const Auth = ({ setToken }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    var token;
+    
     if (isSignup) {
+      let newuser = JSON.stringify({
+        nickname: e.target.nickname.value,
+        email: e.target.email.value,
+        password: e.target.password.value
+      });
+      
+      token = await axios.post("/api/auth/user", newuser).then(res => res.data.token);
     } else {
       let user = JSON.stringify({
         email: e.target.email.value,
         password: e.target.password.value
       });
 
-      var token = await axios.post("/api/auth/user", user).then(res => res.data.token)
+      token = await axios.post("/api/auth/user", user).then(res => res.data.token);
       console.log(token);
       // console.log(await axios.post("/api/auth/user", user))
     }

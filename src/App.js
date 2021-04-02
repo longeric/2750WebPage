@@ -17,7 +17,7 @@ const App = () => {
   <BrowserRouter>
     <Container maxWidth="lg">
       <Switch>
-        <Route path="/">
+        <Route path="/home">
           <Home />
         </Route>
         
