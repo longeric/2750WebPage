@@ -10,11 +10,14 @@ const App = () => {
     <BrowserRouter>
     <Container maxWidth="lg">
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/auth" exact component={Auth} />
+        
+        Home>
       </Switch>
     </Container>
   </BrowserRouter>
 };
 
 export default App;
+
+// <Route path="/" exact component={Home} />
+// <Route path="/auth" exact component={Auth} />
