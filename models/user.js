@@ -40,14 +40,7 @@ userSchema.pre("save", function(done) {
     }); 
   });
   
-  bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
-    if (err) { return done(err); }
-    bcrypt.hash(user.email+":"+user.password, salt, noop, function(err, token) {
-      if (err) { return done(err); }
-      user.token = token;
-      done();
-    }); 
-  });
+  
 });
 
 // checking password function

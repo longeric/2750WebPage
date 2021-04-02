@@ -14,7 +14,7 @@ const router = express.Router();
 // router.post("/", passport.authenticate('local', { successRedirect: '/',
 //                                    failureRedirect: '/signup',
 //                                    failureFlash: true);
-router.post("/newuser", AuthController.signup, AuthController.auth);
+router.post("/newuser", AuthController.signup);
 
 router.post("/user", AuthController.login);
 

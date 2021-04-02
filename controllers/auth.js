@@ -26,27 +26,26 @@ exports.login = async (req, res) => {
 
 exports.signup = (req, res) =>{
 
-    var nickname = req.body.nickname;
-    var password = req.body.password;
+  const { nickname, email, password } = req.body;
 
-    User.findOne({ username: username }, function(err, user) {
-      if (err) {
-        return next(err);
-      }
-      if (user) {
-        req.flash("error", "User already exists");
-        return res.redirect("/signup");
-      }
-      var newUser = new User({
-        nickname: nickname,
-        password: password,
-        token: ""
-      });
-      console.log(username);
-      newUser.save(next);
-    });
-  
-    res.send({ token: "test123" });
+  res.send({ token: "test123" });
+  try {
+    const oldUser = await UserModal.findOne({ email });
+
+    if (oldUser) return res.status(400).json({ message: "User already exists" });
+
+    const hashedPassword = await bcrypt.hash(password, 12);
+
+    const result = await UserModal.create({ email, password: hashedPassword, name: `${firstName} ${lastName}` });
+
+    const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
+
+    res.status(201).json({ result, token });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+    
+    console.log(error);
+  }
   
 }
 
