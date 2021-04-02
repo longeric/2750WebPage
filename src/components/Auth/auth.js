@@ -20,11 +20,12 @@ const Auth = ({ setToken }) => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    var user = JSON.stringify({email: e.target.email.value, password: e.target.email.password})
+    var user = JSON.stringify({email: e.target.email.value, password: e.target.password.value})
     console.log(e.target.email.value)
     // await axios.post("/api/login", user)
     
-    const token = await axios.post("/api/auth/users", user).then(data => data.json());
+    const token = await axios.post("/api/auth/user", user);
+    console.log(token)
     setToken(token);
     
     // if (isSignup) {
