@@ -23,7 +23,7 @@ const Auth = () => {
     console.log(e.target.email.value)
     // await axios.post("/api/login", user)
     if(await axios.get("/api/auth/users")){
-      router.push('/home')
+      this.props.history.push('/home')
     }
     // if (isSignup) {
     //   dispatch(signup(form, history));
