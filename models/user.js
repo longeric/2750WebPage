@@ -13,7 +13,8 @@ const userSchema = new Schema(
     createdAt: { type: Date, default: Date.now },
     admin: {type: Boolean, required: true},
     nickname: {type: String},
-    bio: String
+    bio: String,
+    token: {type: String, required: true, unique: true}
   }
 );
 
@@ -35,6 +36,15 @@ userSchema.pre("save", function(done) {
     bcrypt.hash(user.password, salt, noop, function(err, hashedPassword) {
       if (err) { return done(err); }
       user.password = hashedPassword;
+      done();
+    }); 
+  });
+  
+  bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
+    if (err) { return done(err); }
+    bcrypt.hash(user.email+":"+user.password, salt, noop, function(err, token) {
+      if (err) { return done(err); }
+      user.token = token;
       done();
     }); 
   });
