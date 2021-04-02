@@ -10,7 +10,7 @@ const path = require("path");
 
 
 const authorsRouter = require("../routes/authors.js");
-const foodRouter = require("../routes/food.js");
+const authRouter = require("../routes/auth.js");
 
 const app = express();
 
@@ -55,7 +55,7 @@ app.all("*", checkHttps);
 // });
 
 app.use("/api/author", authorsRouter);
-app.use("/api/food", foodRouter);
+app.use("/login", authRouter);
 
 // Express port-switching logic
 let port;
