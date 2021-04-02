@@ -15,6 +15,7 @@ const router = express.Router();
 //                                    failureRedirect: '/signup',
 //                                    failureFlash: true);
 // router.post("/", AuthController.signup);
-router.get("/users", (req, res) => res.send("asdc"));
+
+router.get("/user", (req, res) => res.send({ token: "test123" }));
 
 module.exports = router;
