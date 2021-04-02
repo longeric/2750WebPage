@@ -1,23 +1,23 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Container } from '@material-ui/core';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Container } from "@material-ui/core";
 import logo from "./logo.svg";
 import "./App.css";
-import Home from './components/Home/home.js';
-import Auth from './components/Home/auth.js';
+import Home from "./components/Home/home.js";
+import Auth from './components/Auth/auth.js';
 
 const App = () => {
-    <BrowserRouter>
+  return(
+  <BrowserRouter>
     <Container maxWidth="lg">
       <Switch>
-        
-        Home>
+        <Route path="/home" exact component={Home} />
+        <Route path="/auth" exact component={Auth} />
       </Switch>
     </Container>
-  </BrowserRouter>
+  </BrowserRouter>);
 };
 
 export default App;
 
-// <Route path="/" exact component={Home} />
-// <Route path="/auth" exact component={Auth} />
+
