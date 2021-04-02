@@ -11,7 +11,7 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.get("/", AuthController.login);
-router.post("/", AuthController.signup);
+router.post("/", AuthController.login);
+// router.post("/", AuthController.signup);
 
 module.exports = router;
