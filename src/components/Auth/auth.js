@@ -10,6 +10,7 @@ import {
   Container
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { useHistory } from 'react-router-dom';
 import useStyles from "./style";
 import Input from "./input.js";
 
@@ -22,7 +23,7 @@ const initialState = {
 
 const Auth = ({ setToken }) => {
   const classes = useStyles();
-
+  const history = useHistory();
   const [form, setForm] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
@@ -55,7 +56,12 @@ const Auth = ({ setToken }) => {
       console.log(token);
       // console.log(await axios.post("/api/auth/user", user))
     }
-    setToken(token);
+    if(token !== undefined){
+      setToken(token);
+      // console.log(history)
+      // history.push('/home')
+    }
+    
   };
 
   //   const googleSuccess = async (res) => {
