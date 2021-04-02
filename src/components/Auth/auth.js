@@ -18,6 +18,7 @@ const Auth = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    axios.post("/login");
     // if (isSignup) {
     //   dispatch(signup(form, history));
     // } else {
