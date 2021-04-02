@@ -22,9 +22,10 @@ const Auth = () => {
     var user = JSON.stringify({email: e.target.email.value, password: e.target.email.password})
     console.log(e.target.email.value)
     // await axios.post("/api/login", user)
-    if(await axios.get("/api/auth/users")){
-      // this.push('/home')
-    }
+    
+    const token = await axios.post("/api/auth/users", user).then(data => data.json());
+    // setToken(token);
+    
     // if (isSignup) {
     //   dispatch(signup(form, history));
     // } else {

@@ -16,6 +16,6 @@ const router = express.Router();
 //                                    failureFlash: true);
 // router.post("/", AuthController.signup);
 
-router.get("/user", (req, res) => res.send({ token: "test123" }));
+router.post("/user", AuthController.login);
 
 module.exports = router;

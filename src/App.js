@@ -7,6 +7,11 @@ import Home from "./components/Home/home.js";
 import Auth from './components/Auth/auth.js';
 
 const App = () => {
+  
+  if(!token){
+    return (<>)
+  }
+  
   return(
   <BrowserRouter>
     <Container maxWidth="lg">

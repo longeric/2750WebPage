@@ -4,6 +4,8 @@ const User = require("../models/user.js");
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   console.log(req.body)
+  
+  res.send({ token: "test123" })
 
 //   try {
 //     const oldUser = await User.findOne({ email });
