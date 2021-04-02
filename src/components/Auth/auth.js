@@ -1,14 +1,8 @@
 import React from "react";
-import {
-  Avatar,
-  Button,
-  Paper,
-  Grid,
-  Typography,
-  Container
-} from "@material-ui/core";
+import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import useStyles from "../../style";
+import useStyles from "./style";
+import Input from './input.js';
 
 const Auth = () => {
   const classes = useStyles();
@@ -21,7 +15,7 @@ const Auth = () => {
     // setShowPassword(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     // if (isSignup) {
@@ -31,24 +25,25 @@ const Auth = () => {
     // }
   };
 
-//   const googleSuccess = async (res) => {
-//     const result = res?.profileObj;
-//     const token = res?.tokenId;
+  //   const googleSuccess = async (res) => {
+  //     const result = res?.profileObj;
+  //     const token = res?.tokenId;
 
-//     try {
-//       dispatch({ type: AUTH, data: { result, token } });
+  //     try {
+  //       dispatch({ type: AUTH, data: { result, token } });
 
-//       history.push('/');
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
+  //       history.push('/');
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-  const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
+  // const googleError = () =>
+  //   alert("Google Sign In was unsuccessful. Try again later");
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     // setForm({ ...form, [e.target.name]: e.target.value });
-  }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -59,18 +54,40 @@ const Auth = () => {
         <Typography variant="h5">{isSignup ? "Sign up" : "Log in"}</Typography>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
+            {isSignup && (
+              <>
+                <Input
+                  name="nickname"
+                  label="nickname"
+                  handleChange={handleChange}
+                  autoFocus
+                />
+              </>
+            )}
+
             <Input
               name="email"
               label="Email Address"
               handleChange={handleChange}
               type="email"
+              autoFocus
             />
             <Input
               name="password"
               label="Password"
               handleChange={handleChange}
             />
-            {isSignup && <></>}
+            { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password" /> }
+          </Grid>
+          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+            { isSignup ? 'Sign Up' : 'Sign In' }
+          </Button>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Button onClick={switchMode}>
+                { isSignup ? 'Already have an account? Sign in' : "Don't have an account? Sign Up" }
+              </Button>
+            </Grid>
           </Grid>
         </form>
       </Paper>

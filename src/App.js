@@ -12,7 +12,7 @@ const App = () => {
     <Container maxWidth="lg">
       <Switch>
         <Route path="/home" exact component={Home} />
-        <Route path="/auth" exact component={Auth} />
+        <Route path="/" exact component={Auth} />
       </Switch>
     </Container>
   </BrowserRouter>);
