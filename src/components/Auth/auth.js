@@ -16,13 +16,13 @@ const Auth = () => {
     // setShowPassword(false);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     var user = JSON.stringify({email: e.target.email.value, password: e.target.email.password})
     console.log(e.target.email.value)
-    axios.post("/api/login/", user).then(res => console.log(res))
-    // axios.post("/login/", user);
+    // await axios.post("/api/login", user)
+    axios.get("/api/login/users");
     // if (isSignup) {
     //   dispatch(signup(form, history));
     // } else {

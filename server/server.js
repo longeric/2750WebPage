@@ -55,7 +55,7 @@ app.all("*", checkHttps);
 // });
 
 app.use("/api/author", authorsRouter);
-app.use("/api/login", authRouter);
+app.use("/api/auth", authRouter);
 
 // Express port-switching logic
 let port;
