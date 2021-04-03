@@ -27,7 +27,7 @@ exports.login = async (req, res) => {
 
 exports.signup = async (req, res) =>{
 
-  const { username, email, password } = req.body;
+  const { nickname, email, password } = req.body;
 
   
   try {
@@ -38,7 +38,7 @@ exports.signup = async (req, res) =>{
         return res.redirect("/signup");
     }
 
-    var newUser = await new User.create({ username, email, password });
+    var newUser = new User ({ nickname, email, password });
 
     const token = jwt.sign( { email: newUser.email, id: newUser._id }, process.env.SECRET, { expiresIn: "1h" } );
 
