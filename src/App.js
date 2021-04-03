@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "@material-ui/core";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import Home from "./components/Home/home.js";
 import Auth from "./components/Auth/auth.js";
@@ -11,10 +11,12 @@ import Landing from "./components/Layout/Landing";
 const App = () => {
   const [token, setToken] = useState();
 
-  if(!token){
-    return (<Auth setToken={setToken}/>)
+  {
+    // if(!token){
+    //   return (<Auth setToken={setToken}/>)
+    // }
   }
-  
+
   return (
     <Router>
       <Fragment>
@@ -33,5 +35,3 @@ const App = () => {
 export default App;
 
 // <Route path="/" exact component={Auth} />
-
-

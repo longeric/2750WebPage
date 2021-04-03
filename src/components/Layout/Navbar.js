@@ -9,7 +9,10 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-        <img src="" style={{ width: "80px", height: "80px" }}></img>
+        <img
+          src="https://cdn.glitch.com/b32b2bd2-2e97-4726-9fc6-3c049530080e%2Fstudy.png?v=1617467010836"
+          style={{ width: "80px", height: "80px" }}
+        ></img>
       </Link>
 
       <ul className={click ? "nav-menu active" : "nav-menu"}>
