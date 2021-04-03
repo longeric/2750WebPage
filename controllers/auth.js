@@ -29,7 +29,7 @@ exports.signup = async (req, res) =>{
 
   const { username, email, password } = req.body;
   console.log(req.body);
-  console.log(username);
+  console.log(req.body.username);
   console.log(email);
   console.log(password);
   

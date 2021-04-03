@@ -39,14 +39,14 @@ const Auth = ({ setToken }) => {
     var token;
     
     if (isSignup) {
-      let newuser = JSON.stringify({
+      // let newuser = JSON.stringify();
+      // console.log(newuser)
+      
+      token = await axios.post("/api/auth/newuser", {
         username: e.target.username.value,
         email: e.target.email.value,
         password: e.target.password.value
-      });
-      console.log(newuser)
-      
-      token = await axios.post("/api/auth/newuser", newuser).then(res => res.data.token);
+      }).then(res => res.data.token);
       console.log(token);
     } else {
       let user = JSON.stringify({
