@@ -1,4 +1,5 @@
 const passport = require('passport');
+import jwt from "jsonwebtoken";
 const User = require("../models/user.js");
 
 exports.login = async (req, res) => {
@@ -30,17 +31,18 @@ exports.signup = async (req, res) =>{
 
   
   try {
-    const oldUser = await UserModal.findOne({ email });
+    const user = await UserModal.findOne({ email });
 
-    if (oldUser) return res.status(400).json({ message: "User already exists" });
+    if (user) {
+        req.flash("error", "User already exists");
+        return res.redirect("/signup");
+    }
 
-    const hashedPassword = await bcrypt.hash(password, 12);
-
-    const result = await UserModal.create({ email, password: hashedPassword, name: `${firstName} ${lastName}` });
+    var newUser = new User ({ nickname, email, password });
 
     const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
 
-    res.status(201).json({ result, token });
+    res.status(201).json({ newUser, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
     

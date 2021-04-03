@@ -14,7 +14,6 @@ const userSchema = new Schema(
     admin: {type: Boolean, required: true},
     nickname: {type: String},
     bio: String,
-    token: {type: String, required: true, unique: true}
   }
 );
 
