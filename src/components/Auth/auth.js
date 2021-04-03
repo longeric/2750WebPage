@@ -15,7 +15,7 @@ import useStyles from "./style";
 import Input from "./input.js";
 
 const initialState = {
-  username: "",
+  userName: "",
   email: "",
   password: "",
   confirmPassword: ""
