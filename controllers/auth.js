@@ -28,7 +28,10 @@ exports.login = async (req, res) => {
 exports.signup = async (req, res) =>{
 
   const { username, email, password } = req.body;
+  console.log(req.body);
   console.log(username);
+  console.log(email);
+  console.log(password);
   
   try {
     const user = await User.findOne({ email });
@@ -38,7 +41,7 @@ exports.signup = async (req, res) =>{
         return res.redirect("/signup");
     }
 
-    const newUser = await User.create({ username, email, password, admin: false });
+    const newUser = await User.create({ username: username, email: email, password: password, admin: false });
     // var newUser = new User ({ nickname, email, password });
     // newUser.save();
 
