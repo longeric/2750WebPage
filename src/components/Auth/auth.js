@@ -10,7 +10,7 @@ import {
   Container
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import useStyles from "./style";
 import Input from "./input.js";
 
@@ -59,6 +59,7 @@ const Auth = ({ setToken }) => {
     }
     if(token !== undefined){
       setToken(token);
+      return <Redirect to="/home" />
       // console.log(history)
       // history.push('/home')
     }
