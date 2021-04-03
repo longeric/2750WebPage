@@ -8,6 +8,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+      <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+        <img src="" style={{ width: "80px", height: "80px" }}></img>
+      </Link>
+
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li className="nav-item">
           <Link to="/" className="nav-links" onClick={closeMobileMenu}>
