@@ -39,7 +39,7 @@ exports.signup = async (req, res) =>{
     }
 
     var newUser = new User ({ nickname, email, password });
-    // newUser.save();
+    newUser.save();
 
     const token = jwt.sign( { email: newUser.email, id: newUser._id }, process.env.SECRET, { expiresIn: "1h" } );
 
