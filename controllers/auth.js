@@ -8,21 +8,21 @@ exports.login = async (req, res) => {
   
 //   res.send({ token: "test123" });
 
-  try {
-    const oldUser = await User.findOne({ email });
+//   try {
+//     const user = await User.findOne({ email });
 
-    if (!oldUser) return res.status(404).json({ message: "User doesn't exist" });
+//     if (!user) return res.status(404).json({ message: "User doesn't exist" });
 
-    const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
+//     const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
-    if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
+//     if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
 
-    const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "1h" });
+//     const token = jwt.sign({ email: user.email, id: user._id }, secret, { expiresIn: "1h" });
 
-    res.status(200).json({ result: oldUser, token });
-  } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
-  }
+//     res.status(200).json({ user });
+//   } catch (err) {
+//     res.status(500).json({ message: "Something went wrong" });
+//   }
 };
 
 exports.signup = async (req, res) =>{
@@ -53,10 +53,10 @@ exports.signup = async (req, res) =>{
   // res.send({ token: "test456" });
 }
 
-exports.auth = () = {
-  passport.authenticate("login", {
-    successRedirect: "/home",
-    failureRedirect: "/",
-    failureFlash: true
-  })
-}
+// exports.auth = () = {
+//   passport.authenticate("login", {
+//     successRedirect: "/home",
+//     failureRedirect: "/",
+//     failureFlash: true
+//   })
+// }
