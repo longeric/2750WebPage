@@ -24,11 +24,11 @@ exports.login = async (req, res) => {
 //   }
 };
 
-exports.signup = (req, res) =>{
+exports.signup = async (req, res) =>{
 
   const { nickname, email, password } = req.body;
 
-  res.send({ token: "test123" });
+  
   try {
     const oldUser = await UserModal.findOne({ email });
 
@@ -46,13 +46,13 @@ exports.signup = (req, res) =>{
     
     console.log(error);
   }
-  
+  // res.send({ token: "test456" });
 }
 
-exports.auth = () = {
-  passport.authenticate("login", {
-    successRedirect: "/home",
-    failureRedirect: "/",
-    failureFlash: true
-  })
-}
+// exports.auth = () = {
+//   passport.authenticate("login", {
+//     successRedirect: "/home",
+//     failureRedirect: "/",
+//     failureFlash: true
+//   })
+// }

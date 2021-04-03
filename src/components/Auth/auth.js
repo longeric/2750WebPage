@@ -46,6 +46,7 @@ const Auth = ({ setToken }) => {
       });
       
       token = await axios.post("/api/auth/newuser", newuser).then(res => res.data.token);
+      console.log(token);
     } else {
       let user = JSON.stringify({
         email: e.target.email.value,
