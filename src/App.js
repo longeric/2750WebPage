@@ -11,6 +11,10 @@ import Landing from "./components/Layout/Landing";
 const App = () => {
   const [token, setToken] = useState();
 
+  if(!token){
+    return (<Auth setToken={setToken}/>)
+  }
+  
   return (
     <Router>
       <Fragment>
@@ -30,6 +34,4 @@ export default App;
 
 // <Route path="/" exact component={Auth} />
 
-// if(!token){
-//   return (<Auth setToken={setToken}/>)
-// }
+
