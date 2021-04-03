@@ -1,5 +1,5 @@
 const passport = require('passport');
-import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 const User = require("../models/user.js");
 
 exports.login = async (req, res) => {
@@ -31,7 +31,7 @@ exports.signup = async (req, res) =>{
 
   
   try {
-    const user = await UserModal.findOne({ email });
+    const user = await User.findOne({ email });
 
     if (user) {
         req.flash("error", "User already exists");
@@ -40,7 +40,7 @@ exports.signup = async (req, res) =>{
 
     var newUser = new User ({ nickname, email, password });
 
-    const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
+    const token = jwt.sign( { email: newUser.email, id: newUser._id }, process.env.SECRET, { expiresIn: "1h" } );
 
     res.status(201).json({ newUser, token });
   } catch (error) {
