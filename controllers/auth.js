@@ -57,10 +57,10 @@ exports.signup = async (req, res) =>{
   // res.send({ token: "test456" });
 }
 
-exports.auth = () = {
-  passport.authenticate("login", {
-    successRedirect: "/home",
-    failureRedirect: "/",
-    failureFlash: true
-  })
-}
+// exports.auth = () = {
+//   passport.authenticate("login", {
+//     successRedirect: "/home",
+//     failureRedirect: "/",
+//     failureFlash: true
+//   })
+// }
