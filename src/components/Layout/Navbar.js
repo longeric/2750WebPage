@@ -43,7 +43,9 @@ const Navbar = () => {
         </li>
 
         <li className="nav-item">
-          <Link className="nav-links">Log Out</Link>
+          <Link 
+            to="/authentication"
+            className="nav-links">Log Out</Link>
         </li>
       </ul>
     </nav>
