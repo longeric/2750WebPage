@@ -28,12 +28,14 @@ exports.login = async (req, res) => {
 exports.signup = async (req, res) =>{
 
   const { username, email, password } = req.body;
+  console.log(req.body)
   
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
 
     if (user) {
         // req.alter("duplicate");
+        res.send("exits")
         req.flash("error", "User already exists");
         return res.redirect("/signup");
     }

@@ -9,8 +9,9 @@ import Auth from './components/Auth/auth.js';
 const App = () => {
   const [token, setToken] = useState();
   
-  if(!token){
-    return (<Auth setToken={setToken}/>)
+  {// if(!token){
+  //   return (<Auth setToken={setToken}/>)
+  // }
   }
   
   return(
