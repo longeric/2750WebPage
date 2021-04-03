@@ -37,6 +37,7 @@ exports.signup = async (req, res) =>{
     const user = await User.findOne({ email });
 
     if (user) {
+        // req.alter("duplicate");
         req.flash("error", "User already exists");
         return res.redirect("/signup");
     }
@@ -56,10 +57,10 @@ exports.signup = async (req, res) =>{
   // res.send({ token: "test456" });
 }
 
-// exports.auth = () = {
-//   passport.authenticate("login", {
-//     successRedirect: "/home",
-//     failureRedirect: "/",
-//     failureFlash: true
-//   })
-// }
+exports.auth = () = {
+  passport.authenticate("login", {
+    successRedirect: "/home",
+    failureRedirect: "/",
+    failureFlash: true
+  })
+}
