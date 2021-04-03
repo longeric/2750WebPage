@@ -27,8 +27,8 @@ exports.login = async (req, res) => {
 
 exports.signup = async (req, res) =>{
 
-  const { nickname, email, password } = req.body;
-  console.log(nickname);
+  const { username, email, password } = req.body;
+  console.log(username);
   
   try {
     const user = await User.findOne({ email });
@@ -38,8 +38,9 @@ exports.signup = async (req, res) =>{
         return res.redirect("/signup");
     }
 
-    var newUser = new User ({ nickname, email, password });
-    newUser.save();
+    const newUser = await User.create({ username, email, password, admin: false });
+    // var newUser = new User ({ nickname, email, password });
+    // newUser.save();
 
     const token = jwt.sign( { email: newUser.email, id: newUser._id }, process.env.SECRET, { expiresIn: "1h" } );
 

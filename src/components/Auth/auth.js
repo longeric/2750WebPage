@@ -15,7 +15,7 @@ import useStyles from "./style";
 import Input from "./input.js";
 
 const initialState = {
-  nickName: "",
+  userName: "",
   email: "",
   password: "",
   confirmPassword: ""
@@ -40,7 +40,7 @@ const Auth = ({ setToken }) => {
     
     if (isSignup) {
       let newuser = JSON.stringify({
-        nickname: e.target.nickname.value,
+        username: e.target.username.value,
         email: e.target.email.value,
         password: e.target.password.value
       });
@@ -97,8 +97,8 @@ const Auth = ({ setToken }) => {
             {isSignup && (
               <>
                 <Input
-                  name="nickname"
-                  label="nickname"
+                  name="username"
+                  label="username"
                   handleChange={handleChange}
                   autoFocus
                 />
