@@ -30,10 +30,10 @@ export default class ViewConfigurations extends SampleBase {
       console.log(this.datas)
     }
   
-  componentDidMount() {
-    axios.get("/api/auth/Yi Tao")
-      .then(async res =>  this.setState({ data: extend([], res.data, null, true) }))
-  }
+  // componentDidMount() {
+  //   axios.get("/api/auth/Yi Tao")
+  //     .then(async res =>  this.setState({ data: extend([], res.data, null, true) }))
+  // }
   
     getTimeString(value) {
         return this.instance.formatDate(value, { skeleton: 'Hm' });
