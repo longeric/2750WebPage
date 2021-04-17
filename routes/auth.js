@@ -74,6 +74,7 @@ router.post("/adduser", (req, res) =>{
   
   try{
     const newUser = User.create(req.body);
+    console.log("add")
   } catch(err){
     console.log(err.message)
   }
