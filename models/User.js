@@ -21,6 +21,10 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  admin: {
+    type: Boolean,
+    defaulst: false
+  },
   schedule: [{
       _id: mongoose.Schema.Types.ObjectId,
       subject: {type: String},
@@ -29,7 +33,8 @@ const UserSchema = new mongoose.Schema({
       "endTime": {type: String},
       "recurrenceRule": {type: String},
       "categoryColor": {type: String}
-    }]
+    }],
+  unschedule: []
 });
 
 module.exports = User = mongoose.model("user", UserSchema);
