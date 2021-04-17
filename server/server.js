@@ -7,7 +7,6 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const MongoStore = require('connect-mongo')(session);
 const path = require("path");
-
 const authorsRouter = require("../routes/authors.js");
 const authRouter = require("../routes/auth.js");
 const usersRouter = require("../routes/users.js");

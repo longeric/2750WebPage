@@ -1,37 +1,45 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "@material-ui/core";
-// import logo from "./logo.svg";
+import Register from "./components/Auth/Register.js";
+import Login from "./components/Auth/Login.js";
+import Alert from "./components/Layout/Alert.js";
+import { loadUser } from "./actions/auth.js";
+import setAuthToken from "./utils/setAuthToken.js";
+
+//redux
+import { Provider } from "react-redux";
+import store from "./store.js";
+
 import "./App.css";
-import Home from "./components/Home/home.js";
-import Auth from "./components/Auth/auth.js";
-import Navbar from "./components/Layout/Navbar";
-import Landing from "./components/Layout/Landing";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
-  const [token, setToken] = useState();
-
-  {
-    // if(!token){
-    //   return (<Auth setToken={setToken}/>)
-    // }
-  }
+  //
+  // useEffect(() => {
+  //   store.dispatch(loadUser());
+  //   //only run once: []
+  // }, []);
 
   return (
-    <Router>
-      <Fragment>
-        <Navbar />
-        <Route exact path="/" component={Landing} />
-        <section className="container">
-          <switch>
-            <Route exact path="/authentication" component={Auth} />
-          </switch>
-        </section>
-      </Fragment>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <h1>this app</h1>
+          <section className="container">
+            <Alert />
+            <Switch>
+              <Route exact path="/register" component={Register}></Route>
+              <Route exact path="/login" component={Login}></Route>
+            </Switch>
+          </section>
+        </Fragment>
+      </Router>
+    </Provider>
   );
 };
 
 export default App;
-
-// <Route path="/" exact component={Auth} />
