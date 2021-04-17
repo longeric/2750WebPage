@@ -31,7 +31,7 @@ export default class ViewConfigurations extends SampleBase {
     }
   
   componentDidMount() {
-    axios.get("/api/auth/YT")
+    axios.get("/api/auth/Yi Tao")
       .then(async res =>  this.setState({ data: extend([], res.data, null, true) }))
   }
   

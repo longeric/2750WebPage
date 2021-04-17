@@ -79,4 +79,13 @@ router.post("/adduser", (req, res) =>{
   }
 })
 
+router.get("/:username", (req, res) =>{
+  let username = req.params['username'];
+  console.log(username);
+  User.find({username}, (err, user) =>{
+    if(err) console.log(err.message);
+    else res.json(user[0].schedule);
+  })
+});
+
 module.exports = router;
