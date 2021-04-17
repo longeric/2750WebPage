@@ -7,7 +7,7 @@ import Alert from "./components/Layout/Alert.js";
 import { loadUser } from "./actions/auth.js";
 import setAuthToken from "./utils/setAuthToken.js";
 import Navbar from "./components/Layout/Navbar";
-// import Scheduler from "./components/Scheduler/Scheduler.js";
+import Scheduler from "./components/Scheduler/Scheduler.js";
 
 //redux
 import { Provider } from "react-redux";
@@ -30,7 +30,8 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
-
+         < Navbar />
+          <Route exact path="/" component={Scheduler} />
           <section className="container">
             <Alert />
             <Switch>
@@ -45,3 +46,5 @@ const App = () => {
 };
 
 export default App;
+
+
