@@ -29,10 +29,10 @@ export default class ViewConfigurations extends SampleBase {
       console.log(this.datas)
     }
   
-  // componentDidMount() {
-  //   axios.get("/api/auth/Yi Tao")
-  //     .then(async res =>  this.setState({ data: extend([], res.data, null, true) }))
-  // }
+  componentDidMount() {
+    axios.get("/api/auth/YT")
+      .then(async res =>  this.setState({ data: extend([], res.data, null, true) }))
+  }
   
     getTimeString(value) {
         return this.instance.formatDate(value, { skeleton: 'Hm' });
@@ -59,7 +59,7 @@ export default class ViewConfigurations extends SampleBase {
         return (<div className='schedule-control-section'>
         <div className='col-lg-12 control-section'>
           <div className='control-wrapper'>
-            <ScheduleComponent cssClass='schedule-views-config' width='80%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date(2018, 5, 20)} eventSettings={{ dataSource: this.state.datas, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
+            <ScheduleComponent cssClass='schedule-views-config' width='80%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date(2018, 5, 20)} eventSettings={{ dataSource: this.state.data, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
               <ResourcesDirective>
                 <ResourceDirective field='PriorityId' title='Priority' name='Priority' dataSource={this.resourceData} textField='PriorityText' idField='PriorityId' colorField='PriorityColor'>
                 </ResourceDirective>

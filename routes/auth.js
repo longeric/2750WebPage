@@ -85,7 +85,7 @@ router.get("/:username", (req, res) =>{
   console.log(username);
   User.find({username}, (err, user) =>{
     if(err) console.log(err.message);
-    else res.json(user[0].schedule);
+    else res.json(user.schedule);
   })
 });
 
