@@ -46,7 +46,7 @@ const Navbar = () => {
           <Link
             to="/authentication"
             className="nav-links"
-            onClick={closeMobileMenu}
+            
           >
             Profile
           </Link>
