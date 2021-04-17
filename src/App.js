@@ -6,6 +6,7 @@ import Login from "./components/Auth/Login.js";
 import Alert from "./components/Layout/Alert.js";
 import { loadUser } from "./actions/auth.js";
 import setAuthToken from "./utils/setAuthToken.js";
+import Scheduler from "./components/Scheduler/Scheduler.js";
 
 //redux
 import { Provider } from "react-redux";
@@ -34,6 +35,7 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
+              <Route exact path="/home" component={Scheduler} />
             </Switch>
           </section>
         </Fragment>
