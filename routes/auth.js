@@ -87,7 +87,7 @@ router.get("/:name", (req, res) =>{
     if(err) console.log(err.message);
     else {
       console.log(user);
-      res.json(user.schedule);
+      res.json(user[0].schedule);
     }
   })
 });
