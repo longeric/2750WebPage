@@ -1,6 +1,6 @@
 const passport = require('passport');
 const jwt = require("jsonwebtoken");
-const User = require("../models/user.js");
+const User = require("../models/User.js");
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
