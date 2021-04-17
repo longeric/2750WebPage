@@ -80,12 +80,15 @@ router.post("/adduser", (req, res) =>{
   }
 })
 
-router.get("/:username", (req, res) =>{
-  let username = req.params['username'];
-  console.log(username);
-  User.find({username}, (err, user) =>{
+router.get("/:name", (req, res) =>{
+  let name = req.params['name'];
+  console.log(name);
+  User.find({name}, (err, user) =>{
     if(err) console.log(err.message);
-    else res.json(user.schedule);
+    else {
+      console.log(user);
+      res.json(user.schedule);
+    }
   })
 });
 
