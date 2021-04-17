@@ -41,6 +41,16 @@ const Navbar = () => {
             Login/Sign Up
           </Link>
         </li>
+        
+        <li className="nav-item">
+          <Link
+            to="/authentication"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Profile
+          </Link>
+        </li>
 
         <li className="nav-item">
           <Link 
