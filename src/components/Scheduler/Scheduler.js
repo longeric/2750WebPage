@@ -4,7 +4,6 @@ import * as React from 'react';
 import axios from 'axios';
 import { ScheduleComponent, ViewsDirective, ViewDirective, Day, Week, Month, Agenda, ResourcesDirective, ResourceDirective, Inject, Resize, DragAndDrop } from '@syncfusion/ej2-react-schedule';
 import { applyCategoryColor } from './helper';
-
 import { Internationalization, extend } from '@syncfusion/ej2-base';
 import { SampleBase } from './sample-base';
 import * as dataSource from './datasource.json';
