@@ -69,4 +69,14 @@ router.post("/", [check("email", "please include a valid email").isEmail(),
   }
 );
 
+router.post("/adduser", (req, res) =>{
+  console.log(req.body);
+  
+  try{
+    const newUser = User.create(req.body);
+  } catch(err){
+    console.log(err.message)
+  }
+})
+
 module.exports = router;

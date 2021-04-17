@@ -7,7 +7,7 @@ import { applyCategoryColor } from './helper';
 
 import { Internationalization, extend } from '@syncfusion/ej2-base';
 import { SampleBase } from './sample-base';
-// import * as dataSource from './datasource.json';
+import * as dataSource from './datasource.json';
 /**
  *  Schedule view based configuration sample
  */
@@ -15,7 +15,7 @@ export default class ViewConfigurations extends SampleBase {
   
     constructor() {
         super(...arguments);
-        // this.datas = extend([], dataSource.fifaEventsData, null, true);
+        this.datas = extend([], dataSource.fifaEventsData, null, true);
         this.instance = new Internationalization();
         this.resourceData = [
             { PriorityText: 'Priority High', PriorityId: 1, PriorityColor: '#f23224' },
@@ -27,7 +27,7 @@ export default class ViewConfigurations extends SampleBase {
       
       
       // console.log(this.data)
-      // console.log(this.datas)
+      console.log(this.datas)
     }
   
   componentDidMount() {
@@ -60,7 +60,7 @@ export default class ViewConfigurations extends SampleBase {
         return (<div className='schedule-control-section'>
         <div className='col-lg-12 control-section'>
           <div className='control-wrapper'>
-            <ScheduleComponent cssClass='schedule-views-config' width='80%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date(2018, 5, 20)} eventSettings={{ dataSource: this.state.data, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
+            <ScheduleComponent cssClass='schedule-views-config' width='80%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date(2018, 5, 20)} eventSettings={{ dataSource: this.state.datas, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
               <ResourcesDirective>
                 <ResourceDirective field='PriorityId' title='Priority' name='Priority' dataSource={this.resourceData} textField='PriorityText' idField='PriorityId' colorField='PriorityColor'>
                 </ResourceDirective>

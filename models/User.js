@@ -20,7 +20,16 @@ const UserSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  schedule: [{
+      _id: mongoose.Schema.Types.ObjectId,
+      subject: {type: String},
+      "location": {type: String},
+      "startTime": {type: String},
+      "endTime": {type: String},
+      "recurrenceRule": {type: String},
+      "categoryColor": {type: String}
+    }]
 });
 
 module.exports = User = mongoose.model("user", UserSchema);
