@@ -35,7 +35,7 @@ export const loadUser = () => async dispatch => {
 
 //REGISTER THE USER
 
-export const register = ({ name, email, password }) => async dispatch => {
+export const register = ( name, email, password ) => async dispatch => {
   const config = {
     headers: {
       "Content-Type": "application/json"
