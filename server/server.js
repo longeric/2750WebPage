@@ -10,7 +10,6 @@ const path = require("path");
 const authorsRouter = require("../routes/authors.js");
 const authRouter = require("../routes/auth.js");
 const usersRouter = require("../routes/users.js");
-
 const app = express();
 
 // Set up necessary middleware for sessions

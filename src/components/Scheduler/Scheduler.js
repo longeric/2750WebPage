@@ -7,7 +7,7 @@ import { applyCategoryColor } from './helper';
 
 import { Internationalization, extend } from '@syncfusion/ej2-base';
 import { SampleBase } from './sample-base';
-import * as dataSource from './datasource.json';
+// import * as dataSource from './datasource.json';
 /**
  *  Schedule view based configuration sample
  */
@@ -15,7 +15,7 @@ export default class ViewConfigurations extends SampleBase {
   
     constructor() {
         super(...arguments);
-        this.datas = extend([], dataSource.fifaEventsData, null, true);
+        // this.datas = extend([], dataSource.fifaEventsData, null, true);
         this.instance = new Internationalization();
         this.resourceData = [
             { PriorityText: 'Priority High', PriorityId: 1, PriorityColor: '#f23224' },
@@ -27,7 +27,7 @@ export default class ViewConfigurations extends SampleBase {
       
       
       // console.log(this.data)
-      console.log(this.datas)
+      // console.log(this.datas)
     }
   
   componentDidMount() {

@@ -29,13 +29,13 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
-          <h1>this app</h1>
+         < Navbar />
+          <Route exact path="/" component={Scheduler} />
           <section className="container">
             <Alert />
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
-              <Route exact path="/home" component={Scheduler} />
             </Switch>
           </section>
         </Fragment>
