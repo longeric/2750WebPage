@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema({
   },
   admin: {
     type: Boolean,
-    defaulst: false
+    default: false
   },
   schedule: {type: Array},
   unschedule: {type: Array}
