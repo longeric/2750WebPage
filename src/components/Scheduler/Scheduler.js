@@ -25,15 +25,15 @@ export default class ViewConfigurations extends SampleBase {
           this.state = {data: []}
       
       axios.get("/api/auth/YT")
-      .then(async res => this.data = extend([], await res.data, null, true))
+      .then(async res =>  this.setState({ data: extend([], res.data, null, true) }))
       console.log(this.state.data)
       console.log(this.datas)
     }
   
-  // componentDidMount() {
-  //   axios.get("/api/auth/YT")
-  //     .then(async res =>  this.setState({ data: extend([], res.data, null, true) }))
-  // }
+  componentDidMount() {
+    axios.get("/api/auth/YT")
+      .then(async res =>  this.setState({ data: extend([], res.data, null, true) }))
+  }
   
     getTimeString(value) {
         return this.instance.formatDate(value, { skeleton: 'Hm' });
@@ -56,7 +56,7 @@ export default class ViewConfigurations extends SampleBase {
     }
   
     render() {
-      console.log(this.state.data);
+      const data = this.state.data;
         return (<div className='schedule-control-section'>
         <div className='col-lg-12 control-section'>
           <div className='control-wrapper'>
