@@ -25,8 +25,8 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  schedule: {type: Array},
-  unschedule: {type: Array}
+  schedule: { type: Array },
+  unschedule: { type: Array }
 });
 
 module.exports = User = mongoose.model("user", UserSchema);
