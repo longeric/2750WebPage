@@ -24,8 +24,9 @@ export default class ViewConfigurations extends SampleBase {
       
           this.state = {data: []}
       
-      
-      // console.log(this.data)
+      axios.get("/api/auth/YT")
+      .then(async res => this.data = extend([], await res.data, null, true))
+      console.log(this.state.data)
       console.log(this.datas)
     }
   
@@ -59,7 +60,7 @@ export default class ViewConfigurations extends SampleBase {
         return (<div className='schedule-control-section'>
         <div className='col-lg-12 control-section'>
           <div className='control-wrapper'>
-            <ScheduleComponent cssClass='schedule-views-config' width='80%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date(2018, 5, 20)} eventSettings={{ dataSource: this.state.data, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
+            <ScheduleComponent cssClass='schedule-views-config' width='80%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date(2018, 5, 20)} eventSettings={{ dataSource: this.data, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
               <ResourcesDirective>
                 <ResourceDirective field='PriorityId' title='Priority' name='Priority' dataSource={this.resourceData} textField='PriorityText' idField='PriorityId' colorField='PriorityColor'>
                 </ResourceDirective>
