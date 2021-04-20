@@ -22,7 +22,7 @@ export default class ViewConfigurations extends SampleBase {
             { PriorityText: 'Priority Low', PriorityId: 3, PriorityColor: '#357cd2' }
         ];
       
-          // this.state = {data: []}
+          this.state = {data: []}
       
       
       console.log(this.state.data)
@@ -57,7 +57,7 @@ export default class ViewConfigurations extends SampleBase {
     render() {
       
       const data = this.state.data;
-      console.log(data)
+      console.log(this)
       
       
         return (<div className='schedule-control-section'>
