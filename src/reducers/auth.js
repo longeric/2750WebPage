@@ -30,7 +30,7 @@ export default function(state = initialState, action) {
     case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token);
       localStorage.setItem("email", email);
-      console.log(JSON.stringify(email))
+      // console.log(JSON.stringify(email))
 
       return {
         ...state,

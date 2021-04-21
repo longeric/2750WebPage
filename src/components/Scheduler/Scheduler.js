@@ -24,11 +24,11 @@ export default class ViewConfigurations extends SampleBase {
             { PriorityText: 'Priority Low', PriorityId: 3, PriorityColor: '#357cd2' }
         ];
       
-        this.state = {data: []}
-      getSchdules("YT").then( (res) => this.schdules = res)
+      this.state = {data: []}
+      getSchdules(localStorage.email).then( (res) => console.log(res))
       
-      console.log(this.schdules)
-      console.log(this.datas)
+      // console.log(this.schdules)
+      // console.log(this.datas)
     }
   
   // componentWillMount () {

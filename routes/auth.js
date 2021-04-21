@@ -21,7 +21,7 @@ router.get("/", auth, async (req, res) => {
 router.post("/", [check("email", "please include a valid email").isEmail(),
     check("password", "Password is required").exists()], async (req, res) => {
     
-    console.log("get into api auth route");
+    // console.log("get into api auth route");
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -80,10 +80,10 @@ router.post("/adduser", (req, res) =>{
   }
 })
 
-router.get("/:name", (req, res) =>{
-  let name = req.params['name'];
-  console.log(name);
-  User.find({name}, (err, user) =>{
+router.get("/:email", (req, res) =>{
+  let email = req.params['email'];
+  console.log(email);
+  User.find({email}, (err, user) =>{
     if(err) console.log(err.message);
     else {
       console.log(user);
