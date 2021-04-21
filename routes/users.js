@@ -155,4 +155,20 @@ router.post("/updateSchdule/:email", (req, res) => {
 );
 })
 
+router.post("/deleteSchdule/:email", (req, res) => {
+  const email = req.params['email'];
+  const newSchedule = JSON.stringify(req.body);  
+  
+  const schedule = JSON.parse(newSchedule)
+  // console.log(email)
+  console.log(schedule)
+  
+  User.findOneAndRemove(
+    { "email": email , "schedule._id": schedule._id}, (err,doc) => {
+      if(err) console.log(err.message);
+      else console.log(doc)
+    }
+);
+})
+
 module.exports = router;
