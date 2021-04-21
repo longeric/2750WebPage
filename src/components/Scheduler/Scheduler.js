@@ -60,7 +60,7 @@ export default class ViewConfigurations extends SampleBase {
   }
   onActionComplete(event) {
     console.log("complete");
-    console.log(this.scheduleObj.param);
+    console.log(event);
   }
   onActionFailure() {
     console.log("fail");
