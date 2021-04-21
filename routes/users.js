@@ -85,90 +85,95 @@ router.post(
   }
 );
 
-router.put("/updateProfile", (req,res) =>{
-  const user = {}
-  
-})
-
+router.put("/updateProfile", (req, res) => {
+  const user = {};
+});
 
 router.post("/createSchdule/:email", (req, res) => {
-  const email = req.params['email'];
-  const newSchedule = JSON.stringify(req.body);  
-  
-  const schedule = JSON.parse(newSchedule)
-  console.log(email)
-  console.log(schedule)
-  
-  User.find({email}, (err, user) =>{
-    if(err) console.log(err.message);
+  const email = req.params["email"];
+  const newSchedule = JSON.stringify(req.body);
+
+  const schedule = JSON.parse(newSchedule);
+  console.log(email);
+  console.log(schedule);
+
+  User.find({ email }, (err, user) => {
+    if (err) console.log(err.message);
     else {
       // const schedule = new schedule(newSchedule);
-      
+
       console.log(user);
       user[0].schedule.push(schedule);
       user[0].save();
       res.status(200).send("Update!");
     }
-  })
-})
+  });
+});
 
 router.post("/updateSchdule/:email", (req, res) => {
-  const email = req.params['email'];
-  const newSchedule = JSON.stringify(req.body);  
-  
-  const schedule = JSON.parse(newSchedule)
+  const email = req.params["email"];
+  const newSchedule = JSON.stringify(req.body);
+
+  const schedule = JSON.parse(newSchedule);
   // console.log(email)
-  console.log(schedule)
-  
-//   User.find({email}, (err, user) =>{
-//     if(err) console.log(err.message);
-//     else {
-//       // const schedule = new schedule(newSchedule);
-      
-//       console.log(user);
-//       console.log(user[0].schedule)
-//       user[0].schedule.map(item => {
-//         console.log(item._id);
-//         console.log(schedule._id);
-//         if(item._id == schedule._id)
-//           return schedule
-//         else {
-//           console.log("no equal")
-//         }
-//       })
-//       user[0].save();
-//       res.status(200).send("Update!");
-//     }
-//   })
-  
-  
+  console.log(schedule);
+
+  //   User.find({email}, (err, user) =>{
+  //     if(err) console.log(err.message);
+  //     else {
+  //       // const schedule = new schedule(newSchedule);
+
+  //       console.log(user);
+  //       console.log(user[0].schedule)
+  //       user[0].schedule.map(item => {
+  //         console.log(item._id);
+  //         console.log(schedule._id);
+  //         if(item._id == schedule._id)
+  //           return schedule
+  //         else {
+  //           console.log("no equal")
+  //         }
+  //       })
+  //       user[0].save();
+  //       res.status(200).send("Update!");
+  //     }
+  //   })
+
   User.findOneAndUpdate(
-    { "email": email, "schedule._id": schedule._id },
-    { 
-        "$set": {
-            "schedule.$": schedule
-        }
-    }, (err,doc) => {
-      if(err) console.log(err.message);
-      else console.log(doc)
+    { email: email, "schedule._id": schedule._id },
+    {
+      $set: {
+        "schedule.$": schedule
+      }
+    },
+    (err, doc) => {
+      if (err) console.log(err.message);
+      else console.log(doc);
     }
-);
-})
+  );
+});
 
 router.post("/deleteSchdule/:email", (req, res) => {
-  const email = req.params['email'];
-  const newSchedule = JSON.stringify(req.body);  
-  
-  const schedule = JSON.parse(newSchedule)
+  const email = req.params["email"];
+  const newSchedule = JSON.stringify(req.body);
+
+  const schedule = JSON.parse(newSchedule);
   // console.log(email)
-  console.log(schedule)
-  
-  User.findOneAndRemove(
-    { "email": email , "schedule._id": schedule._id}, (err,doc) => {
-      if(err) console.log(err.message);
-      else console.log(doc)
-    }
-);
-})
+  console.log(schedule);
+
+  User.findOneAndUpdate(
+    { email: email },
+    {
+      $pull: {
+        schedule: {
+          _id: schedule._id
+        }
+      }
+    },
+    (err, doc) => {
+      if (err) console.log(err.message);
+      else console.log(doc);
+    });
+});
 
 module.exports = router;
