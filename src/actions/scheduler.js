@@ -57,7 +57,7 @@ export const deleteSchedule = async ( email, data ) => {
   console.log(JSON.stringify(data))
   
   try {
-    const res = await axios.post("/api/users/updateSchdule/" + email, data)
+    const res = await axios.post("/api/users/deleteSchdule/" + email, data)
     // console.log(res)
     // return res;
   } catch (err) {
