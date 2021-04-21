@@ -95,7 +95,7 @@ export default class ViewConfigurations extends SampleBase {
               selectedDate={new Date()}
               eventSettings={{
                 dataSource: this.state.data.data,
-                fields: { prioirty: { name: "prioirty" } }
+                fields: { location: { name: "location" } }
               }}
               eventRendered={this.onEventRendered.bind(this)}
               actionBegin={this.onActionBegin.bind(this)}
