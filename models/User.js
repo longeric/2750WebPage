@@ -25,21 +25,21 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  schedule: { type: Array },
+  schedule: [{
+      Id: mongoose.Schema.Types.ObjectId,
+      Subject: {type: String},
+      Location: {type: String},
+      StartTime: {type: String},
+      EndTime: {type: String},
+      RecurrenceRule: {type: String},
+      CategoryColor: {type: String}
+    }],
   unschedule: { type: Array }
 });
 
 module.exports = User = mongoose.model("user", UserSchema);
 
-// [{
-//       _id: mongoose.Schema.Types.ObjectId,
-//       subject: {type: String},
-//       "location": {type: String},
-//       "startTime": {type: String},
-//       "endTime": {type: String},
-//       "recurrenceRule": {type: String},
-//       "categoryColor": {type: String}
-//     }]
+
 
 // [{
 //     subject: {type: String},

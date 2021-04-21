@@ -26,7 +26,7 @@ export default class ViewConfigurations extends SampleBase {
       
       this.state = {data: []}
       // const [data, setData] = React.useState([]);
-      getSchdules(localStorage.email).then(res => res).then(data => this.state.data = { data: extend([], data, null, true) })
+      // getSchdules(localStorage.email).then(res => res).then(data => this.state.data = { data: extend([], data, null, true) })
       // .then(data =>
       //   this.setState({ data: extend([], data, null, true)})
       // );
@@ -35,13 +35,13 @@ export default class ViewConfigurations extends SampleBase {
       console.log(this.datas)
     }
   
-  // async componentDidMount () {
-  //   const json = await getSchdules(localStorage.email);
-  //   console.log(json)
-  //   this.setState({ data: extend([], json, null, true) });
-  //   // console.log(this.state.data)
-  //   // .then(res =>  this.setState({ data: extend([], res.data, null, true) }))
-  // }
+  async componentDidMount () {
+    const json = await getSchdules(localStorage.email);
+    console.log(json)
+    this.setState({ data: extend([], json, null, true) });
+    // console.log(this.state.data)
+    // .then(res =>  this.setState({ data: extend([], res.data, null, true) }))
+  }
   
     getTimeString(value) {
         return this.instance.formatDate(value, { skeleton: 'Hm' });
@@ -66,13 +66,13 @@ export default class ViewConfigurations extends SampleBase {
     render() {
       
       // const data = this.state.data;
-      console.log(this.state.data)
+      console.log(this.state.data.data)
       
       
         return (<div className='schedule-control-section'>
         <div className='col-lg-12 control-section'>
           <div className='control-wrapper'>
-            <ScheduleComponent cssClass='schedule-views-config' width='100%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date()} eventSettings={{ dataSource: this.datas, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
+            <ScheduleComponent cssClass='schedule-views-config' width='100%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date()} eventSettings={{ dataSource: this.state.data.data, fields: { prioirty: { name: 'prioirty' } } }} eventRendered={this.onEventRendered.bind(this)}>
               <ResourcesDirective>
                 <ResourceDirective field='PriorityId' title='Priority' name='Priority' dataSource={this.resourceData} textField='PriorityText' idField='PriorityId' colorField='PriorityColor'>
                 </ResourceDirective>
