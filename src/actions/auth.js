@@ -49,8 +49,9 @@ export const register = ( {name, email, password} ) => async dispatch => {
     
     console.log(res);
     dispatch({
-      type: REGISTER_SUCCESS,
-      payload: res.data
+      type: LOGIN_SUCCESS,
+      payload: res.data,
+      email: email
     });
 
     // dispatch(loadUser());
@@ -88,7 +89,8 @@ export const login = ( email, password ) => async dispatch => {
 
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: res.data
+      payload: res.data,
+      email: email
     });
 
     // dispatch(loadUser());

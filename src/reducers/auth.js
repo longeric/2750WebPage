@@ -15,7 +15,7 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-  const { type, payload } = action;
+  const { type, payload, email } = action;
 
   switch (type) {
     case USER_LOADED:
@@ -29,7 +29,8 @@ export default function(state = initialState, action) {
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token);
-      localStorage.setItem("email", payload.email);
+      localStorage.setItem("email", email);
+      console.log(JSON.stringify(email))
 
       return {
         ...state,
@@ -42,6 +43,7 @@ export default function(state = initialState, action) {
     case AUTH_ERROR:
     case LOGIN_FAIL:
       localStorage.removeItem("token");
+      localStorage.removeItem("email");
       return {
         ...state,
         token: null,
