@@ -60,7 +60,7 @@ export default class ViewConfigurations extends SampleBase {
   }
   onActionComplete(event) {
     console.log("complete");
-    console.log(event.value);
+    console.log(this.state.data.data);
   }
   onActionFailure() {
     console.log("fail");
