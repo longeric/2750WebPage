@@ -20,6 +20,7 @@ app.use(cookieParser());
 const mongoDB = process.env.DATABASE_URL;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
+
 // Using connect-mongo for session storage
 // https://www.npmjs.com/package/connect-mongo
 app.use(session({
