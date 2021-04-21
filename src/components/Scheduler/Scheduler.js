@@ -20,7 +20,7 @@ import { applyCategoryColor } from "./helper";
 import { Internationalization, extend } from "@syncfusion/ej2-base";
 import { SampleBase } from "./sample-base";
 import * as dataSource from "./datasource.json";
-import { getSchdules, createSchedule } from "../../actions/scheduler.js";
+import { getSchdules, createSchedule, updateSchedule } from "../../actions/scheduler.js";
 
 /**
  *  Schedule view based configuration sample
@@ -69,6 +69,7 @@ export default class ViewConfigurations extends SampleBase {
     
     if(event.requestType == "eventChanged"){
       console.log(event.changedRecords[0])
+      updateSchedule(localStorage.email, event.changedRecords[0]);
     }
     
     if(event.requestType == "eventRemoved"){

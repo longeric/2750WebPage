@@ -117,7 +117,7 @@ router.post("/updateSchdule/:email", (req, res) => {
   const newSchedule = JSON.stringify(req.body);  
   
   const schedule = JSON.parse(newSchedule)
-  console.log(email)
+  // console.log(email)
   console.log(schedule)
   
   User.find({email}, (err, user) =>{
@@ -126,8 +126,12 @@ router.post("/updateSchdule/:email", (req, res) => {
       // const schedule = new schedule(newSchedule);
       
       console.log(user);
-      user[0].schedule.push(schedule);
-      user[0].save();
+      console.log(user[0].schedule)
+      user[0].schedule.map(item => {
+        if(item._id === schedule._id)
+          console.log(item)
+      })
+      // user[0].save();
       res.status(200).send("Update!");
     }
   })
