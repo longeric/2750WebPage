@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const User = require("../models/User.js");
+const schedule = require("../models/schedule.js");
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -72,8 +73,8 @@ router.post(
         }
       );
 
-      console.log(req.body);
-      console.log("SECRET", process.env.SECRET);
+      // console.log(req.body);
+      // console.log("SECRET", process.env.SECRET);
 
       // res.send("User registered");
     } catch (err) {
@@ -97,10 +98,12 @@ router.post("/createSchdule/:email", (req, res) => {
   User.find({email}, (err, user) =>{
     if(err) console.log(err.message);
     else {
-      console.log(user);
-      user[0].schedule.push(newSchedule);
-      user[0].save();
-      res.status(200).send("Update!");
+      const schedule = new schedule(newSchedule);
+      console.log(schedule)
+      // console.log(user);
+      // user[0].schedule.push(newSchedule);
+      // user[0].save();
+      // res.status(200).send("Update!");
     }
   })
 })

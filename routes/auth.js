@@ -82,11 +82,11 @@ router.post("/adduser", (req, res) =>{
 
 router.get("/:email", (req, res) =>{
   let email = req.params['email'];
-  console.log(email);
+  // console.log(email);
   User.find({email}, (err, user) =>{
     if(err) console.log(err.message);
     else {
-      console.log(user);
+      // console.log(user);
       res.json(user[0].schedule);
     }
   })
