@@ -66,8 +66,12 @@ export default class ViewConfigurations extends SampleBase {
       console.log(event.addedRecords[0])
     }
     
-    if(event.requestType == "eventChange"){
+    if(event.requestType == "eventChanged"){
       console.log(event.changedRecords[0])
+    }
+    
+    if(event.requestType == "eventRemoved"){
+      console.log(event.deletedRecords[0])
     }
   }
   onActionFailure() {
