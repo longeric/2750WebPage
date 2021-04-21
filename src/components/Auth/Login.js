@@ -28,7 +28,7 @@ const Login = ({ login, isAuthenticated }) => {
   };
   
   if(isAuthenticated){
-    
+    return <Redirect to='/scheduler'/>;
   }
 
   return (
@@ -76,7 +76,7 @@ const mapStateToProps = state => ({
 })
 
 export default connect(
-  null,
+  mapStateToProps,
   { login }
 )(Login);
 

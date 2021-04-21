@@ -31,12 +31,13 @@ const App = () => {
       <Router>
         <Fragment>
          < Navbar />
-          <Route exact path="/" component={Scheduler} />
+          
           <section className="container">
             <Alert />
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
+              <Route exact path="/scheduler" component={Scheduler} />
             </Switch>
           </section>
         </Fragment>
