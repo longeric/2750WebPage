@@ -96,20 +96,20 @@ router.post("/createSchdule/:email", (req, res) => {
   const newSchedule = JSON.stringify(req.body);  
   
   const schedule = JSON.parse(newSchedule)
-  console.log(newSchedule)
+  console.log(email)
   console.log(schedule)
   
-//   User.find({email}, (err, user) =>{
-//     if(err) console.log(err.message);
-//     else {
-//       // const schedule = new schedule(newSchedule);
+  User.find({email}, (err, user) =>{
+    if(err) console.log(err.message);
+    else {
+      // const schedule = new schedule(newSchedule);
       
-//       // console.log(user);
-//       // user[0].schedule.push(newSchedule);
-//       // user[0].save();
-//       // res.status(200).send("Update!");
-//     }
-//   })
+      console.log(user);
+      user[0].schedule.push(schedule);
+      user[0].save();
+      res.status(200).send("Update!");
+    }
+  })
 })
 
 module.exports = router;

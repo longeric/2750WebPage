@@ -25,7 +25,21 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  schedule: { type: Array },
+  schedule: new mongoose.Schema({
+    Id: Number,
+    Subject: {type: String},
+    Location: {type: String},
+    StartTime: {type: String},
+    EndTime: {type: String},
+    RecurrenceRule: {type: String},
+    CategoryColor: {type: String},
+    IsAllDay: Boolean,
+    StartTimezone: String,
+    EndTimezone: String,
+    PriorityId: Number,
+    RecurrenceException: String,
+    RecurrenceID: String
+  }),
   unschedule: { type: Array }
 });
 
