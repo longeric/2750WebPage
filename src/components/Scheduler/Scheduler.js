@@ -60,7 +60,15 @@ export default class ViewConfigurations extends SampleBase {
   }
   onActionComplete(event) {
     console.log("complete");
-    console.log(event);
+    console.log(event)
+    // console.log(event.data.EventType);
+    if(event.requestType == "eventCreated"){
+      console.log(event.addedRecords[0])
+    }
+    
+    if(event.requestType == "eventChange"){
+      console.log(event.changedRecords[0])
+    }
   }
   onActionFailure() {
     console.log("fail");
