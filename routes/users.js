@@ -130,13 +130,13 @@ router.post("/updateSchdule/:email", (req, res) => {
       user[0].schedule.map(item => {
         console.log(item._id);
         console.log(schedule._id);
-        if(String.parse(item._id) === String.parse(schedule._id))
-          console.log(item)
+        if(item._id == schedule._id)
+          return schedule
         else {
           console.log("no equal")
         }
       })
-      // user[0].save();
+      user[0].save();
       res.status(200).send("Update!");
     }
   })
