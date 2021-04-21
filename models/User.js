@@ -25,15 +25,7 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  schedule: [{
-      Id: mongoose.Schema.Types.ObjectId,
-      Subject: {type: String},
-      Location: {type: String},
-      StartTime: {type: String},
-      EndTime: {type: String},
-      RecurrenceRule: {type: String},
-      CategoryColor: {type: String}
-    }],
+  schedule: { type: Array },
   unschedule: { type: Array }
 });
 
