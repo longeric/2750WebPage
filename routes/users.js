@@ -8,4 +8,9 @@ router.put("/updateProfile", (req,res) =>{
   
 })
 
+
+router.post("/createSchdule", (req, res) => {
+  console.log(req.body);  
+})
+
 module.exports = router;

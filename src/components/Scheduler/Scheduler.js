@@ -54,16 +54,17 @@ export default class ViewConfigurations extends SampleBase {
     // console.log(this.state.data)
     // .then(res =>  this.setState({ data: extend([], res.data, null, true) }))
   }
-  
-    onActionBegin() {
-        this.appendElement('Schedule <b>Action Begin</b> event called<hr>');
-    }
-    onActionComplete() {
-        this.appendElement('Schedule <b>Action Complete</b> event called<hr>');
-    }
-    onActionFailure() {
-        this.appendElement('Schedule <b>Action Failure</b> event called<hr>');
-    }
+
+  onActionBegin() {
+    console.log("begin");
+  }
+  onActionComplete(event) {
+    console.log("complete");
+    console.log(event.value);
+  }
+  onActionFailure() {
+    console.log("fail");
+  }
 
   getTimeString(value) {
     return this.instance.formatDate(value, { skeleton: "Hm" });
@@ -97,6 +98,9 @@ export default class ViewConfigurations extends SampleBase {
                 fields: { prioirty: { name: "prioirty" } }
               }}
               eventRendered={this.onEventRendered.bind(this)}
+              actionBegin={this.onActionBegin.bind(this)}
+              actionComplete={this.onActionComplete.bind(this)}
+              actionFailure={this.onActionFailure.bind(this)}
             >
               <ResourcesDirective>
                 <ResourceDirective
