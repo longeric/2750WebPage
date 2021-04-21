@@ -25,9 +25,9 @@ export default class ViewConfigurations extends SampleBase {
         ];
       
       this.state = {data: []}
-      getSchdules(localStorage.email).then( (res) => console.log(res))
+      this.schdules = async getSchdules(localStorage.email) => {}
       
-      // console.log(this.schdules)
+      console.log(this.schdules)
       // console.log(this.datas)
     }
   
@@ -59,13 +59,13 @@ export default class ViewConfigurations extends SampleBase {
     render() {
       
       const data = this.state.data;
-      console.log(this)
+      console.log(this.schdules)
       
       
         return (<div className='schedule-control-section'>
         <div className='col-lg-12 control-section'>
           <div className='control-wrapper'>
-            <ScheduleComponent cssClass='schedule-views-config' width='100%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date()} eventSettings={{ dataSource: this.state.data, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
+            <ScheduleComponent cssClass='schedule-views-config' width='100%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date()} eventSettings={{ dataSource: this.schdules, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
               <ResourcesDirective>
                 <ResourceDirective field='PriorityId' title='Priority' name='Priority' dataSource={this.resourceData} textField='PriorityText' idField='PriorityId' colorField='PriorityColor'>
                 </ResourceDirective>
