@@ -24,21 +24,24 @@ export default class ViewConfigurations extends SampleBase {
             { PriorityText: 'Priority Low', PriorityId: 3, PriorityColor: '#357cd2' }
         ];
       
-      // this.state = {data: []}
-      const [data, setData] = React.useState([]);
-      // this.schdules = async getSchdules(localStorage.email) => {}
+      this.state = {data: []}
+      // const [data, setData] = React.useState([]);
+      getSchdules(localStorage.email).then(res => res.json()).then(data => this.state.data = data)
+      // .then(data =>
+      //   this.setState({ data: extend([], data, null, true)})
+      // );
       
       // console.log(this.schdules)
       // console.log(this.datas)
     }
   
-  async componentDidMount () {
-    const json = await getSchdules(localStorage.email);
-    console.log(json)
-    this.setData({ data: extend([], json, null, true) });
-    // console.log(this.state.data)
-    // .then(res =>  this.setState({ data: extend([], res.data, null, true) }))
-  }
+  // async componentDidMount () {
+  //   const json = await getSchdules(localStorage.email);
+  //   console.log(json)
+  //   this.setState({ data: extend([], json, null, true) });
+  //   // console.log(this.state.data)
+  //   // .then(res =>  this.setState({ data: extend([], res.data, null, true) }))
+  // }
   
     getTimeString(value) {
         return this.instance.formatDate(value, { skeleton: 'Hm' });
@@ -63,7 +66,7 @@ export default class ViewConfigurations extends SampleBase {
     render() {
       
       // const data = this.state.data;
-      console.log(this.data)
+      console.log(this.state.data)
       
       
         return (<div className='schedule-control-section'>
