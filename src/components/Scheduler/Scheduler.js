@@ -24,7 +24,8 @@ export default class ViewConfigurations extends SampleBase {
             { PriorityText: 'Priority Low', PriorityId: 3, PriorityColor: '#357cd2' }
         ];
       
-      this.state = {data: []}
+      // this.state = {data: []}
+      const [data, setData] = React.useState([]);
       // this.schdules = async getSchdules(localStorage.email) => {}
       
       // console.log(this.schdules)
@@ -33,9 +34,9 @@ export default class ViewConfigurations extends SampleBase {
   
   async componentDidMount () {
     const json = await getSchdules(localStorage.email);
-    // console.log(json)
-    this.setState({ data: extend([], json, null, true) });
-    console.log(this.state.data)
+    console.log(json)
+    this.setData({ data: extend([], json, null, true) });
+    // console.log(this.state.data)
     // .then(res =>  this.setState({ data: extend([], res.data, null, true) }))
   }
   
@@ -61,8 +62,8 @@ export default class ViewConfigurations extends SampleBase {
   
     render() {
       
-      const data = this.state.data;
-      console.log(this.state.data)
+      // const data = this.state.data;
+      console.log(this.data)
       
       
         return (<div className='schedule-control-section'>
