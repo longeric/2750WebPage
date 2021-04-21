@@ -20,7 +20,7 @@ import { applyCategoryColor } from "./helper";
 import { Internationalization, extend } from "@syncfusion/ej2-base";
 import { SampleBase } from "./sample-base";
 import * as dataSource from "./datasource.json";
-import { getSchdules } from "../../actions/scheduler.js";
+import { getSchdules, createSchedule } from "../../actions/scheduler.js";
 
 /**
  *  Schedule view based configuration sample
@@ -48,9 +48,9 @@ export default class ViewConfigurations extends SampleBase {
   }
 
   async componentWillMount() {
-    const json = await getSchdules(localStorage.email);
-    console.log(json);
-    this.setState({ data: extend([], json, null, true) });
+    const data = await getSchdules(localStorage.email);
+    console.log(data);
+    this.setState({ data: extend([], data, null, true) });
     // console.log(this.state.data)
     // .then(res =>  this.setState({ data: extend([], res.data, null, true) }))
   }
@@ -63,7 +63,8 @@ export default class ViewConfigurations extends SampleBase {
     console.log(event)
     // console.log(event.data.EventType);
     if(event.requestType == "eventCreated"){
-      console.log(event.addedRecords[0])
+      console.log(event.addedRecords[0]);
+      createSchedule(localStorage.email, event.addedRecords[0]);
     }
     
     if(event.requestType == "eventChanged"){
