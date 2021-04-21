@@ -7,6 +7,8 @@ import { applyCategoryColor } from './helper';
 import { Internationalization, extend } from '@syncfusion/ej2-base';
 import { SampleBase } from './sample-base';
 import * as dataSource from './datasource.json';
+import { getSchdules } from "../../actions/scheduler.js";
+
 /**
  *  Schedule view based configuration sample
  */
@@ -22,17 +24,17 @@ export default class ViewConfigurations extends SampleBase {
             { PriorityText: 'Priority Low', PriorityId: 3, PriorityColor: '#357cd2' }
         ];
       
-          this.state = {data: []}
+        this.state = {data: []}
+      getSchdules("YT").then( (res) => this.schdules = res)
       
-      
-      console.log(this.state.data)
+      console.log(this.schdules)
       console.log(this.datas)
     }
   
-  componentWillMount () {
-    axios.get("/api/auth/YT")
-      .then(res =>  this.setState({ data: extend([], res.data, null, true) }))
-  }
+  // componentWillMount () {
+  //   axios.get("/api/auth/YT")
+  //     .then(res =>  this.setState({ data: extend([], res.data, null, true) }))
+  // }
   
     getTimeString(value) {
         return this.instance.formatDate(value, { skeleton: 'Hm' });

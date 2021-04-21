@@ -8,10 +8,12 @@ import { loadUser } from "./actions/auth.js";
 import setAuthToken from "./utils/setAuthToken.js";
 import Navbar from "./components/Layout/Navbar";
 import Scheduler from "./components/Scheduler/Scheduler.js";
+import Profile from "./components/Profile/Profile.js";
 
 //redux
 import { Provider } from "react-redux";
 import store from "./store.js";
+
 
 import "./App.css";
 
@@ -38,6 +40,7 @@ const App = () => {
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
               <Route exact path="/scheduler" component={Scheduler} />
+              <Route exact path="/profile" component={Profile} />
             </Switch>
           </section>
         </Fragment>
