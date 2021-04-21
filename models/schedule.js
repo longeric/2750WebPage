@@ -1,4 +1,4 @@
-const schedule = new schedule({
+const schedule = ({
     Id: Number,
     Subject: {type: String},
     Location: {type: String},

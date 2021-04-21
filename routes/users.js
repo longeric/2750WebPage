@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const User = require("../models/User.js");
-const schedule = require("../models/schedule.js");
+// const schedule = require("../models/schedule.js");
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -95,17 +95,21 @@ router.post("/createSchdule/:email", (req, res) => {
   const email = req.params['email'];
   const newSchedule = JSON.stringify(req.body);  
   
-  User.find({email}, (err, user) =>{
-    if(err) console.log(err.message);
-    else {
-      const schedule = new schedule(newSchedule);
-      console.log(schedule)
-      // console.log(user);
-      // user[0].schedule.push(newSchedule);
-      // user[0].save();
-      // res.status(200).send("Update!");
-    }
-  })
+  const schedule = JSON.parse(newSchedule)
+  console.log(newSchedule)
+  console.log(schedule)
+  
+//   User.find({email}, (err, user) =>{
+//     if(err) console.log(err.message);
+//     else {
+//       // const schedule = new schedule(newSchedule);
+      
+//       // console.log(user);
+//       // user[0].schedule.push(newSchedule);
+//       // user[0].save();
+//       // res.status(200).send("Update!");
+//     }
+//   })
 })
 
 module.exports = router;
