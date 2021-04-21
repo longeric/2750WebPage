@@ -9,7 +9,8 @@ router.put("/updateProfile", (req,res) =>{
 })
 
 
-router.post("/createSchdule", (req, res) => {
+router.post("/createSchdule/:email", (req, res) => {
+  console.log(req.params['email'])
   console.log(req.body);  
 })
 
