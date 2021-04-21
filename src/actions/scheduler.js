@@ -32,3 +32,19 @@ export const createSchedule = async ( email, data ) => {
     console.log("show schedules error", err);
   }
 }
+
+export const updateSchedule = async ( email, data ) => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+  
+  console.log(JSON.stringify(data))
+  
+  try {
+    const res = await axios.post("/api/users/updateSchdule/" + email, data)
+    // console.log(res)
+    // return res;
+  } catch (err) {
+    console.log("show schedules error", err);
+  }
+}

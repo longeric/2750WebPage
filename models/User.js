@@ -25,7 +25,7 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  schedule: new mongoose.Schema({
+  schedule: [new mongoose.Schema({
     Id: Number,
     Subject: {type: String},
     Location: {type: String},
@@ -39,16 +39,14 @@ const UserSchema = new mongoose.Schema({
     PriorityId: Number,
     RecurrenceException: String,
     RecurrenceID: String
-  }),
-  unschedule: { type: Array }
+  })],
+  unschedule: [new mongoose.Schema({
+    Id: Number,
+    Subject: {type: String},
+    Location: {type: String},
+    CategoryColor: {type: String}
+  })]
 });
 
 module.exports = User = mongoose.model("user", UserSchema);
 
-
-
-// [{
-//     subject: {type: String},
-//     "location": {type: String},
-//     "categoryColor": {type: String}
-//   }]
