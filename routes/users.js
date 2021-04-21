@@ -11,7 +11,7 @@ router.put("/updateProfile", (req,res) =>{
 
 router.post("/createSchdule/:email", (req, res) => {
   console.log(req.params['email'])
-  console.log(req.body);  
+  console.log(JSON.stringify(req.body));  
 })
 
 module.exports = router;

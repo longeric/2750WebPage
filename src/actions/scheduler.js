@@ -25,7 +25,7 @@ export const createSchedule = async ( email, data ) => {
   console.log(JSON.stringify(data))
   
   try {
-    const res = await axios.post("/api/createSchdule/" + email, JSON.stringify(data))
+    const res = await axios.post("/api/users/createSchdule/" + email, JSON.stringify(data))
     // console.log(res)
     // return res;
   } catch (err) {

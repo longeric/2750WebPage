@@ -44,7 +44,7 @@ const Navbar = () => {
         
         <li className="nav-item">
           <Link
-            to="/authentication"
+            to="/profile"
             className="nav-links"
             
           >
