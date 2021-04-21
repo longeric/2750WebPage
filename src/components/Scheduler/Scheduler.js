@@ -26,13 +26,13 @@ export default class ViewConfigurations extends SampleBase {
       
       this.state = {data: []}
       // const [data, setData] = React.useState([]);
-      getSchdules(localStorage.email).then(res => res.json()).then(data => this.state.data = data)
+      getSchdules(localStorage.email).then(res => res).then(data => this.state.data = { data: extend([], data, null, true) })
       // .then(data =>
       //   this.setState({ data: extend([], data, null, true)})
       // );
-      
+      // this.setState(this.state.data);
       // console.log(this.schdules)
-      // console.log(this.datas)
+      console.log(this.datas)
     }
   
   // async componentDidMount () {
@@ -72,7 +72,7 @@ export default class ViewConfigurations extends SampleBase {
         return (<div className='schedule-control-section'>
         <div className='col-lg-12 control-section'>
           <div className='control-wrapper'>
-            <ScheduleComponent cssClass='schedule-views-config' width='100%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date()} eventSettings={{ dataSource: this.state.data, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
+            <ScheduleComponent cssClass='schedule-views-config' width='100%' height='100%' ref={t => this.scheduleObj = t} currentView='Week' selectedDate={new Date()} eventSettings={{ dataSource: this.datas, fields: { location: { name: 'location' } } }} eventRendered={this.onEventRendered.bind(this)}>
               <ResourcesDirective>
                 <ResourceDirective field='PriorityId' title='Priority' name='Priority' dataSource={this.resourceData} textField='PriorityText' idField='PriorityId' colorField='PriorityColor'>
                 </ResourceDirective>
