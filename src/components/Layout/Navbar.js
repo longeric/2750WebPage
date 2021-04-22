@@ -31,7 +31,17 @@ const Navbar = () => {
             Board
           </Link>
         </li>
-
+        
+          <li className="nav-item">
+          <Link
+            to="/pomodora"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Pomodora
+          </Link>
+        </li>
+        
         <li className="nav-item">
           <Link
             to="/login"

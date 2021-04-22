@@ -9,6 +9,7 @@ import setAuthToken from "./utils/setAuthToken.js";
 import Navbar from "./components/Layout/Navbar";
 import Scheduler from "./components/Scheduler/Scheduler.js";
 import Profile from "./components/Profile/Profile.js";
+import Pomodora from "./components/Home/Pomodora/pomodora.js"
 
 //redux
 import { Provider } from "react-redux";
@@ -40,6 +41,7 @@ const App = () => {
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
               <Route exact path="/scheduler" component={Scheduler} />
+              <Route exact path="/pomodora" component={Pomodora}></Route> 
               <Route exact path="/profile" component={Profile} />
             </Switch>
           </section>
