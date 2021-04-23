@@ -17,7 +17,8 @@ class App extends Component {
         doesMatchSearch: true
       }
     ],
-    searchText: ""
+    searchText: "",
+    isload: false
   };
   /* This method will add a new object to the notes array in the App state */
   addNote = () => {
@@ -112,7 +113,7 @@ class App extends Component {
     localStorage.setItem("savedNotes", stringifiedNotes);
   }
   
-  async componentDidMount() {
+  async componentWillMount() {
     /* after rendering for the first time, read saved
     notes data from local storage and pass that data
     to component state if it exists */
@@ -124,6 +125,7 @@ class App extends Component {
     // var stringifiedNotes = localStorage.getItem("savedNotes");
     
     if (data.unschedule) {
+      this.setState({isload: true})
       var savedNotes = JSON.parse(JSON.stringify(data.unschedule));
       this.setState({ notes: savedNotes });
     }
@@ -137,11 +139,14 @@ class App extends Component {
           onSearch={this.onSearch}
           saveNote={this.saveToNote}
         />
-        <NotesList
+        {
+          this.state.isload && (
+          <NotesList
           notes={this.state.notes}
           onType={this.onType}
           remove={this.remove}
-        />
+        />)
+        }
       </div>
     );
   }

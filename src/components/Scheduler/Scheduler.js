@@ -32,16 +32,16 @@ export default class ViewConfigurations extends SampleBase {
     this.instance = new Internationalization();
     this.resourceData = [
       {
-        PriorityText: "Priority High",
+        PriorityText: "High",
         PriorityId: 1,
         PriorityColor: "#f23224"
       },
       {
-        PriorityText: "Priority Medium",
+        PriorityText: "Medium",
         PriorityId: 2,
         PriorityColor: "#f2ad24"
       },
-      { PriorityText: "Priority Low", PriorityId: 3, PriorityColor: "#357cd2" }
+      { PriorityText: "Low", PriorityId: 3, PriorityColor: "#357cd2" }
     ];
 
     this.state = { data: [] };
