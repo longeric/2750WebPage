@@ -6,7 +6,8 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_FAIL,
-  LOGIN_SUCCESS
+  LOGIN_SUCCESS,
+  LOGOUT
 } from "./types.js";
 import setAuthToken from "../utils/setAuthToken.js";
 
@@ -33,7 +34,7 @@ export const loadUser = () => async dispatch => {
 
 //REGISTER THE USER
 
-export const register = ( {name, email, password} ) => async dispatch => {
+export const register = ({ name, email, password }) => async dispatch => {
   const config = {
     headers: {
       "Content-Type": "application/json"
@@ -44,7 +45,7 @@ export const register = ( {name, email, password} ) => async dispatch => {
 
   try {
     const res = await axios.post("/api/users", body, config);
-    
+
     // console.log(JSON.stringify(res));
     dispatch({
       type: LOGIN_SUCCESS,
@@ -67,7 +68,7 @@ export const register = ( {name, email, password} ) => async dispatch => {
 
 // Login user
 
-export const login = ( email, password ) => async dispatch => {
+export const login = (email, password) => async dispatch => {
   const config = {
     headers: {
       "Content-Type": "application/json"
@@ -75,7 +76,7 @@ export const login = ( email, password ) => async dispatch => {
   };
 
   // console.log(email + password)
-  
+
   const body = JSON.stringify({ email, password });
 
   // console.log("body login", body);
@@ -92,7 +93,7 @@ export const login = ( email, password ) => async dispatch => {
     });
 
     // dispatch(loadUser());
-    
+
     //the issue here
   } catch (err) {
     const errors = err.response.data.errors;
@@ -102,7 +103,11 @@ export const login = ( email, password ) => async dispatch => {
     }
     dispatch({
       type: LOGIN_FAIL
-
     });
   }
+};
+
+//logout  -- cleaer profile
+export const logout = () => dispatch => {
+  dispatch({ type: LOGOUT });
 };
