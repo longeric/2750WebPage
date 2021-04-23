@@ -24,7 +24,7 @@ if (localStorage.token) {
 }
 
 const App = () => {
-  //
+  
   // useEffect(() => {
   //   store.dispatch(loadUser());
   //   //only run once: []
