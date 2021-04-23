@@ -1,84 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { logout } from "../../actions/auth";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
-  const [click, setClick] = useState(false);
-  const closeMobileMenu = () => setClick(false);
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  const authLinks = (
+    <ul>
+      <li>
+        <a onClick={logout} href="#!">
+          <i className="fas fa-sign-out-alt"></i>{" "}
+          <span className="hide-sm">Logout</span>
+        </a>
+      </li>
+    </ul>
+  );
+
+  const guestLinks = (
+    <ul>
+      <li className="nav-item">
+        <Link
+          to="/userTaskBoard"
+          className="nav-links"
+        >
+          Board
+        </Link>
+      </li>
+
+      <li>
+        <a href="#!">Developers</a>
+      </li>
+      <li>
+        <Link to="/register">Register</Link>
+      </li>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
+    </ul>
+  );
 
   return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-        <img
-          src="https://cdn.glitch.com/b32b2bd2-2e97-4726-9fc6-3c049530080e%2Fstudy.png?v=1617467010836"
-          style={{ width: "80px", height: "80px" }}
-        ></img>
-      </Link>
+    <nav className="navbar bg-dark">
+      <h1>
+        <Link to="/">
+          <i className="fas fa-code"></i> ToDoList
+        </Link>
+      </h1>
 
-      <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <li className="nav-item">
-          <Link to="/scheduler" className="nav-links" onClick={closeMobileMenu}>
-            Home
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link
-            to="/userTaskBoard"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Board
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/stickynotes"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            StickyNotes
-          </Link>
-        </li>
-        
-          <li className="nav-item">
-          <Link
-            to="/pomodora"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Pomodora
-          </Link>
-        </li>
-        
-        <li className="nav-item">
-          <Link
-            to="/login"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            Login/Sign Up
-          </Link>
-        </li>
-        
-        <li className="nav-item">
-          <Link
-            to="/profile"
-            className="nav-links"
-            
-          >
-            Profile
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link 
-            to="/authentication"
-            className="nav-links">Log Out</Link>
-        </li>
-      </ul>
+      {!loading && (
+        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+      )}
     </nav>
   );
 };
 
-export default Navbar;
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateTpProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateTpProps,
+  { logout }
+)(Navbar);
