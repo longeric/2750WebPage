@@ -38,7 +38,6 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
-              <Route exact path="/pomodora" component={Pomodora}></Route> 
             </Switch>
           </section>
         </Fragment>
