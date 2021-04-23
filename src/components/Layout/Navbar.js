@@ -31,6 +31,15 @@ const Navbar = () => {
             Board
           </Link>
         </li>
+        <li className="nav-item">
+          <Link
+            to="/stickynotes"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            StickyNotes
+          </Link>
+        </li>
         
           <li className="nav-item">
           <Link

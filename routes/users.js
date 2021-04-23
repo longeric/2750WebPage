@@ -176,4 +176,33 @@ router.post("/deleteSchdule/:email", (req, res) => {
     });
 });
 
+router.get("/readNote/:email", (req, res) =>{
+  let email = req.params['email'];
+
+  User.find({email}, (err, user) =>{
+    if(err) console.log(err.message);
+    else {
+      console.log(user);
+      res.json(user[0]);
+    }
+  })
+});
+
+router.put("/saveNote/:email", (req,res) =>{
+  const body = req.body;
+  const email = req.params['email'];
+  const newjson = JSON.stringify(req.body);
+
+  User.find({ email }, (err, user) => {
+    if (err) console.log(err.message);
+    else {
+      // const schedule = new schedule(newSchedule);
+      console.log(user);
+      user[0].unschedule = body.unschedule;
+      user[0].save();
+      res.status(200).send("You update sticky note!");
+    }
+  });
+});
+
 module.exports = router;

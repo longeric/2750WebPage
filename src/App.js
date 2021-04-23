@@ -10,6 +10,7 @@ import Navbar from "./components/Layout/Navbar";
 import Scheduler from "./components/Scheduler/Scheduler.js";
 import Profile from "./components/Profile/Profile.js";
 import Pomodora from "./components/Home/Pomodora/pomodora.js"
+import StickyNotes from "./components/Home/StickyNotes/stickynotes.js"
 
 //redux
 import { Provider } from "react-redux";
@@ -43,6 +44,7 @@ const App = () => {
               <Route exact path="/scheduler" component={Scheduler} />
               <Route exact path="/pomodora" component={Pomodora}></Route> 
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/stickynotes" component={StickyNotes}></Route> 
             </Switch>
           </section>
         </Fragment>
