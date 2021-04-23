@@ -9,22 +9,19 @@ import setAuthToken from "./utils/setAuthToken.js";
 import Navbar from "./components/Layout/Navbar";
 import Scheduler from "./components/Scheduler/Scheduler.js";
 import Profile from "./components/Profile/Profile.js";
-import Pomodora from "./components/Home/Pomodora/pomodora.js"
-import StickyNotes from "./components/Home/StickyNotes/stickynotes.js"
+import Pomodora from "./components/Home/Pomodora/pomodora.js";
+import StickyNotes from "./components/Home/StickyNotes/stickynotes.js";
 
 //redux
 import { Provider } from "react-redux";
 import store from "./store.js";
 
-
 import "./App.css";
-
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
 const App = () => {
-  
   // useEffect(() => {
   //   store.dispatch(loadUser());
   //   //only run once: []
@@ -34,17 +31,13 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
-         < Navbar />
-          
+          <Navbar />
+          <Route exact path="/" component={Scheduler} />
           <section className="container">
             <Alert />
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
-              <Route exact path="/scheduler" component={Scheduler} />
-              <Route exact path="/pomodora" component={Pomodora}></Route> 
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/stickynotes" component={StickyNotes}></Route> 
             </Switch>
           </section>
         </Fragment>
@@ -54,5 +47,3 @@ const App = () => {
 };
 
 export default App;
-
-
