@@ -1,6 +1,5 @@
 import axios from "axios";
 import { setAlert } from "./alert.js";
-
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -9,7 +8,6 @@ import {
   LOGIN_FAIL,
   LOGIN_SUCCESS
 } from "./types.js";
-
 import setAuthToken from "../utils/setAuthToken.js";
 
 // Load the user
