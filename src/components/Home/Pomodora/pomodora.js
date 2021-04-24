@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import Settings from './Settings';
-import Times from './Times';
-import Controller from './Controller';
-import './pomodora.css';
+import React, { Component } from "react";
+import Settings from "./Settings";
+import Times from "./Times";
+import Controller from "./Controller";
+import "./pomodora.css";
+import { Container, Row, Col } from "react-bootstrap";
+import MultiPlayer from "./Multiplayer";
 
 export default class pomodora2 extends Component {
   constructor(props) {
@@ -11,13 +13,12 @@ export default class pomodora2 extends Component {
     this.audioBeep = React.createRef();
 
     this.state = {
-      breakLength: 5,
-      sessionLength: 25,
-      timeLabel: 'Session',
-      timeLeftInSecond: 1500,
-      isStart: false,
-      timerInterval: null
-    }
+      breakLength: 5, //Number.parseInt(this.props.defaultBreakLength, 10),
+      sessionLength: 25, //Number.parseInt(this.props.defaultSessionLength, 10),
+      timeLabel: "Session",
+      timeLeftInSecond: 1500, //Number.parseInt(this.props.defaultSessionLength, 10) * 60,
+      isStart: false
+    };
 
     this.onIncreaseBreak = this.onIncreaseBreak.bind(this);
     this.onDecreaseBreak = this.onDecreaseBreak.bind(this);
@@ -65,10 +66,10 @@ export default class pomodora2 extends Component {
 
   onReset() {
     this.setState({
-      breakLength: 5,//Number.parseInt(this.props.defaultBreakLength, 10),
-      sessionLength: 25,//Number.parseInt(this.props.defaultSessionLength, 10),
-      timeLabel: 'Session',
-      timeLeftInSecond: 1500,//Number.parseInt(this.props.defaultSessionLength, 10) * 60,
+      breakLength: 5, //Number.parseInt(this.props.defaultBreakLength, 10),
+      sessionLength: 25, //Number.parseInt(this.props.defaultSessionLength, 10),
+      timeLabel: "Session",
+      timeLeftInSecond: 1500, //Number.parseInt(this.props.defaultSessionLength, 10) * 60,
       isStart: false,
       timerInterval: null
     });
@@ -86,7 +87,7 @@ export default class pomodora2 extends Component {
           this.decreaseTimer();
           this.phaseControl();
         }, 1000)
-      })
+      });
     } else {
       this.audioBeep.current.pause();
       this.audioBeep.current.currentTime = 0;
@@ -109,53 +110,104 @@ export default class pomodora2 extends Component {
     if (this.state.timeLeftInSecond === 0) {
       this.audioBeep.current.play();
     } else if (this.state.timeLeftInSecond === -1) {
-      if (this.state.timeLabel === 'Session') {
+      if (this.state.timeLabel === "Session") {
         this.setState({
-          timeLabel: 'Break',
+          timeLabel: "Break",
           timeLeftInSecond: this.state.breakLength * 60
         });
       } else {
         this.setState({
-          timeLabel: 'Session',
+          timeLabel: "Session",
           timeLeftInSecond: this.state.sessionLength * 60
         });
       }
     }
   }
-  
-  
 
   render() {
     return (
-      <div className="pomodoro-clock" >
-        <div className="pomodoro-clock-header">
-          <h1 className="pomodoro-clock-header-name">Pomodoro Clock</h1>
+      <div>
+        <div className="pomodoro-clock">
+          <div className="pomodoro-clock-header">
+            <h1 className="pomodoro-clock-header-name">Pomodoro Clock</h1>
+          </div>
+
+          <Settings
+            breakLength={this.state.breakLength}
+            sessionLength={this.state.sessionLength}
+            isStart={this.state.isStart}
+            onDecreaseBreak={this.onDecreaseBreak}
+            onDecreaseSession={this.onDecreaseSession}
+            onIncreaseBreak={this.onIncreaseBreak}
+            onIncreaseSession={this.onIncreaseSession}
+          />
+
+          <Times
+            timeLabel={this.state.timeLabel}
+            timeLeftInSecond={this.state.timeLeftInSecond}
+          />
+
+          <Controller
+            onReset={this.onReset}
+            onStartStop={this.onStartStop}
+            isStart={this.state.isStart}
+          />
+
+          <audio
+            id="beep"
+            preload="auto"
+            src="https://goo.gl/65cBl1"
+            ref={this.audioBeep}
+          ></audio>
+          <Container>
+            <MultiPlayer
+              urls={[
+                "https://cdn.glitch.com/30aa7dcb-47e2-4b82-951e-ef4686906d6c%2Fyt1s.com%20-%20%E5%8F%A4%E7%90%B4%20%E5%8D%A7%E9%BE%99%E5%90%9FDep.mp3?v=1619206230944",
+                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+              ]}
+            />
+            <Row>
+              <Col
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                Guqin
+              </Col>
+              <Col
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                piano
+              </Col>
+              <Col
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                Rain
+              </Col>
+              <Col
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                whatever
+              </Col>
+            </Row>
+          </Container>
         </div>
-
-        <Settings
-          breakLength={this.state.breakLength}
-          sessionLength={this.state.sessionLength}
-          isStart={this.state.isStart}
-          onDecreaseBreak={this.onDecreaseBreak}
-          onDecreaseSession={this.onDecreaseSession}
-          onIncreaseBreak={this.onIncreaseBreak}
-          onIncreaseSession={this.onIncreaseSession}
-        />
-
-        <Times
-          timeLabel={this.state.timeLabel}
-          timeLeftInSecond={this.state.timeLeftInSecond}
-        />
-
-        <Controller
-          onReset={this.onReset}
-          onStartStop={this.onStartStop}
-          isStart={this.state.isStart}
-        />
-
-        <audio id="beep" preload="auto" src="https://goo.gl/65cBl1" ref={this.audioBeep}></audio>
-      
-
       </div>
     );
   }

@@ -1,0 +1,21 @@
+button {
+  border: none;
+  height: 30px;
+  width: 30px;
+}
+
+div.inline {
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+}
+
+/* img{
+  margin: auto;
+  text-align: center;
+} */
+
+button{
+  margin: auto;
+  text-align: center;
+}

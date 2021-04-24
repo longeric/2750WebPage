@@ -43,3 +43,8 @@
 .pomodora-clock div {
   background-color:lightblue;
 }
+
+div.soundDiv{
+  display:inline-block;
+  text-align:center;
+}
