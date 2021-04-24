@@ -6,6 +6,7 @@ import { logout } from "../../actions/auth";
 // import "./Navbar.css";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  
   const authLinks = (
     <ul>
       <li className="nav-item">
@@ -20,7 +21,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </li>
       <li className="nav-item">
         <Link to="/pomodora" className="nav-links">
-          Scheduler
+          Pomodora
         </Link>
       </li>
       <li>
