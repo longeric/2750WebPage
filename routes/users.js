@@ -119,7 +119,7 @@ router.post("/updateSchdule/:email", (req, res) => {
   console.log("in")
   console.log(schedule);
 
-  User.findOneAndUpdate(
+  User.findOneAndModify(
     { email: email, "schedule._id": schedule._id },
     {
       $set: {
@@ -128,7 +128,7 @@ router.post("/updateSchdule/:email", (req, res) => {
     },
     (err, doc) => {
       if (err) console.log(err.message);
-      else console.log(doc);
+      // else console.log(doc);
     }
   );
 });
