@@ -9,15 +9,20 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li className="nav-item">
-          <Link to="/stickyNotes" className="nav-links">
-            Sticky Notes
-          </Link>
-        </li>
+        <Link to="/scheduler" className="nav-links">
+          Scheduler
+        </Link>
+      </li>
       <li className="nav-item">
-          <Link to="/scheduler" className="nav-links">
-            Scheduler
-          </Link>
-        </li>
+        <Link to="/stickyNotes" className="nav-links">
+          Sticky Notes
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/pomodora" className="nav-links">
+          Scheduler
+        </Link>
+      </li>
       <li>
         <Link onClick={logout} to="/login">
           Logout

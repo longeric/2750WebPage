@@ -43,6 +43,7 @@ const App = () => {
               <Route exact path="/scheduler" component={Scheduler} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/stickyNotes" component={StickyNotes} />
+              <Route exact path="/pomodora" component={Pomodora} />
             </Switch>
           </section>
         </Fragment>
