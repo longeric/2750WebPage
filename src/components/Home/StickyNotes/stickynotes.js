@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header.js";
 import NotesList from "./NotesList.js";
-import "./stickynotes.css"
+import "./stickynotes.css";
 import { readNote, saveNote } from "../../../actions/saveNote.js";
 
 /* This container component manages all of the state 
@@ -96,36 +96,39 @@ class App extends Component {
     var updatedNotes = this.state.notes.filter(notIdMatch);
     this.setState({ notes: updatedNotes });
   };
-  
-  saveToNote() {
+
+  async saveToNote() {
     // console.log("anything in save to note");
     // console.log(localStorage.getItem("savedNotes"));
     // console.log(this.state.notes);
     // storage this to DB
     // const json = ({"json":localStorage.getItem("savedNotes")});
-    const res = saveNote(localStorage.email, localStorage.getItem("savedNotes"));
+    const res = await saveNote(
+      localStorage.email,
+      localStorage.getItem("savedNotes")
+    );
     console.log(res);
   }
-  
+
   componentDidUpdate() {
     /* Using lifecycle methods. after each render, save notes data to local storage */
     var stringifiedNotes = JSON.stringify(this.state.notes);
     localStorage.setItem("savedNotes", stringifiedNotes);
   }
-  
+
   async componentWillMount() {
     /* after rendering for the first time, read saved
     notes data from local storage and pass that data
     to component state if it exists */
     const data = await readNote(localStorage.email);
     console.log(data.unschedule);
-    
+
     localStorage.setItem("savedNotes", JSON.stringify(data.unschedule));
     // console.log("before call read to note did mount");
     // var stringifiedNotes = localStorage.getItem("savedNotes");
-    
+
     if (data.unschedule) {
-      this.setState({isload: true})
+      this.setState({ isload: true });
       var savedNotes = JSON.parse(JSON.stringify(data.unschedule));
       this.setState({ notes: savedNotes });
     }
@@ -139,14 +142,13 @@ class App extends Component {
           onSearch={this.onSearch}
           saveNote={this.saveToNote}
         />
-        {
-          this.state.isload && (
+        {this.state.isload && (
           <NotesList
-          notes={this.state.notes}
-          onType={this.onType}
-          remove={this.remove}
-        />)
-        }
+            notes={this.state.notes}
+            onType={this.onType}
+            remove={this.remove}
+          />
+        )}
       </div>
     );
   }
