@@ -150,9 +150,7 @@ export default class ViewConfigurations extends SampleBase {
         </div>
         </div>)
       } else {
-        this.state.data === undefined && (
-        <Spinner animation="border" />
-      )
+        return <Spinner animation="border" />
     }
 
   }
