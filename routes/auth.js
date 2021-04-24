@@ -92,4 +92,34 @@ router.get("/:email", (req, res) =>{
   })
 });
 
+router.get("/readUser/:email", (req, res) => {
+  let email = req.params["email"];
+  // console.log(email);
+  User.find({ email }, (err, user) => {
+    if (err) console.log(err.message);
+    else {
+      // console.log(user);
+      res.json(user[0]);
+    }
+  });
+});
+
+router.put("/updateProfile", (req, res) => {
+  const body = req.body;
+  const email = body.email;
+
+  User.findOneAndUpdate(
+    { email: email},
+    {
+      $set: {
+        "name": body.name,
+      }
+    },
+    (err, doc) => {
+      if (err) console.log(err.message);
+      else console.log(doc);
+    }
+  );
+});
+
 module.exports = router;
