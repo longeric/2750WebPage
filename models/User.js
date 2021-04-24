@@ -25,28 +25,31 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  schedule: [new mongoose.Schema({
-    Id: Number,
-    Subject: {type: String},
-    Location: {type: String},
-    StartTime: {type: String},
-    EndTime: {type: String},
-    RecurrenceRule: {type: String},
-    CategoryColor: {type: String},
-    IsAllDay: Boolean,
-    StartTimezone: String,
-    EndTimezone: String,
-    PriorityId: Number,
-    RecurrenceException: String,
-    RecurrenceID: String
-  })],
-  unschedule: [new mongoose.Schema({
-    id: Number,
-    title: {type: String},
-    description: {type: String},
-    doesMatchSearch: {type: String}
-  })]
+  schedule: [
+    new mongoose.Schema({
+      Id: Number,
+      Subject: { type: String },
+      Location: { type: String },
+      StartTime: { type: String },
+      EndTime: { type: String },
+      RecurrenceRule: { type: String },
+      CategoryColor: { type: String },
+      IsAllDay: Boolean,
+      StartTimezone: String,
+      EndTimezone: String,
+      PriorityId: Number,
+      RecurrenceException: String,
+      RecurrenceID: String
+    })
+  ],
+  unschedule: [
+    new mongoose.Schema({
+      id: Number,
+      title: { type: String },
+      description: { type: String },
+      doesMatchSearch: { type: Boolean }
+    })
+  ]
 });
 
 module.exports = User = mongoose.model("user", UserSchema);
-

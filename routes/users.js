@@ -178,23 +178,23 @@ router.put("/saveNote/:email", (req,res) =>{
     if (err) console.log(err.message);
     else {
       // const schedule = new schedule(newSchedule);
-      // console.log(user);
-      // user[0].unschedule = body.unschedule;
-      // user[0].save();
-      // res.status(200).send("You update sticky note!");
+      console.log(user);
+      user[0].unschedule = body.unschedule;
+      user[0].save();
+      res.status(200).send("You update sticky note!");
       
-      User.findOneAndUpdate(
-    { email: email},
-    {
-      $set: {
-        "unschedule.$": newjson
-      }
-    },
-    (err, doc) => {
-      if (err) console.log(err.message);
-      // else console.log(doc);
-    }
-  );
+  //     User.findOneAndUpdate(
+  //   { email: email},
+  //   {
+  //     $set: {
+  //       "unschedule.$": newjson
+  //     }
+  //   },
+  //   (err, doc) => {
+  //     if (err) console.log(err.message);
+  //     // else console.log(doc);
+  //   }
+  // );
     }
   });
 });
