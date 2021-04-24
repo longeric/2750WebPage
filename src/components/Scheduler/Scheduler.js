@@ -98,7 +98,8 @@ export default class ViewConfigurations extends SampleBase {
     // console.log(this.state.data.data)
 
     return (
-      <div className="schedule-control-section">
+      {
+        this.state.data !== undefined && (<div className="schedule-control-section">
         <div className="col-lg-12 control-section">
           <div className="control-wrapper">
             <ScheduleComponent
@@ -145,7 +146,14 @@ export default class ViewConfigurations extends SampleBase {
             </ScheduleComponent>
           </div>
         </div>
-      </div>
+        </div>)
+      }
+  
+    {
+      this.state.data === undefined && (
+        <Spinner animation="border" />
+      )
+    }
     );
   }
 }
