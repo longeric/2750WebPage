@@ -19,7 +19,7 @@ import {
 import { applyCategoryColor } from "./helper";
 import { Internationalization, extend } from "@syncfusion/ej2-base";
 import { SampleBase } from "./sample-base";
-import * as dataSource from "./datasource.json";
+// import * as dataSource from "./datasource.json";
 import { getSchdules, createSchedule, updateSchedule, deleteSchedule } from "../../actions/scheduler.js";
 import { Spinner } from "react-bootstrap";
 
@@ -29,7 +29,7 @@ import { Spinner } from "react-bootstrap";
 export default class ViewConfigurations extends SampleBase {
   constructor() {
     super(...arguments);
-    this.datas = extend([], dataSource.fifaEventsData, null, true);
+    // this.datas = extend([], dataSource.fifaEventsData, null, true);
     this.instance = new Internationalization();
     this.resourceData = [
       {

@@ -36,7 +36,7 @@ img {
 
 /* Utilities */
 .container {
-  max-width: 1100px;
+/*   max-width: 1100px; */
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
@@ -454,7 +454,7 @@ button {
 }
 
 /* Posts Page */
-.post-form .post-form-header {
+/* .post-form .post-form-header {
   background: var(--primary-color);
   padding: 0.5rem;
 }
@@ -486,7 +486,7 @@ button {
   color: #aaa;
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
-}
+} */
 
 /* Mobile Styles */
 @media (max-width: 700px) {
