@@ -1,7 +1,6 @@
 import { render } from "react-dom";
 import "./index.css";
 import * as React from "react";
-import axios from "axios";
 import {
   ScheduleComponent,
   ViewsDirective,
@@ -143,7 +142,7 @@ export default class ViewConfigurations extends SampleBase {
                 <ViewDirective option="Month" />
               </ViewsDirective>
               <Inject
-                services={[Day, Week, Month, Agenda, Resize, DragAndDrop]}
+                services={[Day, Week, Month, Resize, DragAndDrop]}
               />
             </ScheduleComponent>
           </div>
