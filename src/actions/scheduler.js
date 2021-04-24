@@ -38,7 +38,7 @@ export const updateSchedule = async ( email, data ) => {
     setAuthToken(localStorage.token);
   }
   
-  console.log(JSON.stringify(data))
+  // console.log(JSON.stringify(data))
   
   try {
     const res = await axios.post("/api/users/updateSchdule/" + email, data)

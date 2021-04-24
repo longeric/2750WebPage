@@ -116,28 +116,8 @@ router.post("/updateSchdule/:email", (req, res) => {
 
   const schedule = JSON.parse(newSchedule);
   // console.log(email)
+  console.log("in")
   console.log(schedule);
-
-  //   User.find({email}, (err, user) =>{
-  //     if(err) console.log(err.message);
-  //     else {
-  //       // const schedule = new schedule(newSchedule);
-
-  //       console.log(user);
-  //       console.log(user[0].schedule)
-  //       user[0].schedule.map(item => {
-  //         console.log(item._id);
-  //         console.log(schedule._id);
-  //         if(item._id == schedule._id)
-  //           return schedule
-  //         else {
-  //           console.log("no equal")
-  //         }
-  //       })
-  //       user[0].save();
-  //       res.status(200).send("Update!");
-  //     }
-  //   })
 
   User.findOneAndUpdate(
     { email: email, "schedule._id": schedule._id },
