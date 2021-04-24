@@ -11,7 +11,7 @@ import Scheduler from "./components/Scheduler/Scheduler.js";
 import Profile from "./components/Profile/Profile.js";
 import Pomodora from "./components/Home/Pomodora/pomodora.js";
 import StickyNotes from "./components/Home/StickyNotes/stickynotes.js";
-import Landing from "./components/layout/Landing.js";
+import Landing from "./components/Layout/Landing.js";
 
 
 //redux
@@ -40,7 +40,8 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
-              
+              <Route exact path="/scheduler" component={Scheduler} />
+              <Route exact path="/profile" component={Profile} />
             </Switch>
           </section>
         </Fragment>
