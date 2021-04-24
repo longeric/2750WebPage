@@ -61,9 +61,10 @@ INFSCI 2560 -- Final Project
 │   │   postInfo.js
 │   │ 
 │
-└───models
+└───public
 │   │   authorInfo.js
 │   │   postInfo.js
+│   
 └───routers
 │   │   authors.js
 │   │   posts.js
@@ -73,6 +74,9 @@ INFSCI 2560 -- Final Project
 │   └───server.js
 │
 └───src
+│   └───components
+│   │   authors.js
+│   │ 
 │   └───components
 │   │   App.js
 │   │   index.js (Entry)

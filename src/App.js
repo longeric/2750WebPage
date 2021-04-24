@@ -11,6 +11,8 @@ import Scheduler from "./components/Scheduler/Scheduler.js";
 import Profile from "./components/Profile/Profile.js";
 import Pomodora from "./components/Home/Pomodora/pomodora.js";
 import StickyNotes from "./components/Home/StickyNotes/stickynotes.js";
+import Landing from "./components/layout/Landing.js";
+
 
 //redux
 import { Provider } from "react-redux";
@@ -32,7 +34,7 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <Route exact path="/" component={Scheduler} />
+          <Route exact path="/" component={Landing} />
           <section className="container">
             <Alert />
             <Switch>
