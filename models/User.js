@@ -41,10 +41,10 @@ const UserSchema = new mongoose.Schema({
     RecurrenceID: String
   })],
   unschedule: [new mongoose.Schema({
-    Id: Number,
-    Subject: {type: String},
-    Location: {type: String},
-    CategoryColor: {type: String}
+    id: Number,
+    title: {type: String},
+    description: {type: String},
+    doesMatchSearch: {type: String}
   })]
 });
 

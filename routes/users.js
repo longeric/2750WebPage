@@ -171,7 +171,8 @@ router.get("/readNote/:email", (req, res) =>{
 router.put("/saveNote/:email", (req,res) =>{
   const body = req.body;
   const email = req.params['email'];
-  const newjson = JSON.stringify(req.body);
+  const newjson = req.body;
+  console.log(newjson)
 
   User.find({ email }, (err, user) => {
     if (err) console.log(err.message);
@@ -186,7 +187,7 @@ router.put("/saveNote/:email", (req,res) =>{
     { email: email},
     {
       $set: {
-        "schedule.$": schedule
+        "unschedule.$": newjson
       }
     },
     (err, doc) => {
