@@ -21,6 +21,7 @@ import { Internationalization, extend } from "@syncfusion/ej2-base";
 import { SampleBase } from "./sample-base";
 import * as dataSource from "./datasource.json";
 import { getSchdules, createSchedule, updateSchedule, deleteSchedule } from "../../actions/scheduler.js";
+import { Spinner } from "react-bootstrap";
 
 /**
  *  Schedule view based configuration sample
@@ -96,10 +97,11 @@ export default class ViewConfigurations extends SampleBase {
   render() {
     // const data = this.state.data;
     // console.log(this.state.data.data)
-
-    return (
+  if(this.state.data !== undefined)
       {
-        this.state.data !== undefined && (<div className="schedule-control-section">
+    return (
+      
+        <div className="schedule-control-section">
         <div className="col-lg-12 control-section">
           <div className="control-wrapper">
             <ScheduleComponent
@@ -147,13 +149,11 @@ export default class ViewConfigurations extends SampleBase {
           </div>
         </div>
         </div>)
-      }
-  
-    {
-      this.state.data === undefined && (
+      } else {
+        this.state.data === undefined && (
         <Spinner animation="border" />
       )
     }
-    );
+
   }
 }
