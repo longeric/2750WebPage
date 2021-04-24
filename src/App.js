@@ -42,6 +42,7 @@ const App = () => {
               <Route exact path="/login" component={Login}></Route>
               <Route exact path="/scheduler" component={Scheduler} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/stickyNotes" component={StickyNotes} />
             </Switch>
           </section>
         </Fragment>
