@@ -51,6 +51,4 @@ router.get("/userChart", async (req, res) => {
    });
 })
 
-
-
 module.exports = router;
