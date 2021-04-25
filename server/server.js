@@ -19,6 +19,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+passport.use(new GithubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: 'https://'+process.env.PROJECT_DOMAIN+'.glitch.me/login/github/return',
+},
+function(token, tokenSecret, profile, cb) {
+  return cb(null, profile);
+}));
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+
 const mongoDB = process.env.DATABASE_URL;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -36,6 +52,15 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.get('/auth/github', passport.authenticate('github'));
+
+app.get('/login/github/return', 
+  passport.authenticate('github', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/');
+  }
+);
 
 // PWAs want HTTPS!
 function checkHttps(request, response, next) {
