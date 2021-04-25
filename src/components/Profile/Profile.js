@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 import { readUser, updateProfile } from "../../actions/saveUser.js";
 import { readAllUser } from "../../actions/adminUser.js";
-import { Button, Container, Row, Col, Image, Spinner, Card } from "react-bootstrap";
-import { BsFillPersonFill, BsFilePost, BsFillEnvelopeFill } from "react-icons/bs";
-
+import {
+  Button,
+  Container,
+  Row,
+  Col,
+  Image,
+  Spinner,
+  Card
+} from "react-bootstrap";
+import {
+  BsFillPersonFill,
+  BsFilePost,
+  BsFillEnvelopeFill
+} from "react-icons/bs";
 
 export default class Profile extends Component {
   constructor(props) {
@@ -23,14 +34,12 @@ export default class Profile extends Component {
       // call another function
       await this.readAllUsers();
     }
-
   }
 
   async readAllUsers() {
     await readAllUser().then(data => {
       // console.log(data);
       this.setState({ alluser: data });
-
     });
 
     const array = [];
@@ -44,13 +53,10 @@ export default class Profile extends Component {
     console.log(this.state.alluser);
   }
 
-
   handleChange(e) {
-
     var user = this.state.user;
     user.name = e.target.value;
     this.setState({ user });
-    
   }
 
   async handleSubmit(e) {
@@ -63,24 +69,18 @@ export default class Profile extends Component {
   render() {
     if (this.state === null || this.state.user === "") {
       // return <div>You should login first</div>;
-      return (<Spinner animation="border" />)
-    } 
-    else if (this.state.user.admin == false) {
+      return <Spinner animation="border" />;
+    } else if (this.state.user.admin == false) {
       const unschedule = this.state.user.unschedule.map((item, index) => (
-                  
         <Col lg={4} key={index}>
-        <Card style={{ width: '18rem' }}>
-                    <Card.Body>
-                      <Card.Title>
-                        {item.title}
-                      </Card.Title>
-                      <Card.Text>
-                        {item.description} 
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-          </Col>
-        ))
+          <Card style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>{item.title}</Card.Title>
+              <Card.Text>{item.description}</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      ));
       return (
         <div className="container">
           <legend>
@@ -172,91 +172,108 @@ export default class Profile extends Component {
             <Container>
               <Row>
                 <Col lg={4}></Col>
-                <Col lg={4} style={{ color: 'red' }}>Unschedule Note</Col>
+                <Col lg={4} style={{ color: "red" }}>
+                  Unschedule Note
+                </Col>
                 <Col lg={4}></Col>
               </Row>
               <br />
-              
-              <Row>
-                {unschedule}
-              </Row>
+
+              <Row>{unschedule}</Row>
             </Container>
           </div>
         </div>
       );
-    } 
-    else if (this.state.user.admin == true && this.state.alluser != undefined) {
-      
+    } else if (
+      this.state.user.admin == true &&
+      this.state.alluser != undefined
+    ) {
       const arr = this.state.alluser.map((item, index) => (
-          // <p key={index}> {item.name} </p>
-            <Row key={index}>
-              <Col > {item.name} </Col>
-               <Col > {item.email} </Col>
-            </Row>
-        ))
-      
+        // <p key={index}> {item.name} </p>
+        <Row key={index}>
+          <Col> {item.name} </Col>
+          <Col> {item.email} </Col>
+        </Row>
+      ));
+
       return (
         <div>
-          <Container fluid>
-            <legend>
-              <center>
-                <h2>
-                  <b>Admin</b>
-                </h2>
-              </center>
-            </legend>
+          <form onSubmit={this.handleSubmit}>
+            <Container fluid>
+              <legend>
+                <center>
+                  <h2>
+                    <b>Admin</b>
+                  </h2>
+                </center>
+              </legend>
+              <Row>
+                <Col>
+                  <Row>
+                    <Col lg={3}></Col>
+                    <Col lg={6}>
+                      <center>
+                        <Image
+                          src={this.state.user.avatar}
+                          roundedCircle
+                          style={{ width: 200, height: 200 }}
+                        />
+                      </center>
+                    </Col>
+                    <Col lg={3}></Col>
+                  </Row>
+
+                  <Row>
+                    <Col lg={1}></Col>
+                    <Col lg={10}>
+                      <BsFillPersonFill />
+                      <label className="">Name</label>
+                      <input
+                        name="name"
+                        defaultValue={this.state.user.name}
+                        className="form-control"
+                        type="text"
+                        onChange={this.handleChange}
+                      />
+                    </Col>
+                    <Col lg={1}></Col>
+                  </Row>
+
+                  <Row>
+                    <Col lg={1}></Col>
+                    <Col lg={10}>
+                      <BsFilePost />
+                      <label>Create Date</label>
+                      <input
+                        name="date"
+                        defaultValue={this.state.user.date}
+                        className="form-control"
+                        type="text"
+                        readOnly={true}
+                      />
+                    </Col>
+                    <Col lg={1}></Col>
+                  </Row>
+                </Col>
+              </Row>
+              <br />
+              <Row>
+                <Col></Col>
+                <Col>
+                  <center>
+                    <Button variant="dark" type="submit">
+                      Save Profile
+                    </Button>
+                  </center>
+                </Col>
+                <Col></Col>
+              </Row>
+            </Container>
+          </form>
+
+          <Container>
             <Row>
               <Col>
-                <Row>
-                  <Col lg={3}></Col>
-                  <Col lg={6}>
-                    <center>
-                      <Image
-                        src={this.state.user.avatar}
-                        roundedCircle
-                        style={{ width: 200, height: 200 }}
-                      />
-                    </center>
-                  </Col>
-                  <Col lg={3}></Col>
-                </Row>
-
-                <Row>
-                  <Col lg={1}></Col>
-                  <Col lg={10}>
-                    <BsFillPersonFill />
-                    <label className="">Name</label>
-                    <input
-                      name="name"
-                      defaultValue={this.state.user.name}
-                      className="form-control"
-                      type="text"
-                      onChange={this.handleChange}
-                    />
-                  </Col>
-                  <Col lg={1}></Col>
-                </Row>
-
-                <Row>
-                  <Col lg={1}></Col>
-                  <Col lg={10}>
-                    <BsFilePost />
-                    <label>Create Date</label>
-                    <input
-                      name="date"
-                      defaultValue={this.state.user.date}
-                      className="form-control"
-                      type="text"
-                      readOnly={true}
-                    />
-                  </Col>
-                  <Col lg={1}></Col>
-                </Row>
-              </Col>
-              
-            </Row>
-            <Row>
-            <Col>
                 <Row>
                   <Col>name</Col>
                   <Col>email</Col>
@@ -265,12 +282,10 @@ export default class Profile extends Component {
               </Col>
             </Row>
           </Container>
-          
         </div>
       );
-    }
-    else {
-        return (<Spinner animation="border" />)
+    } else {
+      return <Spinner animation="border" />;
     }
   }
 }
@@ -284,8 +299,6 @@ export default class Profile extends Component {
 // <Row>
 //   <Col>what</Col>
 // </Row>
-
-
 
 // <Container>
 //             <table class="table">
