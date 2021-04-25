@@ -17,15 +17,17 @@ router.get("/All", async (req,res) =>{
 
 router.delete("/delete/:email", async (req,res) =>{
   let email = req.params['email'];
+  console.log(email)
   try {
-    await User.find({email}, (user) =>{
-      user.remove(function(err) {
-      if (err) {
-        res.status(500).send(err.message);
-      } else {
-        res.status(204).send("removed");
-      }
-    });
+    await User.find({email:email}, (user) =>{
+      console.log(user)
+      // user.remove(function(err) {
+      // if (err) {
+      //   res.status(500).send(err.message);
+      // } else {
+      //   res.status(204).send("removed");
+      // }
+    // });
     });
     // res.json(user);
   } catch (err) {

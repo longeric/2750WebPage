@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { readUser, updateProfile } from "../../actions/saveUser.js";
-import { readAllUser, userChart } from "../../actions/adminUser.js";
+import { readAllUser, userChart, deleteUser } from "../../actions/adminUser.js";
 import {
   Button,
   Container,
@@ -90,8 +90,9 @@ export default class Profile extends Component {
   }
   
   deleteUser(email){
-    console.log(email);
+    // console.log(email);
     if(window.confirm('Are you sure to delete this task?')){
+      deleteUser(email)
 		}
   }
 
