@@ -78,7 +78,7 @@ const MultiPlayer = ({ urls }) => {
 };
 
 const Player = ({ player, toggle }) => (
-  <button onClick={toggle} style={{display: "flex",
+  <button className="player" onClick={toggle} style={{display: "flex",
     justifyContent: "center",
     alignItems: "center"}}>
     {player.playing ? (

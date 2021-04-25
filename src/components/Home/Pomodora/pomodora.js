@@ -163,7 +163,7 @@ export default class pomodora2 extends Component {
             <MultiPlayer
               urls={[
                 "https://cdn.glitch.com/30aa7dcb-47e2-4b82-951e-ef4686906d6c%2Fyt1s.com%20-%20%E5%8F%A4%E7%90%B4%20%E5%8D%A7%E9%BE%99%E5%90%9FDep.mp3?v=1619206230944",
-                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+                "https://cdn.glitch.com/b32b2bd2-2e97-4726-9fc6-3c049530080e%2FMozart%20Classical%20Music%20for%20Studying%20Concentration%20Relaxation%20%20Study%20Music%20%20Piano%20Instrumental.mp3?v=1619361883678",
                 "https://cdn.glitch.com/b32b2bd2-2e97-4726-9fc6-3c049530080e%2F30%20MINUTES%20Rain%20Sounds.mp3?v=1619361561614",
                 "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
               ]}
@@ -203,7 +203,7 @@ export default class pomodora2 extends Component {
                   alignItems: "center"
                 }}
               >
-                whatever
+                Ghibli
               </Col>
             </Row>
           </Container>
