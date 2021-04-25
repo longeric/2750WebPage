@@ -16,7 +16,7 @@ import {
   BsFilePost,
   BsFillEnvelopeFill
 } from "react-icons/bs";
-// import {Dialog, DialogActions, DialogContent, DialogTitle} from "@material-ui/core";
+import {Dialog, DialogActions, DialogContent, DialogTitle} from "@material-ui/core";
 // import { StyleSheet, View } from "react-native";
 // import Dialog from "react-native-dialog";
 // import { Line } from 'react-chartjs-2';
@@ -28,7 +28,7 @@ export default class Profile extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.deleteUser = this.deleteUser(this);
+    this.deleteUser = this.deleteUser.bind(this);
     
     const options = {
       scales: {
@@ -216,7 +216,7 @@ export default class Profile extends Component {
           <td>{index+1}</td>
           <td>{item.name}</td>
           <td>{item.email}</td>
-          <td><Button variant="danger" onClick={()=>this.deleteUser(item.email)}>Danger</Button></td>
+          <td><Button variant="danger" onClick={()=>this.deleteUser(item.email)}>Delete</Button></td>
         </tr>
       ));
 

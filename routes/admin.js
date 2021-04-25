@@ -15,6 +15,26 @@ router.get("/All", async (req,res) =>{
   
 })
 
+router.delete("/delete/:email", async (req,res) =>{
+  let email = req.params['email'];
+  try {
+    await User.find({email}, (user) =>{
+      user.remove(function(err) {
+      if (err) {
+        res.status(500).send(err.message);
+      } else {
+        res.status(204).send("removed");
+      }
+    });
+    });
+    // res.json(user);
+  } catch (err) {
+    console.log("errors: ", err.message);
+    res.status(500).send("Server Error in auth");
+  }
+  
+})
+
 // router.get("/userChart", async (req, res) => {
 //   var d = new Date();
 //   d.setDate(d.getDate()-2);

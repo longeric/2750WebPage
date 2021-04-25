@@ -11,7 +11,7 @@ export const readAllUser = async email => {
     // console.log(res.datares.data)
     return res.data;
   } catch (err) {
-    console.log("show schedules error", err);
+    console.log("show all users error", err);
   }
 };
 
@@ -25,6 +25,20 @@ export const userChart = async () => {
     // console.log(res.datares.data)
     return res.data;
   } catch (err) {
-    console.log("show schedules error", err);
+    console.log("show chart error", err);
   }
 };
+
+export const deleteUser = async (email) => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+  
+  try {
+    await axios.delete("/api/admin/delete/" + email);
+    // console.log(res.datares.data)
+  } catch (err) {
+    console.log("delete user error", err);
+  }
+};
+  
