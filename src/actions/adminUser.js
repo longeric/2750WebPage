@@ -14,3 +14,17 @@ export const readAllUser = async email => {
     console.log("show schedules error", err);
   }
 };
+
+export const userChart = async () => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+
+  try {
+    const res = await axios.get("/api/admin/userChart");
+    // console.log(res.datares.data)
+    return res.data;
+  } catch (err) {
+    console.log("show schedules error", err);
+  }
+};

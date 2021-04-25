@@ -26,9 +26,11 @@ dependencies:
   prop-types: 15.7.2
   react: 16.12.0
   react-bootstrap: 1.5.2
+  react-chartjs-2: 3.0.2
   react-dom: 16.12.0
   react-google-login: 5.2.2
   react-icons: 4.2.0
+  react-native-dialog: 8.0.1
   react-redux: 7.2.3
   react-router-dom: 5.2.0
   react-scripts: 3.4.0
@@ -9796,6 +9798,15 @@ packages:
       react-dom: '>=16.8.0'
     resolution:
       integrity: sha512-mGKPY5+lLd7Vtkx2VFivoRkPT4xAHazuFfIhJLTEgHlDfIUSePn7qrmpZe5gXH9zvHV0RsBaQ9cLfXjxnZrOpA==
+  /react-chartjs-2/3.0.2:
+    dependencies:
+      lodash: 4.17.21
+    dev: false
+    peerDependencies:
+      chart.js: ^3.1.0
+      react: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-YeVwAJLuxILEgfXJPC4dU3YHcuzyx5F6WgLPrPwKYgdPY91r6xvwQQAklk6lThcO8W5rLxsKUsbqs4XxOF1zdA==
   /react-dev-utils/10.2.0:
     dependencies:
       '@babel/code-frame': 7.8.3
@@ -9874,6 +9885,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+  /react-native-dialog/8.0.1:
+    dev: false
+    peerDependencies:
+      react-native: '>=0.63.0'
+    resolution:
+      integrity: sha512-shm0NE7nZJj5ubvMT/6Snt3fazzRPgDj/m9eIcYjo6JAQbxvg6Ym9o5GGahDn1d96LyAruPoP+N/IBzAI8Worg==
   /react-overlays/5.0.1:
     dependencies:
       '@babel/runtime': 7.13.17
@@ -12467,9 +12484,11 @@ specifiers:
   prop-types: ^15.7.2
   react: ^16.12.0
   react-bootstrap: ^1.5.2
+  react-chartjs-2: ^3.0.1
   react-dom: ^16.12.0
   react-google-login: ^5.1.25
   react-icons: ^4.2.0
+  react-native-dialog: ^8.0.1
   react-redux: ^7.2.2
   react-router-dom: ^5.2.0
   react-scripts: ^3.4.0
