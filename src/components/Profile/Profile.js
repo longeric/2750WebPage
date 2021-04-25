@@ -106,7 +106,7 @@ export default class Profile extends Component {
       return <Spinner animation="border" />;
     } else if (this.state.user.admin == false) {
       const unschedule = this.state.user.unschedule.map((item, index) => (
-        <Col lg={4} key={index}>
+        <Col lg={4} md={6} sm={12} key={index}>
           <Card style={{ width: "18rem" }}>
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
@@ -127,8 +127,8 @@ export default class Profile extends Component {
           <form onSubmit={this.handleSubmit}>
             <Container fluid>
               <Row>
-                <Col lg={4}></Col>
-                <Col lg={4}>
+                <Col lg={4} md={2} sm={2}></Col>
+                <Col lg={4} md={8} sm={8}>
                   <center>
                     <Image
                       src={this.state.user.avatar}
@@ -137,12 +137,12 @@ export default class Profile extends Component {
                     />
                   </center>
                 </Col>
-                <Col lg={4}></Col>
+                <Col lg={4} md={2} sm={2}></Col>
               </Row>
               <br />
               <Row>
-                <Col lg={3}></Col>
-                <Col lg={6}>
+                <Col lg={3} md={2} sm={1}></Col>
+                <Col lg={6} md={8} sm={10}>
                   <BsFillPersonFill />
                   <label className="">Name</label>
                   <input
@@ -153,12 +153,12 @@ export default class Profile extends Component {
                     onChange={this.handleChange}
                   />
                 </Col>
-                <Col lg={3}></Col>
+                <Col lg={3} md={2} sm={1}></Col>
               </Row>
               <br />
               <Row>
-                <Col lg={3}></Col>
-                <Col lg={6}>
+                <Col lg={3} md={2} sm={1}></Col>
+                <Col lg={6} md={8} sm={10}>
                   <BsFillEnvelopeFill />
                   <label>Email</label>
                   <input
@@ -169,12 +169,12 @@ export default class Profile extends Component {
                     readOnly={true}
                   />
                 </Col>
-                <Col lg={3}></Col>
+                <Col lg={3} md={2} sm={1}></Col>
               </Row>
               <br />
               <Row>
-                <Col lg={3}></Col>
-                <Col lg={6}>
+                <Col lg={3} md={2} sm={1}></Col>
+                <Col lg={6} md={8} sm={10}>
                   <BsFilePost />
                   <label>Create Date</label>
                   <input
@@ -185,7 +185,7 @@ export default class Profile extends Component {
                     readOnly={true}
                   />
                 </Col>
-                <Col lg={3}></Col>
+                <Col lg={3} md={2} sm={1}></Col>
               </Row>
               <br />
 
