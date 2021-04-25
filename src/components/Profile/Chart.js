@@ -6,7 +6,7 @@ import { SampleBase } from "./sample-base";
 import { userChart} from "../../actions/adminUser.js";
 
 export let data1 = [
-  { x: new Date(2005, 0, 1), y: 21 },
+  { x: new Date(), y: 21 },
   { x: new Date(2006, 0, 1), y: 24 },
   { x: new Date(2007, 0, 1), y: 36 },
   { x: new Date(2008, 0, 1), y: 38 },
@@ -20,7 +20,10 @@ export default class Chart extends SampleBase {
   async componentWillMount() {
     var data1 = [];
     const chart = await userChart();
-    console.log(chart);    
+    console.log(chart);
+    chart.map(item => {
+      
+    })
   }
   
   render() {
@@ -36,14 +39,13 @@ export default class Chart extends SampleBase {
               intervalType: "Years",
               edgeLabelPlacement: "Shift",
               majorGridLines: { width: 0 }
-            }}
-            
+            }}  
             primaryYAxis={{
-              labelFormat: "{value}%",
+              labelFormat: "{value}",
               rangePadding: "None",
               minimum: 0,
-              maximum: 100,
-              interval: 20,
+              maximum: 50,
+              interval: 10,
               lineStyle: { width: 0 },
               majorTickLines: { width: 0 },
               minorTickLines: { width: 0 }
@@ -51,8 +53,7 @@ export default class Chart extends SampleBase {
             chartArea={{ border: { width: 0 } }}
             tooltip={{ enable: true }}
             width={Browser.isDevice ? "100%" : "60%"}
-            title="Inflation - Consumer Price"
-            loaded={this.onChartLoad.bind(this)}
+            title="New users - Last 7 days"
           >
             <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
             <SeriesCollectionDirective>
@@ -60,7 +61,7 @@ export default class Chart extends SampleBase {
                 dataSource={data1}
                 xName="x"
                 yName="y"
-                name="Germany"
+                name="New Users"
                 width={2}
                 marker={{ visible: true, width: 10, height: 10 }}
                 type="Line"
