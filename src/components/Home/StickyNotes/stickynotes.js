@@ -17,7 +17,7 @@ class App extends Component {
     searchText: "",
     isload: false
   };
-  
+
   addNote = () => {
     var newNote = {
       id: Date.now(),
@@ -30,7 +30,6 @@ class App extends Component {
   };
 
   onType = (editMeId, updatedKey, updatedValue) => {
-    
     var updateIdMatch = note => {
       if (note.id !== editMeId) {
         return note;
@@ -53,11 +52,9 @@ class App extends Component {
   };
 
   onSearch = e => {
-    
     var searchText = e.target.value.toLowerCase();
     var updatedNotes = this.state.notes.map(note => {
       if (!searchText) {
-        
         return {
           ...note,
           doesMatchSearch: true
@@ -81,34 +78,38 @@ class App extends Component {
   };
 
   remove = deleteMeId => {
-    
     var notIdMatch = note => note.id !== deleteMeId;
     var updatedNotes = this.state.notes.filter(notIdMatch);
     this.setState({ notes: updatedNotes });
   };
 
   async saveToNote() {
-    
-    const res = await saveNote(
-      localStorage.email,
-      localStorage.getItem("savedNotes")
-    );
-    console.log(res);
+    if (window.confirm("Do you want to save note change")) {
+      var res = await saveNote(
+        localStorage.email,
+        localStorage.getItem("savedNotes")
+      );
+      console.log(res);
+    }
+    // console.log(response);
+
+    // const res = await saveNote(
+    //   localStorage.email,
+    //   localStorage.getItem("savedNotes")
+    // );
+    // console.log(res);
   }
 
   componentDidUpdate() {
-    
     var stringifiedNotes = JSON.stringify(this.state.notes);
     localStorage.setItem("savedNotes", stringifiedNotes);
   }
 
   async componentWillMount() {
-    
     const data = await readNote(localStorage.email);
     console.log(data.unschedule);
 
     localStorage.setItem("savedNotes", JSON.stringify(data.unschedule));
-    
 
     if (data.unschedule) {
       this.setState({ isload: true });

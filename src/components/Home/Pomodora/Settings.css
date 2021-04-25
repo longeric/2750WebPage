@@ -34,7 +34,7 @@
 .settings-section button:not(.disable):hover {
   cursor: pointer;
   background-color: #4ebfc9;
-  color:white;
+  color: white;
 }
 
 .settings-section button.disable {
@@ -57,5 +57,5 @@
 }
 
 #break-length #session-length {
-  font-family: Arial, Time News Roman
+  font-family: Arial, Time News Roman;
 }

@@ -12,7 +12,7 @@ class Note extends Component {
     this.props.onType(editMeId, "description", updatedValue);
   };
   deleteOnClick = () => this.props.remove(this.props.note.id);
- 
+
   render() {
     return (
       <li className="note">
@@ -29,7 +29,7 @@ class Note extends Component {
           placeholder="Description..."
           className="note__description"
         />
-       
+
         <span className="note__delete" onClick={this.deleteOnClick}>
           X
         </span>

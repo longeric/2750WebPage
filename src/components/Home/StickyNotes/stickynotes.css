@@ -73,7 +73,6 @@ textarea {
   width: 100%;
   padding: 8px 14px;
   background: transparent;
-  
 }
 
 .note__title {
@@ -84,13 +83,12 @@ textarea {
   border-bottom-style: solid;
   border-width: 1px;
   border-left-style: none;
-  
 }
 
 .note__description {
   flex-grow: 1;
   font-size: 14px;
-  border:none;
+  border: none;
 }
 
 .note__delete {
@@ -100,7 +98,7 @@ textarea {
   font-size: 20px;
   color: black;
   padding: 5px;
-  font-family:Arial;
+  font-family: Arial;
 }
 
 .note__delete:hover {

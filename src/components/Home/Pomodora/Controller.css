@@ -28,6 +28,5 @@
 .controller button:hover {
   cursor: pointer;
   background-color: #4ebfc9;
-  color:white;
+  color: white;
 }
-

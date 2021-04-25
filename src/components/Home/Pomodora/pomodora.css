@@ -12,7 +12,7 @@
 }
 
 .pomodoro-clock-header-name::before {
-  content: '';
+  content: "";
   height: 3px;
   position: absolute;
   top: 100%;
@@ -36,15 +36,14 @@
 }
 .pomodora-clock {
   width: 50%;
-  height:auto;
-  
+  height: auto;
 }
 
 .pomodora-clock div {
-  background-color:lightblue;
+  background-color: lightblue;
 }
 
-div.soundDiv{
-  display:inline-block;
-  text-align:center;
+div.soundDiv {
+  display: inline-block;
+  text-align: center;
 }

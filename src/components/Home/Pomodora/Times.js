@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import './Times.css';
+import React, { Component } from "react";
+import "./Times.css";
 
-const formatTime = (timeLeftInSecond) => {
+const formatTime = timeLeftInSecond => {
   let minute = Math.floor(timeLeftInSecond / 60);
-  if (minute < 10) minute = '0' + minute;
+  if (minute < 10) minute = "0" + minute;
 
   let second = timeLeftInSecond - 60 * minute;
-  if (second < 10) second = '0' + second;
+  if (second < 10) second = "0" + second;
 
   return `${minute}:${second}`;
-}
+};
 
 export default class Times extends Component {
   render() {
@@ -20,6 +20,6 @@ export default class Times extends Component {
           <span id="time-left">{formatTime(this.props.timeLeftInSecond)}</span>
         </div>
       </div>
-    )
+    );
   }
 }

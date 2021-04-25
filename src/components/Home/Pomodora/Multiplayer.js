@@ -70,7 +70,7 @@ const MultiPlayer = ({ urls }) => {
     <Row>
       {players.map((player, i) => (
         <Col lg={3} md={3} sm={3}>
-        <Player key={i} player={player} toggle={toggle(i)} />
+          <Player key={i} player={player} toggle={toggle(i)} />
         </Col>
       ))}
     </Row>
@@ -78,9 +78,11 @@ const MultiPlayer = ({ urls }) => {
 };
 
 const Player = ({ player, toggle }) => (
-  <button className="player" onClick={toggle} style={{display: "flex",
-    justifyContent: "center",
-    alignItems: "center"}}>
+  <button
+    className="player"
+    onClick={toggle}
+    style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+  >
     {player.playing ? (
       <img src="https://cdn.glitch.com/30aa7dcb-47e2-4b82-951e-ef4686906d6c%2Fsuspended.png?v=1619279433005" />
     ) : (

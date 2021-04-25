@@ -84,8 +84,11 @@ export default class Profile extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    if(window.confirm(""))
-    const response = await updateProfile(this.state.user);
+    if(window.confirm("Do you want to keep change")){
+      await updateProfile(this.state.user);
+      // console.log(response);
+    }
+    // const response = await updateProfile(this.state.user);
     // console.log(response);
   }
 
