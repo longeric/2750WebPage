@@ -25,10 +25,8 @@ dependencies:
   passport-local: 1.0.0
   prop-types: 15.7.2
   react: 16.12.0
-  react-bootstrap: 1.5.2
   react-dom: 16.12.0
   react-google-login: 5.2.2
-  react-icons: 4.2.0
   react-redux: 7.2.3
   react-router-dom: 5.2.0
   react-scripts: 3.4.0
@@ -1432,25 +1430,6 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
-  /@popperjs/core/2.9.2:
-    dev: false
-    resolution:
-      integrity: sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
-  /@restart/context/2.1.4:
-    dev: false
-    peerDependencies:
-      react: '>=16.3.2'
-    resolution:
-      integrity: sha512-INJYZQJP7g+IoDUh/475NlGiTeMfwTXUEr3tmRneckHIxNolGOW9CTq83S8cxq0CgJwwcMzMJFchxvlwe7Rk8Q==
-  /@restart/hooks/0.3.26:
-    dependencies:
-      lodash: 4.17.21
-      lodash-es: 4.17.21
-    dev: false
-    peerDependencies:
-      react: '>=16.8.0'
-    resolution:
-      integrity: sha512-7Hwk2ZMYm+JLWcb7R9qIXk1OoUg1Z+saKWqZXlrvFwT3w6UArVNWgxYOzf+PJoK9zZejp8okPAKTctthhXLt5g==
   /@svgr/babel-plugin-add-jsx-attribute/4.2.0:
     dev: false
     engines:
@@ -1875,13 +1854,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-mVRvYnTOZJz3ccpxhr3wgxVmSeiYinW+zlzQz3SXWaJmD1DuL05Jeq7nKw3SnbKmbleW5qrLG5vdyWe/A9sXhw==
-  /@types/classnames/2.3.1:
-    dependencies:
-      classnames: 2.3.1
-    deprecated: 'This is a stub types definition. classnames provides its own type definitions, so you do not need this installed.'
-    dev: false
-    resolution:
-      integrity: sha512-zeOWb0JGBoVmlQoznvqXbE0tEC/HONsnoUNH19Hc96NFsTAwTXbTqb8FMYkru1F/iqp7a18Ws3nWJvtA1sHD1A==
   /@types/eslint-visitor-keys/1.0.0:
     dev: false
     resolution:
@@ -1911,10 +1883,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-wIPqXANye5BbORbuh74exbwNzj+UWCwWyeEFJzUQ7Fq3W2NSAy+7x7nX1fgbEypr2/TdKqpeuxLnXWgzN533/Q==
-  /@types/invariant/2.2.34:
-    dev: false
-    resolution:
-      integrity: sha512-lYUtmJ9BqUN688fGY1U1HZoWT1/Jrmgigx2loq4ZcJpICECm/Om3V314BxdzypO0u5PORKGMM6x0OXaljV1YFg==
   /@types/istanbul-lib-coverage/2.0.1:
     dev: false
     resolution:
@@ -1998,10 +1966,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
-  /@types/warning/3.0.0:
-    dev: false
-    resolution:
-      integrity: sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=
   /@types/yargs-parser/15.0.0:
     dev: false
     resolution:
@@ -3321,10 +3285,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-qOhPa/Fj7s6TY8H8esGu5QNpMMQxz79h+urzrNYN6mn+9BnxlDGf5QZ+XeCDsxSjPqsSR56XOZOJmpeurnLMeg==
-  /classnames/2.3.1:
-    dev: false
-    resolution:
-      integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
   /clean-css/4.2.3:
     dependencies:
       source-map: 0.6.1
@@ -7408,10 +7368,6 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
-  /lodash-es/4.17.21:
-    dev: false
-    resolution:
-      integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
   /lodash._reinterpolate/3.0.0:
     dev: false
     resolution:
@@ -9590,15 +9546,6 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-qIP2lQyCwYbdzcqHIUi2HAxiWixhoM9OdLCWf8txXsapC/X9YdsCoeyRIXE/GP+Q0J37Q7+XN/MFqbUa7IzXNA==
-  /prop-types-extra/1.1.1:
-    dependencies:
-      react-is: 16.13.1
-      warning: 4.0.3
-    dev: false
-    peerDependencies:
-      react: '>=0.14.0'
-    resolution:
-      integrity: sha512-59+AHNnHYCdiC+vMwY52WmvP5dM3QLeoumYuEyceQDi9aEhtwN9zIQ2ZNo25sMyXnbh32h+P1ezDsUpUH3JAew==
   /prop-types/15.7.2:
     dependencies:
       loose-envify: 1.4.0
@@ -9770,32 +9717,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-OfBnObtnGgLGfweORmdZbyEz+3dgVePQBb3zipiaDsMHV1NpWm0rDFYIVXFV/AK+x4VIIfWHhrdMIeoTLyRr2g==
-  /react-bootstrap/1.5.2:
-    dependencies:
-      '@babel/runtime': 7.13.17
-      '@restart/context': 2.1.4
-      '@restart/hooks': 0.3.26
-      '@types/classnames': 2.3.1
-      '@types/invariant': 2.2.34
-      '@types/prop-types': 15.7.3
-      '@types/react': 17.0.3
-      '@types/react-transition-group': 4.4.1
-      '@types/warning': 3.0.0
-      classnames: 2.3.1
-      dom-helpers: 5.2.0
-      invariant: 2.2.4
-      prop-types: 15.7.2
-      prop-types-extra: 1.1.1
-      react-overlays: 5.0.1
-      react-transition-group: 4.4.1
-      uncontrollable: 7.2.1
-      warning: 4.0.3
-    dev: false
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-    resolution:
-      integrity: sha512-mGKPY5+lLd7Vtkx2VFivoRkPT4xAHazuFfIhJLTEgHlDfIUSePn7qrmpZe5gXH9zvHV0RsBaQ9cLfXjxnZrOpA==
   /react-dev-utils/10.2.0:
     dependencies:
       '@babel/code-frame': 7.8.3
@@ -9852,12 +9773,6 @@ packages:
       react-dom: ^16 || ^17
     resolution:
       integrity: sha512-JUngfvaSMcOuV0lFff7+SzJ2qviuNMQdqlsDJkUM145xkGPVIfqWXq9Ui+2Dr6jdJWH5KYdynz9+4CzKjI5u6g==
-  /react-icons/4.2.0:
-    dev: false
-    peerDependencies:
-      react: '*'
-    resolution:
-      integrity: sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
   /react-is/16.12.0:
     dev: false
     resolution:
@@ -9870,26 +9785,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
-  /react-lifecycles-compat/3.0.4:
-    dev: false
-    resolution:
-      integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
-  /react-overlays/5.0.1:
-    dependencies:
-      '@babel/runtime': 7.13.17
-      '@popperjs/core': 2.9.2
-      '@restart/hooks': 0.3.26
-      '@types/warning': 3.0.0
-      dom-helpers: 5.2.0
-      prop-types: 15.7.2
-      uncontrollable: 7.2.1
-      warning: 4.0.3
-    dev: false
-    peerDependencies:
-      react: '>=16.3.0'
-      react-dom: '>=16.3.0'
-    resolution:
-      integrity: sha512-plwUJieTBbLSrgvQ4OkkbTD/deXgxiJdNuKzo6n1RWE3OVnQIU5hffCGS/nvIuu6LpXFs2majbzaXY8rcUVdWA==
   /react-redux/7.2.3:
     dependencies:
       '@babel/runtime': 7.13.10
@@ -11642,17 +11537,6 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-KPHm4VL5dDXKz01UuEd88Df+KzynaohSL9fBh096KWAxSKZQDI2uBrVqtvRM4rwrIrRRKsdLNML/lnaaVSRioA==
-  /uncontrollable/7.2.1:
-    dependencies:
-      '@babel/runtime': 7.13.17
-      '@types/react': 17.0.3
-      invariant: 2.2.4
-      react-lifecycles-compat: 3.0.4
-    dev: false
-    peerDependencies:
-      react: '>=15.0.0'
-    resolution:
-      integrity: sha512-svtcfoTADIB0nT9nltgjujTi7BzVmwjZClOmskKu/E8FW9BXzg9os8OLr4f8Dlnk0rYWJIWr4wv9eKUXiQvQwQ==
   /unicode-canonical-property-names-ecmascript/1.0.4:
     dev: false
     engines:
@@ -11905,12 +11789,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-L3+bj9ENZ3JisYqITijRlhjgKPs=
-  /warning/4.0.3:
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
-    resolution:
-      integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
   /watchpack/1.6.0:
     dependencies:
       chokidar: 2.1.8
@@ -12466,10 +12344,8 @@ specifiers:
   passport-local: ^1.0.0
   prop-types: ^15.7.2
   react: ^16.12.0
-  react-bootstrap: ^1.5.2
   react-dom: ^16.12.0
   react-google-login: ^5.1.25
-  react-icons: ^4.2.0
   react-redux: ^7.2.2
   react-router-dom: ^5.2.0
   react-scripts: ^3.4.0
