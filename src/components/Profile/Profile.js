@@ -15,9 +15,9 @@ import {
   BsFilePost,
   BsFillEnvelopeFill
 } from "react-icons/bs";
-import { StyleSheet, View } from "react-native";
-import Dialog from "react-native-dialog";
-// import { Line } from 'react-chartjs-2';
+// import { StyleSheet, View } from "react-native";
+// import Dialog from "react-native-dialog";
+import { Line } from 'react-chartjs-2';
 
 export default class Profile extends Component {
   constructor(props) {
@@ -26,6 +26,18 @@ export default class Profile extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
+    const options = {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    };
   }
 
   async componentWillMount() {
@@ -40,6 +52,8 @@ export default class Profile extends Component {
     
     const chart = await userChart();
     console.log(chart);
+    
+    
   }
 
   async readAllUsers() {
@@ -271,15 +285,7 @@ export default class Profile extends Component {
                       Save Profile
                     </Button>
                   </center>
-              <View>
-    <Dialog.Container>
-      <Dialog.Title>Account delete</Dialog.Title>
-      <Dialog.Description>
-        Do you want to delete this account? You cannot undo this action.
-      </Dialog.Description>
-      
-    </Dialog.Container>
-  </View>
+             
                 </Col>
                 <Col></Col>
               </Row>
