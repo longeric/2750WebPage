@@ -1,15 +1,31 @@
 import { render } from 'react-dom';
-import './index.css';
 import * as React from "react";
 import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, LineSeries, DateTime, Legend, Tooltip } from '@syncfusion/ej2-react-charts';
 import { Browser } from "@syncfusion/ej2-base";
 import { SampleBase } from "./sample-base";
+import { userChart} from "../../actions/adminUser.js";
 
-export class Chart extends SampleBase {
+export let data1 = [
+  { x: new Date(2005, 0, 1), y: 21 },
+  { x: new Date(2006, 0, 1), y: 24 },
+  { x: new Date(2007, 0, 1), y: 36 },
+  { x: new Date(2008, 0, 1), y: 38 },
+  { x: new Date(2009, 0, 1), y: 54 },
+  { x: new Date(2010, 0, 1), y: 57 },
+  { x: new Date(2011, 0, 1), y: 70 }
+];
+
+export default class Chart extends SampleBase {
+  
+  async componentWillMount() {
+    var data1 = [];
+    const chart = await userChart();
+    console.log(chart);    
+  }
+  
   render() {
     return (
       <div className="control-pane">
-        <style>{SAMPLE_CSS}</style>
         <div className="control-section">
           <ChartComponent
             id="charts"
@@ -21,7 +37,7 @@ export class Chart extends SampleBase {
               edgeLabelPlacement: "Shift",
               majorGridLines: { width: 0 }
             }}
-            load={this.onChartLoad.bind(this)}
+            
             primaryYAxis={{
               labelFormat: "{value}%",
               rangePadding: "None",
@@ -45,15 +61,6 @@ export class Chart extends SampleBase {
                 xName="x"
                 yName="y"
                 name="Germany"
-                width={2}
-                marker={{ visible: true, width: 10, height: 10 }}
-                type="Line"
-              />
-              <SeriesDirective
-                dataSource={data2}
-                xName="x"
-                yName="y"
-                name="England"
                 width={2}
                 marker={{ visible: true, width: 10, height: 10 }}
                 type="Line"

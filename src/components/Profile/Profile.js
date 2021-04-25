@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { readUser, updateProfile } from "../../actions/saveUser.js";
-import { readAllUser, userChart, deleteUser } from "../../actions/adminUser.js";
+import { readAllUser, deleteUser } from "../../actions/adminUser.js";
 import {
   Button,
   Container,
@@ -22,9 +22,7 @@ import {
   DialogContent,
   DialogTitle
 } from "@material-ui/core";
-// import { StyleSheet, View } from "react-native";
-// import Dialog from "react-native-dialog";
-// import { Line } from 'react-chartjs-2';
+import Chart from "./Chart.js";
 
 export default class Profile extends Component {
   constructor(props) {
@@ -58,8 +56,7 @@ export default class Profile extends Component {
       await this.readAllUsers();
     }
 
-    // const chart = await userChart();
-    // console.log(chart);
+    
   }
 
   async readAllUsers() {
@@ -333,6 +330,10 @@ export default class Profile extends Component {
               </thead>
               <tbody>{arr}</tbody>
             </Table>
+          </Container>
+          
+          <Container>
+            <Chart />
           </Container>
         </div>
       );
