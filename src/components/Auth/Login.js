@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
+import { Button } from '@material-ui/core';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth.js";
@@ -27,6 +28,21 @@ const Login = ({ login, isAuthenticated }) => {
     login(email, password);
 
   };
+  
+    const googleSuccess = async (res) => {
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+
+//     try {
+//       dispatch({ type: AUTH, data: { result, token } });
+
+//       history.push('/');
+//     } catch (error) {
+//       console.log(error);
+//     }
+  };
+  
+   const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
   
   if(isAuthenticated){
     return <Redirect to='/scheduler'/>;
@@ -60,7 +76,10 @@ const Login = ({ login, isAuthenticated }) => {
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
-        <GoogleLogin />
+        <GoogleLogin clientId=""
+          render={(renderProps) => (
+            <Button color='primary' fullWidth onClick="renderProps.onClick" disable={renderProps.disabled} variant="contained"> Google Sign In</Button>
+          )}/>
       </form>
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign up</Link>
