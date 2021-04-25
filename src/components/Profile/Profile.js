@@ -8,7 +8,8 @@ import {
   Col,
   Image,
   Spinner,
-  Card
+  Card,
+  Table
 } from "react-bootstrap";
 import {
   BsFillPersonFill,
@@ -210,10 +211,11 @@ export default class Profile extends Component {
     ) {
       const arr = this.state.alluser.map((item, index) => (
         // <p key={index}> {item.name} </p>
-        <Row key={index}>
-          <Col> {item.name} </Col>
-          <Col> {item.email} </Col>
-        </Row>
+         <tr key={index}>
+          <td>{index}</td>
+          <td>{item.name}</td>
+          <td>{item.email}</td>
+        </tr>
       ));
 
       return (
@@ -293,15 +295,20 @@ export default class Profile extends Component {
           </form>
 
           <Container>
-            <Row>
-              <Col>
-                <Row>
-                  <Col>name</Col>
-                  <Col>email</Col>
-                </Row>
+            
+            
+            <Table striped bordered hover size="sm">
+               <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
                 {arr}
-              </Col>
-            </Row>
+              </tbody>
+            </Table>
           </Container>
         </div>
       );
@@ -360,3 +367,14 @@ export default class Profile extends Component {
 //               </tbody>
 //             </table>
 //           </Container>
+
+
+// <Row>
+//               <Col>
+//                 <Row>
+//                   <Col>name</Col>
+//                   <Col>email</Col>
+//                 </Row>
+//                 {arr}
+//               </Col>
+//             </Row>
