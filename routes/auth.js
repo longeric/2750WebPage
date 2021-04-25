@@ -130,7 +130,13 @@ router.post("/google", async (req, res) => {
         idToken: token,
         audience: process.env.CLIENT_ID
     });
-    const { name, email, picture } = ticket.getPayload();    
+    const { email_verified, name, email, picture } = ticket.getPayload();    
+  
+  if(email_verified){
+    User.findOne({email}).exec((err, user) => {
+      if(err)
+    })
+  }
   
   console.log(ticket.getPayload())
     // const user = await User.upsert({ 
