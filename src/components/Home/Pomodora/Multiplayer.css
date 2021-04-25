@@ -1,6 +1,6 @@
 button .player{
   border: none;
-  height: 10px;
+  height: 5px;
   width: 10px;
 }
 
@@ -9,11 +9,6 @@ div.inline {
   margin: 20px;
   text-align: center;
 }
-
-/* img{
-  margin: auto;
-  text-align: center;
-} */
 
 button {
   margin: auto;

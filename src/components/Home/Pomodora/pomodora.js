@@ -165,7 +165,7 @@ export default class pomodora2 extends Component {
                 "https://cdn.glitch.com/30aa7dcb-47e2-4b82-951e-ef4686906d6c%2Fyt1s.com%20-%20%E5%8F%A4%E7%90%B4%20%E5%8D%A7%E9%BE%99%E5%90%9FDep.mp3?v=1619206230944",
                 "https://cdn.glitch.com/b32b2bd2-2e97-4726-9fc6-3c049530080e%2FMozart%20Classical%20Music%20for%20Studying%20Concentration%20Relaxation%20%20Study%20Music%20%20Piano%20Instrumental.mp3?v=1619361883678",
                 "https://cdn.glitch.com/b32b2bd2-2e97-4726-9fc6-3c049530080e%2F30%20MINUTES%20Rain%20Sounds.mp3?v=1619361561614",
-                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+                "https://cdn.glitch.com/c2651fe2-7720-42b4-83b6-abf55f8285a8%2Fyt1s.com%20-%20copy%E5%AE%AE%E5%B4%8E%E9%A7%BF%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%20%E3%83%94%E3%82%A2%E3%83%8E%E3%81%A8%E3%83%8F%E3%83%BC%E3%83%97%E7%9D%A1%E7%9C%A0%E3%81%A8%E4%BD%9C%E6%A5%AD%20%E7%94%A8%E3%82%B8%E3%83%96%E3%83%AA%E7%99%92%E3%81%97.mp3?v=1619362240702"
               ]}
             />
             <Row>
@@ -185,7 +185,7 @@ export default class pomodora2 extends Component {
                   alignItems: "center"
                 }}
               >
-                piano
+                Piano
               </Col>
               <Col
                 style={{
