@@ -35,7 +35,7 @@ router.delete("/delete/:email", (req,res) =>{
 
 router.get("/userChart", async (req, res) => {
   var d = new Date();
-  d.setDate(d.getDate()-2);
+  d.setDate(d.getDate()-7);
   var query = User.aggregate([
           { "$match": {date: {$gt: d}}},
           
@@ -43,7 +43,7 @@ router.get("/userChart", async (req, res) => {
                "_id": { yearMonthDayUTC: { $dateToString: { format: "%Y-%m-%d", date: "$date" } }},
               number: { $sum: 1},
           }},
-          { "$sort": { count: -1 } },
+          { "$sort": { _id: -1 } },
      ]); 
    query.exec((err, crimes) =>{
         if(err) console.log(err.message);

@@ -17,13 +17,21 @@ export let data1 = [
 
 export default class Chart extends SampleBase {
   
+  constructor(){
+    super();
+    this.state = { chartdata: [] };
+  }
+  
   async componentWillMount() {
-    var data1 = [];
+    var chartdata = [];
+    
     const chart = await userChart();
     console.log(chart);
     chart.map(item => {
-      
+      var data = {x: item._id.yearMonthDayUTC, y: item.number}
+      chartdata.push(data)
     })
+    this.setState({chartdata: chartdata});
   }
   
   render() {
@@ -44,8 +52,8 @@ export default class Chart extends SampleBase {
               labelFormat: "{value}",
               rangePadding: "None",
               minimum: 0,
-              maximum: 50,
-              interval: 10,
+              maximum: 10,
+              interval: 2,
               lineStyle: { width: 0 },
               majorTickLines: { width: 0 },
               minorTickLines: { width: 0 }
@@ -58,7 +66,7 @@ export default class Chart extends SampleBase {
             <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
             <SeriesCollectionDirective>
               <SeriesDirective
-                dataSource={data1}
+                dataSource={this.state.chartdata}
                 xName="x"
                 yName="y"
                 name="New Users"
