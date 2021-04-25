@@ -265,6 +265,7 @@ export default class Profile extends Component {
                       Save Profile
                     </Button>
                   </center>
+
                 </Col>
                 <Col></Col>
               </Row>
