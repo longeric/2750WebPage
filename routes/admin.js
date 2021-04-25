@@ -15,26 +15,22 @@ router.get("/All", async (req,res) =>{
   
 })
 
-router.delete("/delete/:email", async (req,res) =>{
+router.delete("/delete/:email", (req,res) =>{
   let email = req.params['email'];
   console.log(email)
-  try {
-    await User.find({email:email}, (user) =>{
-      console.log(user)
-      // user.remove(function(err) {
-      // if (err) {
-      //   res.status(500).send(err.message);
-      // } else {
-      //   res.status(204).send("removed");
-      // }
-    // });
+    User.findOne({email:email}, (err, user) =>{
+      if(err) res.status(500).send("Server Error in auth");
+      else {
+        console.log(user)
+        user.remove(function(err) {
+          if (err) {
+            res.status(500).send(err.message);
+          } else {
+            res.status(204).send("removed");
+          }
+        });
+      }
     });
-    // res.json(user);
-  } catch (err) {
-    console.log("errors: ", err.message);
-    res.status(500).send("Server Error in auth");
-  }
-  
 })
 
 // router.get("/userChart", async (req, res) => {
