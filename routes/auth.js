@@ -5,8 +5,8 @@ const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const auth = require("../middleware/auth.js");
 const User = require("../models/User.js");
-const { OAuth2Client } = require('google-auth-library')
-const client = new OAuth2Client(process.env.CLIENT_ID)
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client(process.env.CLIENT_ID);
 
 router.get("/", auth, async (req, res) => {
   try {
@@ -20,9 +20,13 @@ router.get("/", auth, async (req, res) => {
 
 //route: POST api/auth
 //authtication user and get the token
-router.post("/", [check("email", "please include a valid email").isEmail(),
-    check("password", "Password is required").exists()], async (req, res) => {
-    
+router.post(
+  "/",
+  [
+    check("email", "please include a valid email").isEmail(),
+    check("password", "Password is required").exists()
+  ],
+  async (req, res) => {
     // console.log("get into api auth route");
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -30,7 +34,7 @@ router.post("/", [check("email", "please include a valid email").isEmail(),
     }
 
     const { email, password } = req.body;
-  
+
     try {
       //see if the user exists
       let user = await User.findOne({ email });
@@ -71,27 +75,27 @@ router.post("/", [check("email", "please include a valid email").isEmail(),
   }
 );
 
-router.post("/adduser", (req, res) =>{
+router.post("/adduser", (req, res) => {
   console.log(req.body);
-  
-  try{
-    const newUser = User.create(req.body);
-    console.log("add")
-  } catch(err){
-    console.log(err.message)
-  }
-})
 
-router.get("/:email", (req, res) =>{
-  let email = req.params['email'];
+  try {
+    const newUser = User.create(req.body);
+    console.log("add");
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+router.get("/:email", (req, res) => {
+  let email = req.params["email"];
   // console.log(email);
-  User.find({email}, (err, user) =>{
-    if(err) console.log(err.message);
+  User.find({ email }, (err, user) => {
+    if (err) console.log(err.message);
     else {
       // console.log(user);
       res.json(user[0].schedule);
     }
-  })
+  });
 });
 
 router.get("/readUser/:email", (req, res) => {
@@ -111,10 +115,10 @@ router.put("/updateProfile", (req, res) => {
   const email = body.email;
 
   User.findOneAndUpdate(
-    { email: email},
+    { email: email },
     {
       $set: {
-        "name": body.name,
+        name: body.name
       }
     },
     (err, doc) => {
@@ -125,27 +129,54 @@ router.put("/updateProfile", (req, res) => {
 });
 
 router.post("/google", async (req, res) => {
-    const { token }  = req.body
-    const ticket = await client.verifyIdToken({
-        idToken: token,
-        audience: process.env.CLIENT_ID
+  const { token } = req.body;
+  const ticket = await client.verifyIdToken({
+    idToken: token,
+    audience: process.env.CLIENT_ID
+  });
+  const { email_verified, name, email, picture } = ticket.getPayload();
+
+  if (email_verified) {
+    User.findOne({ email }).exec((err, user) => {
+      if (err) return res.status(400).json({ errors: err });
+      else {
+        if (user) {
+          const payload = {
+            user: {
+              id: user.id
+            }
+          };
+
+          jwt.sign(
+            payload,
+            process.env.SECRET,
+            { expiresIn: 360000 },
+            (err, token) => {
+              if (err) throw err;
+              res.json({ token });
+            }
+          );
+        } else {
+          let password = email+process.env.SECRET;
+          let newUser = new User({email, name, password});
+          newUser.save((err, data) => {
+            if(err){
+              return res.status(400).json({error: "wrong??"})
+            }
+          })
+        }
+      }
     });
-    const { email_verified, name, email, picture } = ticket.getPayload();    
-  
-  if(email_verified){
-    User.findOne({email}).exec((err, user) => {
-      if(err)
-    })
   }
-  
-  console.log(ticket.getPayload())
-    // const user = await User.upsert({ 
-    //     where: { email: email },
-    //     update: { name, picture },
-    //     create: { name, email, picture }
-    // })
-    res.status(201)
-    // res.json(user)
-})
+
+  console.log(ticket.getPayload());
+  // const user = await User.upsert({
+  //     where: { email: email },
+  //     update: { name, picture },
+  //     create: { name, email, picture }
+  // })
+  res.status(201);
+  // res.json(user)
+});
 
 module.exports = router;
