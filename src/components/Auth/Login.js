@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
-import { Button } from '@material-ui/core';
+import { Button } from "@material-ui/core";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth.js";
@@ -14,7 +14,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   const { email, password } = formData;
 
-    const body = JSON.stringify({ email, password });
+  const body = JSON.stringify({ email, password });
 
   console.log(body);
 
@@ -26,26 +26,26 @@ const Login = ({ login, isAuthenticated }) => {
 
     // console.log("LOGIN SUCCESS");
     login(email, password);
-
   };
-  
-    const googleSuccess = async (res) => {
+
+  const googleSuccess = async res => {
     const result = res?.profileObj;
     const token = res?.tokenId;
 
-//     try {
-//       dispatch({ type: AUTH, data: { result, token } });
+    //     try {
+    //       dispatch({ type: AUTH, data: { result, token } });
 
-//       history.push('/');
-//     } catch (error) {
-//       console.log(error);
-//     }
+    //       history.push('/');
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
   };
-  
-   const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
-  
-  if(isAuthenticated){
-    return <Redirect to='/scheduler'/>;
+
+  const googleError = () =>
+    alert("Google Sign In was unsuccessful. Try again later");
+
+  if (isAuthenticated) {
+    return <Redirect to="/scheduler" />;
   }
 
   return (
@@ -54,7 +54,7 @@ const Login = ({ login, isAuthenticated }) => {
       <p className="lead">
         <i className="fas fa-user"></i> Sign into Your Account
       </p>
-      
+
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
@@ -76,10 +76,23 @@ const Login = ({ login, isAuthenticated }) => {
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
-        <GoogleLogin clientId=""
-          render={(renderProps) => (
-            <Button color='primary' fullWidth onClick="renderProps.onClick" disable={renderProps.disabled} variant="contained"> Google Sign In</Button>
-          )}/>
+        <GoogleLogin
+          clientId=""
+          render={renderProps => (
+            <Button
+              color="primary"
+              fullWidth
+              onClick="renderProps.onClick"
+              disable={renderProps.disabled}
+              variant="contained"
+            >
+              Google Sign In
+            </Button>
+          )}
+          onSuccess={googleSuccess}
+          onFailure={googleError}
+          cookiePolicy="single_host_origin"
+        />
       </form>
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign up</Link>
@@ -95,7 +108,7 @@ Login.propTypes = {
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
-})
+});
 
 export default connect(
   mapStateToProps,
