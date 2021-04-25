@@ -27,6 +27,7 @@ export default class Profile extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.delete = this.delete(this);
     
     const options = {
       scales: {
@@ -191,14 +192,7 @@ export default class Profile extends Component {
           </form>
           <div>
             <Container>
-              <Row>
-                <Col lg={4}></Col>
-                <Col lg={4} style={{ color: "red" }}>
-                  Unschedule Note
-                </Col>
-                <Col lg={4}></Col>
-              </Row>
-              <br />
+              
 
               <Row>{unschedule}</Row>
             </Container>
@@ -212,9 +206,10 @@ export default class Profile extends Component {
       const arr = this.state.alluser.map((item, index) => (
         // <p key={index}> {item.name} </p>
          <tr key={index}>
-          <td>{index}</td>
+          <td>{index+1}</td>
           <td>{item.name}</td>
           <td>{item.email}</td>
+          <td><Button variant="danger" onClick={this.delete(item.email)}>Danger</Button></td>
         </tr>
       ));
 
@@ -303,6 +298,7 @@ export default class Profile extends Component {
                   <th>#</th>
                   <th>Name</th>
                   <th>Email</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
