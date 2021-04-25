@@ -34,13 +34,13 @@ const Login = ({ login, isAuthenticated }) => {
     
     console.log(res)
 
-    //     try {
-    //       dispatch({ type: AUTH, data: { result, token } });
+//         try {
+//           dispatch({ type: AUTH, data: { result, token } });
 
-    //       history.push('/');
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
+//           history.push('/');
+//         } catch (error) {
+//           console.log(error);
+//         }
   };
 
   const googleError = () =>
