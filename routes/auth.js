@@ -136,14 +136,8 @@ router.post("/google", async (req, res) => {
   });
   const { email_verified, name, email, picture } = ticket.getPayload();
 
-  
-
   console.log(ticket.getPayload());
-  // const user = await User.upsert({
-  //     where: { email: email },
-  //     update: { name, picture },
-  //     create: { name, email, picture }
-  // })
+
   res.status(201);
   // res.json(user)
 });
