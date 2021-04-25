@@ -11,6 +11,7 @@ const authorsRouter = require("../routes/authors.js");
 const authRouter = require("../routes/auth.js");
 const usersRouter = require("../routes/users.js");
 const adminRouter = require("../routes/admin.js");
+var GithubStrategy = require('passport-github').Strategy;
 const app = express();
 
 // Set up necessary middleware for sessions
