@@ -2,6 +2,7 @@ dependencies:
   '@material-ui/core': 4.11.3
   '@material-ui/icons': 4.11.2
   '@syncfusion/ej2-react-base': 19.1.57
+  '@syncfusion/ej2-react-charts': 19.1.57
   '@syncfusion/ej2-react-documenteditor': 19.1.57
   '@syncfusion/ej2-react-grids': 19.1.57
   '@syncfusion/ej2-react-inputs': 18.4.47
@@ -2697,6 +2698,14 @@ packages:
       react-dom: 16.13.1 - 17.0.2
     resolution:
       integrity: sha512-57vUvEZTH9SrZWGmYBiAI9V6VWnybkQDWcWs5QkkkDhreTQOhNbbN0MxuW1qDL98KzvM/G7vZQbOCB36UQXeOQ==
+  /@syncfusion/ej2-react-charts/19.1.57:
+    dependencies:
+      '@syncfusion/ej2-base': 19.1.57
+      '@syncfusion/ej2-charts': 19.1.57
+      '@syncfusion/ej2-react-base': 19.1.57
+    dev: false
+    resolution:
+      integrity: sha512-IENSnZT5zvye4sVj0ARlMjLBLivTXT0VNcpFyXyon0dLBavEZXT6+6BoFq0TrGSxuIwsiyfFimCa/9BPPK3p/w==
   /@syncfusion/ej2-react-documenteditor/19.1.57:
     dependencies:
       '@syncfusion/ej2-base': 19.1.57
@@ -13485,6 +13494,7 @@ specifiers:
   '@material-ui/core': ^4.11.3
   '@material-ui/icons': ^4.9.1
   '@syncfusion/ej2-react-base': ^19.1.54
+  '@syncfusion/ej2-react-charts': ^19.1.57
   '@syncfusion/ej2-react-documenteditor': ^19.1.56
   '@syncfusion/ej2-react-grids': ^19.1.55
   '@syncfusion/ej2-react-inputs': ^18.4.47

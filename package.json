@@ -39,7 +39,8 @@
     "@syncfusion/ej2-react-documenteditor": "^19.1.56",
     "@syncfusion/ej2-react-schedule": "19.1.56",
     "react-bootstrap": "^1.5.2",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "@syncfusion/ej2-react-charts": "^19.1.57"
   },
   "scripts": {
     "start": "npm run development",
