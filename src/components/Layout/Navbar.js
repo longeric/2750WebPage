@@ -38,7 +38,12 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           Pomodora
         </Link>
       </li>
-      <li>
+       <li className="nav-item">
+        <Link to="/profile" className="nav-links">
+          Profile
+        </Link>
+      </li>
+      <li className="nav-item">
         <Link onClick={logout} to="/login">
           Logout
         </Link>
