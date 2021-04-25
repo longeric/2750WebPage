@@ -48,6 +48,7 @@ export default class ViewConfigurations extends SampleBase {
   }
 
   async componentWillMount() {
+    if(localStorage.email == undefined || localStorage.email == null) return 
     const data = await getSchdules(localStorage.email);
     console.log(data);
     this.setState({ data: extend([], data, null, true) });

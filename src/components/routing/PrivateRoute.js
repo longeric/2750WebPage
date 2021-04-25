@@ -7,18 +7,22 @@ const PrivateRoute = ({
   component: Component,
   auth: { isAuthenticated, loading },
   ...rest
-}) => (
+}) => {
+  console.log(isAuthenticated)
+  console.log(loading)
+  return (
   <Route
     {...rest}
     render={props =>
-      !isAuthenticated && !loading ? (
+      !isAuthenticated ? (
         <Redirect to="/login" />
       ) : (
         <Component {...props} />
       )
     }
   />
-);
+  
+)};
 
 PrivateRoute.propTypes = {
   auth: PropTypes.object.isRequired
