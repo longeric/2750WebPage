@@ -34,7 +34,7 @@ const Login = ({ login, isAuthenticated }) => {
     
 //     console.log(res)
     
-    const res = await fetch("/api/v1/auth/google", {
+    const res = await fetch("/api/auth/google", {
       method: "POST",
       body: JSON.stringify({
       token: googleData.tokenId
@@ -90,7 +90,7 @@ const Login = ({ login, isAuthenticated }) => {
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
         <GoogleLogin
-          clientId={process.env.CLIENT_ID}
+          clientId="894835653167-icpg1mdrbp9qr6tlpiosgr3ejnr5qdav.apps.googleusercontent.com"
           render={renderProps => (
             <Button
               color="primary"
