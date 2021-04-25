@@ -21,7 +21,7 @@ export default class Profile extends Component {
     if (this.state.user.admin == true) {
       // console.log("Now admin should load");
       // call another function
-      this.readAllUsers();
+      await this.readAllUsers();
     }
 
   }
@@ -62,7 +62,8 @@ export default class Profile extends Component {
 
   render() {
     if (this.state === null || this.state.user === "") {
-      return <div>You should login first</div>;
+      // return <div>You should login first</div>;
+      return (<Spinner animation="border" />)
     } 
     else if (this.state.user.admin == false) {
       const unschedule = this.state.user.unschedule.map((item, index) => (

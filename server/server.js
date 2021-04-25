@@ -10,6 +10,7 @@ const path = require("path");
 const authorsRouter = require("../routes/authors.js");
 const authRouter = require("../routes/auth.js");
 const usersRouter = require("../routes/users.js");
+const adminRouter = require("../routes/admin.js");
 const app = express();
 
 // Set up necessary middleware for sessions
@@ -56,6 +57,7 @@ app.all("*", checkHttps);
 app.use("/api/author", authorsRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/admin", adminRouter);
 
 // Express port-switching logic
 let port;
