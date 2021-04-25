@@ -197,8 +197,6 @@ export default class Profile extends Component {
       
       return (
         <div>
-          This is admin
-          second line
           <Container fluid>
             <legend>
               <center>
@@ -208,10 +206,10 @@ export default class Profile extends Component {
               </center>
             </legend>
             <Row>
-              <Col lg={4}>
+              <Col>
                 <Row>
-                  <Col lg={1}></Col>
-                  <Col lg={10}>
+                  <Col lg={3}></Col>
+                  <Col lg={6}>
                     <center>
                       <Image
                         src={this.state.user.avatar}
@@ -220,7 +218,7 @@ export default class Profile extends Component {
                       />
                     </center>
                   </Col>
-                  <Col lg={1}></Col>
+                  <Col lg={3}></Col>
                 </Row>
 
                 <Row>
@@ -255,7 +253,10 @@ export default class Profile extends Component {
                   <Col lg={1}></Col>
                 </Row>
               </Col>
-              <Col lg={8}>
+              
+            </Row>
+            <Row>
+            <Col>
                 <Row>
                   <Col>name</Col>
                   <Col>email</Col>
@@ -263,7 +264,6 @@ export default class Profile extends Component {
                 {arr}
               </Col>
             </Row>
-            
           </Container>
           
         </div>
