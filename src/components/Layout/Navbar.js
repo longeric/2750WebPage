@@ -35,7 +35,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </li>
       <li className="nav-item">
         <Link to="/pomodora" className="nav-links">
-          PomodorO
+          Pomodoro
         </Link>
       </li>
        <li className="nav-item">

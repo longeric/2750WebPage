@@ -1,7 +1,7 @@
-button .player{
+.player{
   border: none;
-  height: 5px;
-  width: 10px;
+  height: 25px;
+  width: 25px;
 }
 
 div.inline {
