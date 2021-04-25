@@ -28,11 +28,22 @@ const Login = ({ login, isAuthenticated }) => {
     login(email, password);
   };
 
-  const googleSuccess = async res => {
-    const result = res?.profileObj;
-    const token = res?.tokenId;
+  const googleSuccess = async googleData => {
+//     const result = res?.profileObj;
+//     const token = res?.tokenId;
     
-    console.log(res)
+//     console.log(res)
+    
+    const res = await fetch("/api/v1/auth/google", {
+      method: "POST",
+      body: JSON.stringify({
+      token: googleData.tokenId
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  // const data = await res.json()
 
 //         try {
 //           dispatch({ type: AUTH, data: { result, token } });
@@ -79,7 +90,7 @@ const Login = ({ login, isAuthenticated }) => {
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
         <GoogleLogin
-          clientId="894835653167-icpg1mdrbp9qr6tlpiosgr3ejnr5qdav.apps.googleusercontent.com"
+          clientId={process.env.CLIENT_ID}
           render={renderProps => (
             <Button
               color="primary"

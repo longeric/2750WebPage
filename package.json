@@ -42,7 +42,8 @@
     "react-icons": "^4.2.0",
     "@syncfusion/ej2-react-charts": "^19.1.57",
     "passport-google-oauth": "^2.0.0",
-    "passport-github": "^1.1.0"
+    "passport-github": "^1.1.0",
+    "google-auth-library": "^7.0.4"
   },
   "scripts": {
     "start": "npm run development",
