@@ -17,7 +17,7 @@ import {
 } from "react-icons/bs";
 import { StyleSheet, View } from "react-native";
 import Dialog from "react-native-dialog";
-import { Line } from 'react-chartjs-2';
+// import { Line } from 'react-chartjs-2';
 
 export default class Profile extends Component {
   constructor(props) {

@@ -41,7 +41,7 @@
     "react-bootstrap": "^1.5.2",
     "react-icons": "^4.2.0",
     "react-native-dialog": "^8.0.1",
-    "react-chartjs-2": "^3.0.1"
+    "react-native": "^0.64.0"
   },
   "scripts": {
     "start": "npm run development",
