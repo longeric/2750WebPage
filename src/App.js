@@ -12,6 +12,7 @@ import Profile from "./components/Profile/Profile.js";
 import Pomodora from "./components/Home/Pomodora/pomodora.js";
 import StickyNotes from "./components/Home/StickyNotes/stickynotes.js";
 import Landing from "./components/Layout/Landing.js";
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 
 //redux
@@ -40,10 +41,10 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
-              <Route exact path="/scheduler" component={Scheduler} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/stickyNotes" component={StickyNotes} />
-              <Route exact path="/pomodora" component={Pomodora} />
+              <PrivateRoute exact path="/scheduler" component={Scheduler} />
+              <PrivateRoute exact path="/profile" component={Profile} />
+              <PrivateRoute exact path="/stickyNotes" component={StickyNotes} />
+              <PrivateRoute exact path="/pomodora" component={Pomodora} />
             </Switch>
           </section>
         </Fragment>
