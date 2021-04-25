@@ -6,6 +6,13 @@ import { logout } from "../../actions/auth";
 // import "./Navbar.css";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+//   console.log(isAuthenticated)
+  
+//   if(localStorage.token != undefined || localStorage.token != null){
+//     isAuthenticated = true;
+//   } 
+  
+//   console.log(isAuthenticated)
   
   const authLinks = (
     <ul>
