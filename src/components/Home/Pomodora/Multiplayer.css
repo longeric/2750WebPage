@@ -1,7 +1,7 @@
 button {
   border: none;
   height: 30px;
-  width: 30px;
+  /*   width: 30px; */
 }
 
 div.inline {
@@ -15,7 +15,7 @@ div.inline {
   text-align: center;
 } */
 
-button{
+button {
   margin: auto;
   text-align: center;
 }
