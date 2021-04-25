@@ -82,8 +82,8 @@ const Login = ({ login, isAuthenticated }) => {
             <Button
               color="primary"
               fullWidth
-              onClick="renderProps.onClick"
-              disable={renderProps.disabled}
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
               variant="contained"
             >
               Google Sign In
