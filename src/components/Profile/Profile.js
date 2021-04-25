@@ -16,6 +16,7 @@ import {
   BsFilePost,
   BsFillEnvelopeFill
 } from "react-icons/bs";
+// import {Dialog, DialogActions, DialogContent, DialogTitle} from "@material-ui/core";
 // import { StyleSheet, View } from "react-native";
 // import Dialog from "react-native-dialog";
 // import { Line } from 'react-chartjs-2';
@@ -27,7 +28,7 @@ export default class Profile extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.delete = this.delete(this);
+    this.deleteUser = this.deleteUser(this);
     
     const options = {
       scales: {
@@ -52,8 +53,8 @@ export default class Profile extends Component {
       await this.readAllUsers();
     }
     
-    const chart = await userChart();
-    console.log(chart);
+    // const chart = await userChart();
+    // console.log(chart);
     
     
   }
@@ -86,6 +87,12 @@ export default class Profile extends Component {
 
     const response = await updateProfile(this.state.user);
     // console.log(response);
+  }
+  
+  deleteUser(email){
+    console.log(email);
+    if(window.confirm('Are you sure to delete this task?')){
+		}
   }
 
   render() {
@@ -209,7 +216,7 @@ export default class Profile extends Component {
           <td>{index+1}</td>
           <td>{item.name}</td>
           <td>{item.email}</td>
-          <td><Button variant="danger" onClick={this.delete(item.email)}>Danger</Button></td>
+          <td><Button variant="danger" onClick={()=>this.deleteUser(item.email)}>Danger</Button></td>
         </tr>
       ));
 
