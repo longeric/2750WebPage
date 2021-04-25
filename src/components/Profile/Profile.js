@@ -16,7 +16,12 @@ import {
   BsFilePost,
   BsFillEnvelopeFill
 } from "react-icons/bs";
-import {Dialog, DialogActions, DialogContent, DialogTitle} from "@material-ui/core";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle
+} from "@material-ui/core";
 // import { StyleSheet, View } from "react-native";
 // import Dialog from "react-native-dialog";
 // import { Line } from 'react-chartjs-2';
@@ -29,17 +34,17 @@ export default class Profile extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteUser = this.deleteUser.bind(this);
-    
+
     const options = {
       scales: {
         yAxes: [
           {
             ticks: {
-              beginAtZero: true,
-            },
-          },
-        ],
-      },
+              beginAtZero: true
+            }
+          }
+        ]
+      }
     };
   }
 
@@ -52,11 +57,9 @@ export default class Profile extends Component {
       // call another function
       await this.readAllUsers();
     }
-    
+
     // const chart = await userChart();
     // console.log(chart);
-    
-    
   }
 
   async readAllUsers() {
@@ -88,13 +91,13 @@ export default class Profile extends Component {
     const response = await updateProfile(this.state.user);
     // console.log(response);
   }
-  
-  deleteUser(email){
+
+  deleteUser(email) {
     // console.log(email);
-    if(window.confirm('Are you sure to delete this task?')){
+    if (window.confirm("Are you sure to delete this task?")) {
       deleteUser(email);
       this.readAllUsers();
-		}
+    }
   }
 
   render() {
@@ -201,8 +204,6 @@ export default class Profile extends Component {
           </form>
           <div>
             <Container>
-              
-
               <Row>{unschedule}</Row>
             </Container>
           </div>
@@ -214,11 +215,18 @@ export default class Profile extends Component {
     ) {
       const arr = this.state.alluser.map((item, index) => (
         // <p key={index}> {item.name} </p>
-         <tr key={index}>
-          <td>{index+1}</td>
+        <tr key={index}>
+          <td>{index + 1}</td>
           <td>{item.name}</td>
           <td>{item.email}</td>
-          <td><Button variant="danger" onClick={()=>this.deleteUser(item.email)}>Delete</Button></td>
+          <td>
+            <Button
+              variant="danger"
+              onClick={() => this.deleteUser(item.email)}
+            >
+              Delete
+            </Button>
+          </td>
         </tr>
       ));
 
@@ -250,8 +258,8 @@ export default class Profile extends Component {
                   </Row>
 
                   <Row>
-                    <Col lg={1}></Col>
-                    <Col lg={10}>
+                    <Col lg={3}></Col>
+                    <Col lg={6}>
                       <BsFillPersonFill />
                       <label className="">Name</label>
                       <input
@@ -262,12 +270,28 @@ export default class Profile extends Component {
                         onChange={this.handleChange}
                       />
                     </Col>
-                    <Col lg={1}></Col>
+                    <Col lg={3}></Col>
                   </Row>
-
+                 <br />
                   <Row>
-                    <Col lg={1}></Col>
-                    <Col lg={10}>
+                    <Col lg={3}></Col>
+                    <Col lg={6}>
+                      <BsFillEnvelopeFill />
+                      <label>Email</label>
+                      <input
+                        name="email"
+                        defaultValue={this.state.user.email}
+                        className="form-control"
+                        type="text"
+                        readOnly={true}
+                      />
+                    </Col>
+                    <Col lg={3}></Col>
+                  </Row>
+                  <br />
+                  <Row>
+                    <Col lg={3}></Col>
+                    <Col lg={6}>
                       <BsFilePost />
                       <label>Create Date</label>
                       <input
@@ -278,7 +302,7 @@ export default class Profile extends Component {
                         readOnly={true}
                       />
                     </Col>
-                    <Col lg={1}></Col>
+                    <Col lg={3}></Col>
                   </Row>
                 </Col>
               </Row>
@@ -291,7 +315,6 @@ export default class Profile extends Component {
                       Save Profile
                     </Button>
                   </center>
-             
                 </Col>
                 <Col></Col>
               </Row>
@@ -299,20 +322,16 @@ export default class Profile extends Component {
           </form>
 
           <Container>
-            
-            
             <Table striped bordered hover size="sm">
-               <thead>
+              <thead>
                 <tr>
                   <th>#</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th></th>
+                  <th>Action</th>
                 </tr>
               </thead>
-              <tbody>
-                {arr}
-              </tbody>
+              <tbody>{arr}</tbody>
             </Table>
           </Container>
         </div>
@@ -372,7 +391,6 @@ export default class Profile extends Component {
 //               </tbody>
 //             </table>
 //           </Container>
-
 
 // <Row>
 //               <Col>
