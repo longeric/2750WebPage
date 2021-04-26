@@ -19,20 +19,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-passport.use(new GithubStrategy({
-  clientID: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: 'https://'+process.env.PROJECT_DOMAIN+'.glitch.me/login/github/return',
-},
-function(token, tokenSecret, profile, cb) {
-  return cb(null, profile);
-}));
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
+// passport.use(new GithubStrategy({
+//   clientID: process.env.GITHUB_CLIENT_ID,
+//   clientSecret: process.env.GITHUB_CLIENT_SECRET,
+//   callbackURL: 'https://'+process.env.PROJECT_DOMAIN+'.glitch.me/login/github/return',
+// },
+// function(token, tokenSecret, profile, cb) {
+//   return cb(null, profile);
+// }));
+// passport.serializeUser(function(user, done) {
+//   done(null, user);
+// });
+// passport.deserializeUser(function(obj, done) {
+//   done(null, obj);
+// });
 
 
 const mongoDB = process.env.DATABASE_URL;
