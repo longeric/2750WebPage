@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Jumbotron } from "react-bootstrap";
-
+import { Button } from "react-bootstrap";
 const Landing = () => {
   return (
     <Jumbotron>
@@ -25,6 +25,7 @@ const Landing = () => {
           </div>
         </div>
       </section>
+
     </Jumbotron>
   );
 };

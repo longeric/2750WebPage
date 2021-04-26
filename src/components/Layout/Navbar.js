@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 // import "./Navbar.css";
+import { Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   //   const [isAuth, setNav] = useState(isAuthenticated);
@@ -21,40 +23,42 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   //   console.log(isAuthenticated)
 
   const authLinks = (
-    <ul>
-      <li className="nav-item">
-        <Link to="/scheduler" className="nav-links">
-          Scheduler
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link to="/stickyNotes" className="nav-links">
-          Sticky Notes
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link to="/pomodora" className="nav-links">
-          Pomodoro
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link to="/profile" className="nav-links">
-          Profile
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link onClick={logout} to="/login">
-          Logout
-        </Link>
-      </li>
-    </ul>
+    <div>
+      <Container>
+        <Button variant="light" className="nav-btn">
+          <Link to="/scheduler" className="nav-links">
+            Scheduler
+          </Link>
+        </Button>
+
+        <Button variant="light" className="nav-btn">
+          <Link to="/stickyNotes" className="nav-links">
+            Sticky Notes
+          </Link>
+        </Button>
+
+        <Button variant="light" className="nav-btn">
+          <Link to="/pomodora" className="nav-links">
+            Pomodoro
+          </Link>
+        </Button>
+        <Button variant="light" className="nav-btn">
+          <Link to="/profile" className="nav-links">
+            Profile
+          </Link>
+        </Button>
+
+        <Button variant="light" className="nav-btn">
+          <Link onClick={logout} to="/login">
+            Logout
+          </Link>
+        </Button>
+      </Container>
+    </div>
   );
 
   const guestLinks = (
     <ul>
-      <li>
-        <a href="#!">Developers</a>
-      </li>
       <li>
         <Link to="/register">Register</Link>
       </li>
@@ -92,3 +96,7 @@ export default connect(
   mapStateTpProps,
   { logout }
 )(Navbar);
+
+// <li>
+//   <a href="#!">Developers</a>
+// </li>
