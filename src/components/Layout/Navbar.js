@@ -22,44 +22,38 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   //   console.log(isAuthenticated)
 
   const authLinks = (
-    
-    <div>
-      <Button variant="light">
-          <Link to="/scheduler" className="nav-links">
-            Scheduler
-          </Link>
-        </Button>
-      
-              <Button variant="light">
-          <Link to="/stickyNotes" className="nav-links">
-            Sticky Notes
-          </Link>
-        </Button>
-      
-      
-              <Button variant="light">
-          <Link to="/pomodora" className="nav-links">
-            Pomodoro
-          </Link>
-        </Button>
-              <Button variant="light">
-          <Link to="/profile" className="nav-links">
-            Profile
-          </Link>
-        </Button>
-      
-              <Button variant="light">
-          <Link onClick={logout} to="/login">
-            Logout
-          </Link>
-        </Button>
-    
-      
-    </div>
-            
-    
-
-
+    <ul>
+      <li className="nav-item">
+        <Link to="/scheduler" className="nav-links">
+          Scheduler
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/posts" className="nav-links">
+          Discussion
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/stickyNotes" className="nav-links">
+          Sticky Notes
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/pomodora" className="nav-links">
+          Pomodora
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/profile" className="nav-links">
+          Profile
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link onClick={logout} to="/login">
+          Logout
+        </Link>
+      </li>
+    </ul>
   );
 
   const guestLinks = (
