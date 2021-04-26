@@ -29,11 +29,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/posts" className="nav-links">
-          Discussion
-        </Link>
-      </li>
-      <li className="nav-item">
         <Link to="/stickyNotes" className="nav-links">
           Sticky Notes
         </Link>
@@ -99,3 +94,9 @@ export default connect(
 // <li>
 //   <a href="#!">Developers</a>
 // </li>
+
+      // <li className="nav-item">
+      //   <Link to="/posts" className="nav-links">
+      //     Discussion
+      //   </Link>
+      // </li>

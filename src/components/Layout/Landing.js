@@ -10,9 +10,7 @@ const Landing = () => {
         <div className="dark-overlay">
           <div className="landing-inner">
             <h1 className="x-large">Welcome to our todo list</h1>
-            <p className="lead">
-              Help manage your time!
-            </p>
+            <p className="lead">Help manage your time!</p>
             <div className="buttons">
               <Link to="/register" className="btn btn-primary">
                 Sign Up
@@ -24,7 +22,6 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
     </Jumbotron>
   );
 };
