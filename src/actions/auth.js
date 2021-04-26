@@ -124,18 +124,6 @@ export const googleLogin = (googleData) => async dispatch => {
   console.log(googleData)
 
   const body = JSON.stringify({token: googleData.tokenId});
-  
-  // const res = await axios.post("/api/auth/google", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //     token: googleData.tokenId
-  //   }),
-  //   headers: {
-  //     "Content-Type": "application/json"
-  //   }
-  // })
-
-  // console.log("body login", body);
 
   try {
     const res = await axios.post("/api/auth/google", body, config);
