@@ -91,17 +91,7 @@ const Login = ({ login, isAuthenticated }) => {
         <input type="submit" className="btn btn-primary" value="Login" />
         <GoogleLogin
           clientId="894835653167-icpg1mdrbp9qr6tlpiosgr3ejnr5qdav.apps.googleusercontent.com"
-          render={renderProps => (
-            <Button
-              color="primary"
-              fullWidth
-              onClick={renderProps.onClick}
-              disabled={renderProps.disabled}
-              variant="contained"
-            >
-              Google Sign In
-            </Button>
-          )}
+          buttonText="Login with Google"
           onSuccess={googleSuccess}
           onFailure={googleError}
           cookiePolicy="single_host_origin"
