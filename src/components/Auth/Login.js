@@ -4,9 +4,9 @@ import { GoogleLogin } from "react-google-login";
 import { Button } from "@material-ui/core";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { login } from "../../actions/auth.js";
+import { login, googleLogin } from "../../actions/auth.js";
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, googleLogin, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -32,30 +32,26 @@ const Login = ({ login, isAuthenticated }) => {
 //     const result = res?.profileObj;
 //     const token = res?.tokenId;
     
-//     console.log(res)
+    console.log(googleData.profileObj)
+    await googleLogin(googleData)
     
-    const res = await fetch("/api/auth/google", {
-      method: "POST",
-      body: JSON.stringify({
-      token: googleData.tokenId
-    }),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  // const data = await res.json()
-
-//         try {
-//           dispatch({ type: AUTH, data: { result, token } });
-
-//           history.push('/');
-//         } catch (error) {
-//           console.log(error);
-//         }
+    // const res = await fetch("/api/auth/google", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //   token: googleData.tokenId
+    // }),
+    // headers: {
+    //   "Content-Type": "application/json"
+    // }
+  // })
+    // return <Redirect to="/scheduler" />;
   };
 
-  const googleError = () =>
-    alert("Google Sign In was unsuccessful. Try again later");
+  const googleError = (e) =>{
+    console.log(e)
+     alert("Google Sign In was unsuccessful. Try again later");
+  }
+   
 
   if (isAuthenticated) {
     return <Redirect to="/scheduler" />;
@@ -106,6 +102,7 @@ const Login = ({ login, isAuthenticated }) => {
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
+  googleLogin: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
 };
 
@@ -115,9 +112,20 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { login }
+  { login, googleLogin }
 )(Login);
 
 // export default Login;
 
 
+// render={renderProps => (
+//             <Button
+//               color="primary"
+//               fullWidth
+//               onClick={renderProps.onClick}
+//               disabled={renderProps.disabled}
+//               variant="contained"
+//             >
+//               Google Sign In
+//             </Button>
+//           )}

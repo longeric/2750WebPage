@@ -136,11 +136,13 @@ router.post("/google", async (req, res) => {
   });
   const { email_verified, name, email, picture } = ticket.getPayload();
 
+  console.log("auth route")
   console.log(ticket.getPayload());
   if (email_verified) {
     User.findOne({ email }).exec((err, user) => {
       if (err) res.status(400).json({ errors: err });
       else {
+        console.log(user)
         if (user) {
           const payload = {
             user: {
@@ -154,10 +156,13 @@ router.post("/google", async (req, res) => {
             { expiresIn: 360000 },
             (err, token) => {
               if (err) throw err;
-              res.json({ token });
+              console.log(token)
+              console.log(email)
+              res.json({ token, email });
             }
           );
         } else {
+          console.log("register")
           let password = email + process.env.SECRET;
           let newUser = new User({ email, name, password });
           newUser.save((err, data) => {

@@ -111,3 +111,54 @@ export const login = (email, password) => async dispatch => {
 export const logout = () => dispatch => {
   dispatch({ type: LOGOUT });
 };
+
+
+export const googleLogin = (googleData) => async dispatch => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+
+  console.log("google login")
+  console.log(googleData)
+
+  const body = JSON.stringify({token: googleData.tokenId});
+  
+  // const res = await axios.post("/api/auth/google", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //     token: googleData.tokenId
+  //   }),
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   }
+  // })
+
+  // console.log("body login", body);
+
+  try {
+    const res = await axios.post("/api/auth/google", body, config);
+
+    // console.log("res:" + JSON.stringify(res));
+
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data,
+      email: googleData.profileObj.email
+    });
+
+    // dispatch(loadUser());
+
+    //the issue here
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, "danger")));
+    }
+    dispatch({
+      type: LOGIN_FAIL
+    });
+  }
+};
