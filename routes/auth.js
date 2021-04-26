@@ -137,8 +137,39 @@ router.post("/google", async (req, res) => {
   const { email_verified, name, email, picture } = ticket.getPayload();
 
   console.log(ticket.getPayload());
+  if (email_verified) {
+    User.findOne({ email }).exec((err, user) => {
+      if (err) res.status(400).json({ errors: err });
+      else {
+        if (user) {
+          const payload = {
+            user: {
+              id: user.id
+            }
+          };
 
-  res.status(201);
+          jwt.sign(
+            payload,
+            process.env.SECRET,
+            { expiresIn: 360000 },
+            (err, token) => {
+              if (err) throw err;
+              res.json({ token });
+            }
+          );
+        } else {
+          let password = email + process.env.SECRET;
+          let newUser = new User({ email, name, password });
+          newUser.save((err, data) => {
+            if (err) {
+              res.status(400).json({ error: "wrong??" });
+            }
+          });
+        }
+      }
+    });
+  }
+  // res.status(201);
   // res.json(user)
 });
 
