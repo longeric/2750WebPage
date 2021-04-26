@@ -75,28 +75,7 @@ router.post(
   }
 );
 
-router.post("/adduser", (req, res) => {
-  console.log(req.body);
 
-  try {
-    const newUser = User.create(req.body);
-    console.log("add");
-  } catch (err) {
-    console.log(err.message);
-  }
-});
-
-router.get("/:email", (req, res) => {
-  let email = req.params["email"];
-  // console.log(email);
-  User.find({ email }, (err, user) => {
-    if (err) console.log(err.message);
-    else {
-      // console.log(user);
-      res.json(user[0].schedule);
-    }
-  });
-});
 
 router.get("/readUser/:email", (req, res) => {
   let email = req.params["email"];
@@ -176,6 +155,31 @@ router.post("/google", async (req, res) => {
   }
   // res.status(201);
   // res.json(user)
+});
+
+// test
+router.post("/adduser", (req, res) => {
+  console.log(req.body);
+
+  try {
+    const newUser = User.create(req.body);
+    console.log("add");
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+// test
+router.get("/:email", (req, res) => {
+  let email = req.params["email"];
+  // console.log(email);
+  User.find({ email }, (err, user) => {
+    if (err) console.log(err.message);
+    else {
+      // console.log(user);
+      res.json(user[0].schedule);
+    }
+  });
 });
 
 module.exports = router;
