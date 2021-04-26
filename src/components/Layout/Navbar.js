@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 // import "./Navbar.css";
 import { Button } from "react-bootstrap";
-import { Container } from "react-bootstrap";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   //   const [isAuth, setNav] = useState(isAuthenticated);
@@ -23,38 +22,44 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   //   console.log(isAuthenticated)
 
   const authLinks = (
+    
     <div>
-      <Container>
-        <Button variant="light" className="nav-btn">
+      <Button variant="light">
           <Link to="/scheduler" className="nav-links">
             Scheduler
           </Link>
         </Button>
-
-        <Button variant="light" className="nav-btn">
+      
+              <Button variant="light">
           <Link to="/stickyNotes" className="nav-links">
             Sticky Notes
           </Link>
         </Button>
-
-        <Button variant="light" className="nav-btn">
+      
+      
+              <Button variant="light">
           <Link to="/pomodora" className="nav-links">
             Pomodoro
           </Link>
         </Button>
-        <Button variant="light" className="nav-btn">
+              <Button variant="light">
           <Link to="/profile" className="nav-links">
             Profile
           </Link>
         </Button>
-
-        <Button variant="light" className="nav-btn">
+      
+              <Button variant="light">
           <Link onClick={logout} to="/login">
             Logout
           </Link>
         </Button>
-      </Container>
+    
+      
     </div>
+            
+    
+
+
   );
 
   const guestLinks = (
