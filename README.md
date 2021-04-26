@@ -1,33 +1,6 @@
 # Starter create-react-app and Express
 # Create MERN application 
 
-## Environment set up
-``` bash
-# install express
-npm i express concurrently
-
-# install monitor for development
-npm i nodemon cors --save-dev
-
-# set environment
-npm i --save-dev dotenv
-
-# install mongodb tool
-npm i mongoose
-
-# install react (client)
-npm i -g create-react-app
-
-# create react app (client)
-create-react-app <app-name>
-
-# react style (client)
-npm install @material-ui/core
-
-# (optional) 
-node-snippets extension
-```
-
 ## Quick start
 ```bash
 # Install dependencies
