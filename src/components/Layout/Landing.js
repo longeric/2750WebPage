@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
+    
+    <Jumbotron>
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">

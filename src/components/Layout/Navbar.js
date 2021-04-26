@@ -6,21 +6,20 @@ import { logout } from "../../actions/auth";
 // import "./Navbar.css";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
-//   const [isAuth, setNav] = useState(isAuthenticated);
-  
-//   console.log(isAuthenticated)
-  
-//   if(localStorage.token != undefined || localStorage.token != null){
-    
-    
-//     console.log(isAuthenticated)
-//     setNav(true)
-//     // isAuthenticated = true;
-//     console.log(isAuthenticated)
-//   } 
-  
-//   console.log(isAuthenticated)
-  
+  //   const [isAuth, setNav] = useState(isAuthenticated);
+
+  //   console.log(isAuthenticated)
+
+  //   if(localStorage.token != undefined || localStorage.token != null){
+
+  //     console.log(isAuthenticated)
+  //     setNav(true)
+  //     // isAuthenticated = true;
+  //     console.log(isAuthenticated)
+  //   }
+
+  //   console.log(isAuthenticated)
+
   const authLinks = (
     <ul>
       <li className="nav-item">
@@ -38,7 +37,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           Pomodoro
         </Link>
       </li>
-       <li className="nav-item">
+      <li className="nav-item">
         <Link to="/profile" className="nav-links">
           Profile
         </Link>
@@ -66,7 +65,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   return (
-    <nav className="navbar bg-dark">
+    <nav className="navbar">
       <h1>
         <Link to="/">
           <i className="fas fa-code"></i> easyToDo
