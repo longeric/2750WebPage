@@ -48,7 +48,7 @@ export const register = ({ name, email, password }) => async dispatch => {
 
     // console.log(JSON.stringify(res));
     dispatch({
-      type: LOGIN_SUCCESS,
+      type: REGISTER_SUCCESS,
       payload: res.data,
       email: email
     });
@@ -112,18 +112,17 @@ export const logout = () => dispatch => {
   dispatch({ type: LOGOUT });
 };
 
-
-export const googleLogin = (googleData) => async dispatch => {
+export const googleLogin = googleData => async dispatch => {
   const config = {
     headers: {
       "Content-Type": "application/json"
     }
   };
 
-  console.log("google login")
-  console.log(googleData)
+  console.log("google login");
+  console.log(googleData);
 
-  const body = JSON.stringify({token: googleData.tokenId});
+  const body = JSON.stringify({ token: googleData.tokenId });
 
   try {
     const res = await axios.post("/api/auth/google", body, config);
