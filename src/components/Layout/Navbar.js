@@ -24,7 +24,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li className="nav-item">
-        <Link to="/scheduler" className="nav-links">
+        <Link to="/home" className="nav-links">
           Scheduler
         </Link>
       </li>
