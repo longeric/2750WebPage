@@ -49,6 +49,7 @@ img {
   font-size: 4rem;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: black;
 }
 
 .large {
@@ -60,6 +61,7 @@ img {
 .lead {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+      color: black;
 }
 
 .text-center {
@@ -67,7 +69,7 @@ img {
 }
 
 .text-primary {
-/*   color: var(--primary-color); */
+  /*   color: var(--primary-color); */
   text-align: center;
 }
 
@@ -257,6 +259,7 @@ img {
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .form input[type="submit"],
