@@ -67,7 +67,7 @@ img {
 }
 
 .text-primary {
-  color: #17a2b8;
+  color: var(--primary-color);
   text-align: center;
 }
 

@@ -117,13 +117,7 @@ export default class Profile extends Component {
       ));
       return (
         <div className="container">
-          <legend>
-            <center>
-              <h4>
-                <b>Profile Form</b>
-              </h4>
-            </center>
-          </legend>
+          
           <form onSubmit={this.handleSubmit}>
             <Container fluid>
               <Row>
@@ -234,13 +228,7 @@ export default class Profile extends Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <Container fluid>
-              <legend>
-                <center>
-                  <h2>
-                    <b>Admin</b>
-                  </h2>
-                </center>
-              </legend>
+
               <Row>
                 <Col>
                   <Row>
@@ -405,3 +393,20 @@ export default class Profile extends Component {
 //                 {arr}
 //               </Col>
 //             </Row>
+
+
+// <legend>
+//             <center>
+//               <h4>
+//                 <b>Profile Form</b>
+//               </h4>
+//             </center>
+//           </legend>
+
+              // <legend>
+              //   <center>
+              //     <h2>
+              //       <b>Admin</b>
+              //     </h2>
+              //   </center>
+              // </legend>
