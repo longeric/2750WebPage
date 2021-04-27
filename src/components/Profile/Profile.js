@@ -95,9 +95,9 @@ export default class Profile extends Component {
   deleteUser(email) {
     // console.log(email);
     if (window.confirm("Are you sure to delete this task?")) {
-      deleteUser(email);
-      this.readAllUsers();
+      deleteUser(email).then(this.readAllUsers());
     }
+    
   }
 
   render() {
