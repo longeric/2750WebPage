@@ -65,7 +65,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="navbar">
       <h1>
-        <Link to="/">
+        <Link to="/home">
           <i className="fas fa-code"></i> easyToDo
         </Link>
       </h1>

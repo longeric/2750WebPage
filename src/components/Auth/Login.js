@@ -29,12 +29,12 @@ const Login = ({ login, googleLogin, isAuthenticated }) => {
   };
 
   const googleSuccess = async googleData => {
-//     const result = res?.profileObj;
-//     const token = res?.tokenId;
-    
-    console.log(googleData.profileObj)
-    await googleLogin(googleData)
-    
+    //     const result = res?.profileObj;
+    //     const token = res?.tokenId;
+
+    console.log(googleData.profileObj);
+    await googleLogin(googleData);
+
     // const res = await fetch("/api/auth/google", {
     //   method: "POST",
     //   body: JSON.stringify({
@@ -43,18 +43,17 @@ const Login = ({ login, googleLogin, isAuthenticated }) => {
     // headers: {
     //   "Content-Type": "application/json"
     // }
-  // })
+    // })
     // return <Redirect to="/scheduler" />;
   };
 
-  const googleError = (e) =>{
-    console.log(e)
-     alert("Google Sign In was unsuccessful. Try again later");
-  }
-   
+  const googleError = e => {
+    console.log(e);
+    alert("Google Sign In was unsuccessful. Try again later");
+  };
 
   if (isAuthenticated) {
-    return <Redirect to="/scheduler" />;
+    return <Redirect to="/home" />;
   }
 
   return (
@@ -116,7 +115,6 @@ export default connect(
 )(Login);
 
 // export default Login;
-
 
 // render={renderProps => (
 //             <Button
