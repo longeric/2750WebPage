@@ -5,15 +5,15 @@ import { Browser } from "@syncfusion/ej2-base";
 import { SampleBase } from "./sample-base";
 import { userChart} from "../../actions/adminUser.js";
 
-export let data1 = [
-  { x: new Date(), y: 21 },
-  { x: new Date(2006, 0, 1), y: 24 },
-  { x: new Date(2007, 0, 1), y: 36 },
-  { x: new Date(2008, 0, 1), y: 38 },
-  { x: new Date(2009, 0, 1), y: 54 },
-  { x: new Date(2010, 0, 1), y: 57 },
-  { x: new Date(2011, 0, 1), y: 70 }
-];
+// export let data1 = [
+//   { x: new Date(), y: 21 },
+//   { x: new Date(2006, 0, 1), y: 24 },
+//   { x: new Date(2007, 0, 1), y: 36 },
+//   { x: new Date(2008, 0, 1), y: 38 },
+//   { x: new Date(2009, 0, 1), y: 54 },
+//   { x: new Date(2010, 0, 1), y: 57 },
+//   { x: new Date(2011, 0, 1), y: 70 }
+// ];
 
 export default class Chart extends SampleBase {
   
@@ -28,6 +28,7 @@ export default class Chart extends SampleBase {
     const chart = await userChart();
     console.log(chart);
     chart.map(item => {
+      console.log(item._id.yearMonthDayUTC)
       var data = {x: item._id.yearMonthDayUTC, y: item.number}
       chartdata.push(data)
     })
@@ -43,8 +44,8 @@ export default class Chart extends SampleBase {
             style={{ textAlign: "center" }}
             primaryXAxis={{
               valueType: "DateTime",
-              labelFormat: "y",
-              intervalType: "Years",
+              labelFormat: "d",
+              intervalType: "Days",
               edgeLabelPlacement: "Shift",
               majorGridLines: { width: 0 }
             }}  
