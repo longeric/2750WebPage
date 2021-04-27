@@ -28,7 +28,7 @@ export default class Chart extends SampleBase {
     const chart = await userChart();
     console.log(chart);
     chart.map(item => {
-      console.log(item._id.yearMonthDayUTC)
+      // console.log(item._id.yearMonthDayUTC)
       var data = {x: item._id.yearMonthDayUTC, y: item.number}
       chartdata.push(data)
     })
